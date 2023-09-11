@@ -15,4 +15,5 @@
 int	algo_central(int *stack) {
 	printf("ainda nao decidi algo\n");
 	printf("testar outra coisa\n");
+	printf("terceiro teste\n");
 }
