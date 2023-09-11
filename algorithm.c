@@ -11,3 +11,7 @@
 
 //ou faco insertion que e mais intuitivo e natural, mas com ma complexidade
 //ou faco radix/merge/quick, com adaptacoes
+
+int	algo_central(int *stack) {
+	printf("ainda nao decidi algo\n");
+}
