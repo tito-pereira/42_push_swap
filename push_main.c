@@ -7,7 +7,7 @@
 //os erros verificar em passos intermedios
 
 //testar as funcoes com arrays
-int	main(void) {
+/*int	main(void) {
 	int str[] = {23, 65, 83, 12, 3, 60, 0};
 	int size = sizeof(str) / sizeof(int);
 	printf("original string: ");
@@ -21,9 +21,9 @@ int	main(void) {
 	printf("-----rotate up-----\n");
 	f_rr_ab(str);
 	p_int(str, size);
-}
+}*/
 
-int	push_main(int ac, char **av) {
+/*int	push_main(int ac, char **av) {
 	//parametros >= 2, para garantir pelo menos um parametro para alem do titulo
 	if (ac >= 2) {
 		int	counter = 0;
@@ -46,12 +46,13 @@ int	push_main(int ac, char **av) {
 	else
 		return;
 	return 0;
-}
+}*/
 //alterar a main para dar push para dentro de uma stack
 
 int	push_2_main(int ac, char **av) {
 	if (ac >= 2) {
 		int	len;
+		//posso tentar juntar estes dois modulos, a iteracao e a mesma, e dou check a dois erros
 		for (int i = 1; av[i]; i++) {
 			len++;
 			if (check_int(av[i]) == 0)
@@ -65,8 +66,14 @@ int	push_2_main(int ac, char **av) {
 			if (check_limit(array[i - 1]) == 0)
 				return; //error message
 		}
-		// adicionar array na stack
+		// adicionar array ao contrario na stack A
+		list	*stacka;
+		list	*stackb;
+		for (int i = len; array[i]; i--) {
+			add_stack(stacka, array[i]);
+		}
 		// enviar a stack para o algoritmo
+		algo_central(stacka, stackb/*int *array*/); //stack A
 	}
 	else
 		return; //give prompt back

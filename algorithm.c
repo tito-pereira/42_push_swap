@@ -12,7 +12,7 @@
 //ou faco insertion que e mais intuitivo e natural, mas com ma complexidade
 //ou faco radix/merge/quick, com adaptacoes
 
-int	algo_central(list *stack) {
+int	algo_central(list *stacka, list *stackb/*int *array*/) {
 	printf("ainda nao decidi algo\n");
 	printf("testar outra coisa\n");
 	printf("terceiro teste\n");
