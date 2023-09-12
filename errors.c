@@ -1,9 +1,11 @@
 #include "push_swap.h"
 
+//a error central recebe ja como stack, como string, ou array de ints?
+
 // erros:
-// a - algum dos argumentos não ser integer
-// b - argumentos (integers) excederem os limites de integer
-// c - haver argumentos (integers) duplicados
+// a - algum dos argumentos não ser integer (char *)
+// b - argumentos (integers) excederem os limites de integer (int *)
+// c - haver argumentos (integers) duplicados (int *)
 
 //erro a: verificar que todos os argumentos sao integers
 int	check_int(char *str) {

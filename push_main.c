@@ -1,25 +1,9 @@
 #include "push_swap.h"
 
-// questao: quando os args sao passados, vêm automaticamente como char* certo? devido à funcao (int argc, char **argv)
+// questao: quando os args sao passados, vêm automaticamente como char* certo? devido à funcao (int argc, char **argv) (R: sim)
 // se sim, devemos fazer atoi delas acho eu. é mais fácil dar sort com ints
-// sim, os argumentos vêm como chars
 
-//functions test main
-void	p_int(int *str, int size) {
-	//int size = sizeof(str) / sizeof(str[0]);
-	printf("size: %d\n", size);
-	//printf("size1: %ld\n", sizeof(str));
-	//printf("size2: %ld\n", sizeof(str[0]));
-	for (int i = 0; i < size; i++) {
-		printf("%d, ", str[i]);
-	}
-	/*printf("\n-----\n");
-	for (int i = 0; str[i]; i++) {
-		printf("%d, ", str[i]);
-	}*/
-	printf("\n");
-}
-
+//testar as funcoes com arrays
 int	main(void) {
 	int str[] = {23, 65, 83, 12, 3, 60, 0};
 	int size = sizeof(str) / sizeof(int);
@@ -59,3 +43,4 @@ int	push_main(int ac, char **av) {
 		printf("no args error message\n");
 	return 0;
 }
+//alterar a main para dar push para dentro de uma stack

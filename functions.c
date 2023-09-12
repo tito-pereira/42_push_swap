@@ -30,40 +30,11 @@ The last element becomes the first one.
 rrr : rra and rrb at the same time.
 */
 
+//o comportamento de base das listas acho que vou fazer com listas
+
 #include "push_swap.h"
 
-int	f_strlen(int *str) {
-	int i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-int	f_lstlen(list *lst) {
-	int	i = 0;
-	while (list.next != NULL) {
-		i++;
-		list = list.next;
-	}
-	return (i);
-}
-
-void	f_swap(int *a, int *b) {
-	int tmp = 0;
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
-
-void	f_lstswap(list *fst) {
-	int	i1, i2;
-	i1 = list.data;
-	if (list.next != NULL) {
-		list = list.next;
-		i2 = list.data;
-		f_swap(&i1, &i2)
-	}
-}
+//crio uma tmp list para iterar?
 // vou precisar do swap para os outros moves também
 //data1 = lst.data; lst = lst.next; data2 = lst.data
 //a iteraçao ja sei fazer
@@ -74,6 +45,69 @@ void	f_lstswap(list *fst) {
 //Do nothing if there is only one or no elements.
 //ss : sa and sb at the same time.
 
+void	lst_s(list *stack) {
+	if (f_lstlen(lst) >= 2) {
+		f_lstswap(lst);
+	}
+}
+
+void	lst_2s(list *sta, list *stb) {
+	lst_s(l1);
+	lst_s(l2);
+}
+
+/*pa (push a): Take the first element at the top of b and put it at the top of a.
+Do nothing if b is empty.*/
+
+void	lst_p(list *stack) {
+	ez;
+}
+
+void	lst_2p(list *sta, list *stb) {
+	if (f_strlen(sb) == 0)
+		return;
+	int i = f_strlen(sb) - 1;
+	ez;
+}
+
+//rb (rotate b): Shift up all elements of stack b by 1.
+//The first element becomes the last one.
+//rr : ra and rb at the same time.
+
+void	f_lst_r(list *stack) {
+	if (f_lstlen(lst) >= 2) {
+		ez;
+		//how??? nao consigo iterar listas ao contrário???
+		//nao iteras, apenas mudas o pointer
+		//primeiro node passa a ultimo
+	}
+}
+
+void	f_lst_rr(list *sta, list *stb) {
+	lst_r(sta);
+	lst_r(stb);
+}
+
+//rrb (reverse rotate b): Shift down all elements of stack b by 1.
+//The last element becomes the first one.
+//rrr : rra and rrb at the same time.
+
+void	lst_rv(list *stack) {
+	if (f_lstlen(lst) >= 2) {
+		ez;
+		//ultimo node passa a primeiro
+	}
+}
+
+void	lst_2rv(list *sta, list *stb) {
+	lst_rv(sta);
+	lst_rv(stb);
+}
+
+//----------------------------------------------------------
+
+/*
+old:
 void	f_s_ab(int *str) {
 	int i;
 	i = f_strlen(str);
@@ -87,31 +121,6 @@ void	f_ss(int *s1, int *s2) {
 	f_s_ab(s1);
 	f_s_ab(s2);
 }
-
-void	f_lst_s(list *lst) {
-	if (f_lstlen(lst) >= 2) {
-		f_lstswap(lst);
-	}
-}
-
-void	f_lst_ss(list *l1, list *l2) {
-	f_lst_s(l1);
-	f_lst_s(l2);
-}
-
-/*pa (push a): Take the first element at the top of b and put it at the top of a.
-Do nothing if b is empty.*/
-
-void	f_p_ab(int *sa, int *sb) {
-	if (f_strlen(sb) == 0)
-		return;
-	int i = f_strlen(sb) - 1;
-	ez;
-}
-
-//shift up, primeiro para ultimo
-//em caso de string vazia ou com 1, nao faz nada
-
 void	f_r_ab(int *str) {
 	if (f_strlen(str) < 2)
 		return;
@@ -128,21 +137,6 @@ void	f_rr(int *s1, int *s2) {
 	f_r_ab(s1);
 	f_r_ab(s2);
 }
-
-void	f_lst_r(list *lst) {
-	if (f_lstlen(lst) >= 2) {
-		ez;
-		// how??? nao consigo iterar listas ao contrário???
-	}
-}
-
-void	f_lst_rr(list *l1, list *l2) {
-	f_lst_r(l1);
-	f_lst_r(l2);
-}
-
-//shift down, ultimo para primeiro
-//em caso de string vazia ou c 1, nao faz nada
 void	f_rr_ab(int *str) {
 	if (f_strlen(str) < 2)
 		return;
@@ -159,14 +153,4 @@ void	f_rrr(int *s1, int *s2) {
 	f_rr_ab(s1);
 	f_rr_ab(s2);
 }
-
-void	f_lst_rr(list *lst) {
-	if (f_lstlen(lst) >= 2) {
-		ez;
-	}
-}
-
-void	f_lst_rrr(list *l1, list *l2) {
-	f_lst_rr(l1);
-	f_lst_rr(l2);
-}
+*/

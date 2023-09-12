@@ -22,3 +22,6 @@ int	algo_two() {
 	printf("something something something dark side: palpatine\n");
 	printf("acho que afinal esta a funcionar\n");
 }
+
+//aqui dentro, dar print as intrucoes
+//contar o numero de instrucoes sempre que dou print? ou apenas o wc -l no fim?
