@@ -49,6 +49,29 @@ int	push_main(int ac, char **av) {
 }
 //alterar a main para dar push para dentro de uma stack
 
+int	push_2_main(int ac, char **av) {
+	if (ac >= 2) {
+		int	len;
+		for (int i = 1; av[i]; i++) {
+			len++;
+			if (check_int(av[i]) == 0)
+				return; //error message
+		}
+		int	*array;
+		array = (int *)malloc(len * sizeof(int));
+		for (int i = 1; array[i]; i++) {
+			//check errors for the integers
+			array[i - 1] = f_atoi(av[i]);
+			if (check_limit(array[i - 1]) == 0)
+				return; //error message
+		}
+		// adicionar array na stack
+		// enviar a stack para o algoritmo
+	}
+	else
+		return; //give prompt back
+}
+
 /*
 No args:
 If no parameters are specified, the program must not display anything and give the

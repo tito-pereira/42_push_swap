@@ -12,15 +12,10 @@
 //ou faco insertion que e mais intuitivo e natural, mas com ma complexidade
 //ou faco radix/merge/quick, com adaptacoes
 
-int	algo_central(int *stack) {
+int	algo_central(list *stack) {
 	printf("ainda nao decidi algo\n");
 	printf("testar outra coisa\n");
 	printf("terceiro teste\n");
-}
-
-int	algo_two() {
-	printf("something something something dark side: palpatine\n");
-	printf("acho que afinal esta a funcionar\n");
 }
 
 //aqui dentro, dar print as intrucoes

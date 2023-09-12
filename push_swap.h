@@ -3,12 +3,15 @@
 # include <stdio.h> //nao posso usar, apenas o meu proprio printf
 # include <stdlib.h> //malloc, talvez
 # include <limits.h> //talvez, para os erros
+# include <unistd.h> //para as mensagens de erro
 
 typedef	struct	stuff {
 	int	data;
 	//char	*status;
 	struct stuff	*next;
 }	list;
+
+//criar uma struct para armazenar os dois arrays (char e int) porque posso precisar deles no algoritmo?
 
 //auxiliary
 int	f_strlen(int *str);
@@ -18,8 +21,7 @@ void	f_lst_swap_two(list *fst);
 //stack functions
 void	lst_s(list *stack);
 void	lst_2s(list *sta, list *stb);
-void	lst_p(list *stack);
-void	lst_2p(list *sta, list *stb);
+void	lst_p(list *sta, list *stb);
 void	lst_r(list *stack);
 void	lst_2r(list *sta, list *stb);
 void	lst_rv(list *stack);

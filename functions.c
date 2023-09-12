@@ -68,30 +68,31 @@ Do nothing if b is empty.*/
 
 //list add back
 void	lst_p(list *sta, list *stb) {
-	ez;
+	if (f_lstlen(sta) > 0)
+		sta.next = stb;
 }
-
-void	lst_2p(list *sta, list *stb) {
-	if (f_strlen(sb) == 0)
-		return;
-	int i = f_strlen(sb) - 1;
-	ez;
-}
+//adicionar condicao, se puxar para uma lista vazia
 
 //rb (rotate b): Shift up all elements of stack b by 1.
 //The first element becomes the last one.
 //rr : ra and rb at the same time.
 
-void	f_lst_r(list *stack) {
+void	lst_r(list *stack) {
+	// nao preciso do controlo de argumentos
+	//ou elseif (vazio ou 1)
 	if (f_lstlen(lst) >= 2) {
-		ez;
-		//how??? nao consigo iterar listas ao contrário???
-		//nao iteras, apenas mudas o pointer
-		//primeiro node passa a ultimo
+		list	tmp;
+		tmp = stack;
+		while (tmp.status != "end") //ou tmp.status != "end"
+			tmp = tmp.next;
+		stack.next = tmp.next; //ou igual a NULL
+		tmp.next = stack;
 	}
+	else
+		return; //redundante, simboliza a lista vazia ou 1 elemento
 }
 
-void	f_lst_rr(list *sta, list *stb) {
+void	lst_2r(list *sta, list *stb) {
 	lst_r(sta);
 	lst_r(stb);
 }
