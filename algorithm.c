@@ -17,3 +17,7 @@ int	algo_central(int *stack) {
 	printf("testar outra coisa\n");
 	printf("terceiro teste\n");
 }
+
+int	algo_two() {
+	printf("something something something dark side: palpatine\n");
+}
