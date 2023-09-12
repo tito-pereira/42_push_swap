@@ -34,11 +34,18 @@ rrr : rra and rrb at the same time.
 
 #include "push_swap.h"
 
-//crio uma tmp list para iterar?
-// vou precisar do swap para os outros moves também
-//data1 = lst.data; lst = lst.next; data2 = lst.data
-//a iteraçao ja sei fazer
-//aquele empurrar os numeros p frente é igual; iteraçao de listas + os 2 int temporarios a mudar a data c o mesmo algo
+//antes de poder fazer seja o que for com isto, preciso de inicializar as listas em si
+//usar new node, push list
+/*You have to write a program named push_swap that takes as an argument the stack
+a formatted as a list of integers. The first argument should be at the top of the
+stack (be careful about the order)
+ou seja, tenho que adicionar ao contrario:
+ultimo indice = primeiro node, e dp add back*/
+//also, o que faco se a stack b ficar vazia? posso ter um node chamado "stop"
+//ou que possua data void, ou todos possuem char * entre "none" e "end"
+//porque se eu tiver uma lista vazia, nao consigo adicionar nada la
+//em vez de list.next != NULL, faco list.status != "end"
+//ao adicionar node, todos os list status sao "none"
 
 // -------------------------------------
 //sb (swap b): Swap the first 2 elements at the top of stack b.
@@ -46,20 +53,21 @@ rrr : rra and rrb at the same time.
 //ss : sa and sb at the same time.
 
 void	lst_s(list *stack) {
-	if (f_lstlen(lst) >= 2) {
-		f_lstswap(lst);
+	if (f_lstlen(stack) >= 2) {
+		f_lst_swap_two(stack);
 	}
 }
 
 void	lst_2s(list *sta, list *stb) {
-	lst_s(l1);
-	lst_s(l2);
+	lst_s(sta);
+	lst_s(stb);
 }
 
 /*pa (push a): Take the first element at the top of b and put it at the top of a.
 Do nothing if b is empty.*/
 
-void	lst_p(list *stack) {
+//list add back
+void	lst_p(list *sta, list *stb) {
 	ez;
 }
 

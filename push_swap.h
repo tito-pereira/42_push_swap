@@ -6,6 +6,7 @@
 
 typedef	struct	stuff {
 	int	data;
+	//char	*status;
 	struct stuff	*next;
 }	list;
 

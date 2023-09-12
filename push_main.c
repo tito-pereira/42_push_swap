@@ -3,6 +3,9 @@
 // questao: quando os args sao passados, vêm automaticamente como char* certo? devido à funcao (int argc, char **argv) (R: sim)
 // se sim, devemos fazer atoi delas acho eu. é mais fácil dar sort com ints
 
+//em bulk: (char *)->(atoi)->(int *)->(push stack)->(list)
+//os erros verificar em passos intermedios
+
 //testar as funcoes com arrays
 int	main(void) {
 	int str[] = {23, 65, 83, 12, 3, 60, 0};
@@ -21,6 +24,7 @@ int	main(void) {
 }
 
 int	push_main(int ac, char **av) {
+	//parametros >= 2, para garantir pelo menos um parametro para alem do titulo
 	if (ac >= 2) {
 		int	counter = 0;
 		for (int i = 1; av[i]; i++)
@@ -40,7 +44,14 @@ int	push_main(int ac, char **av) {
 		}
 	}
 	else
-		printf("no args error message\n");
+		return;
 	return 0;
 }
 //alterar a main para dar push para dentro de uma stack
+
+/*
+No args:
+If no parameters are specified, the program must not display anything and give the
+prompt back.
+-> empty return()
+*/
