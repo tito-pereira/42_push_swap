@@ -20,4 +20,5 @@ int	algo_central(int *stack) {
 
 int	algo_two() {
 	printf("something something something dark side: palpatine\n");
+	printf("acho que afinal esta a funcionar\n");
 }
