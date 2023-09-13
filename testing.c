@@ -40,13 +40,12 @@ long	f_atoi(char *str) {
 		nmb = (nmb * 10) + (str[i] - 48);
 		i++;
 	}
-	if ()
-		return NULL;
 	return (sign * nmb);
 }
 
-int	check_limits(long i) {
-	printf("current: %lu, max: %d, min: %d\n", i, INT_MAX, INT_MIN);
+int	check_limits(char *arg) {
+	long	i;
+	i = f_atoi(arg);
 	if (i < INT_MIN || i > INT_MAX) {
 		write (2, "Error 2\n", 8);
 		return 0;
@@ -54,16 +53,18 @@ int	check_limits(long i) {
 	return 1;
 }
 
-int	check_dup(int *str) {
-	for (int count = 0; str[count]; count++) {
-		int check = str[count];
-		int iterate = count;
-		while (str[iterate]) {
-			if (check == str[iterate]) {
+int	check_dup(int *array) {
+	for (int i = 0; array[i]; i++) {
+		//printf("array[%d]\n", i);
+		int check = array[i];
+		//printf("element:%d;\n", array[i]);
+		for (int j = 0; array[j]; j++) {
+			//printf("compare[%d]\n", j);
+			if ((check == array[j]) && (i != j)) {
+				//printf("counter:%d;\n", array[j]);
 				write (2, "Error 3\n", 8);
 				return 0;
 			}
-			iterate++;
 		}
 	}
 	return 1;
@@ -72,6 +73,7 @@ int	check_dup(int *str) {
 //------------------------------
 
 int	main(int ac, char **av) {
+	printf("%d\n", 0);
 	if (ac >= 2) {
 		int	args;
 		args = 0;
@@ -80,17 +82,16 @@ int	main(int ac, char **av) {
 			if (check_int(av[i]) == 0)
 				return 0;
 		}
-		printf("%d args\n", args);
+		printf("%d args:\n", args); //here
 		int	*array;
 		array = malloc(args * sizeof(int));
 		for (int i = 0; i < args; i++) {
-			if (f_atoi(av[i + 1]) == NULL)
+			if (check_limits(av[i + 1]) == 0)
 				return 0;
 			array[i] = f_atoi(av[i + 1]);
-			/*if (check_limits(array[i]) == NULL)
-				return 0;*/
 		}
-		//printf("im out\n");
+		for (int i = 0; array[i]; i++)
+			printf("%d\n", array[i]);
 		if (check_dup(array) == 0)
 			return 0;
 	}
@@ -101,19 +102,20 @@ int	main(int ac, char **av) {
 	printf("Test successfull\n");
 }
 
+//ta a haver um problema qualquer com o zero
+
 /*
 vou tentar testar/preparar a primeira parte do programa, de tratamento de erros
 e conversao em array de ints
 */
 
-//e se eu meter o erro dos limites dentro do atoi?
-
-//i = index, i = args - 1
-//len - V
+//i = index, i = (args - 1)
+//args - V
 //av[0] - V
-//erro 1 - V
-//erro 2 - X
-//erro 3 - X
+//check int - V (parece bom)
+//check limit - V (parece bom)
+//check dup - X
+//atoi - ?
 //mudar mensagens de erro
 
 //falta adicionar o terceiro erro-duplicados
@@ -127,9 +129,7 @@ num so loop - check int, contar len
 malloc
 segundo loop - atoi, check limit
 terceira fase - check dups
-*/
 
-/*
 primeiro loop - contar args/len
 malloc
 segundo loop - check int, copy atoi, check limit

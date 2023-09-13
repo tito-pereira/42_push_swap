@@ -45,45 +45,8 @@ prompt back.
 -> empty return()
 */
 
-//testar as funcoes com arrays
-/*int	main(void) {
-	int str[] = {23, 65, 83, 12, 3, 60, 0};
-	int size = sizeof(str) / sizeof(int);
-	printf("original string: ");
-	p_int(str, size);
-	printf("-----switch up-----\n");
-	f_s_ab(str);
-	p_int(str, size);
-	printf("-----rotate down-----\n");
-	f_r_ab(str);
-	p_int(str, size);
-	printf("-----rotate up-----\n");
-	f_rr_ab(str);
-	p_int(str, size);
-}*/
-
-/*int	push_main(int ac, char **av) {
-	//parametros >= 2, para garantir pelo menos um parametro para alem do titulo
-	if (ac >= 2) {
-		int	counter = 0;
-		for (int i = 1; av[i]; i++)
-			counter++;
-		char	*str; //os parametros do programa sao recebidos como chars, criar string temporaria
-		int	*stack; //criar já stack de ints vazia c o tamanho correto
-		str = (char *)malloc(counter * sizeof(char)); //string temporaria q vai ser processada pelo atoi
-		stack = (int *)malloc(counter * sizeof(int)); //stack final, c tamanho correto, passada pelo atoi
-		for (int i = 1; av[i]; i++) {
-			stack[i] = f_atoi(str[i]); //faz atoi da str para a stack
-		}
-		if (error_central(stack) == 0)
-			printf("error messages and shut\n");
-		else {
-			printf("continue to algorithm");
-			algorithm_central(stack);
-		}
-	}
-	else
-		return;
-	return 0;
-}*/
-//alterar a main para dar push para dentro de uma stack
+/*
+a seguir testo a parte em que recebo um sorted array
+e faco as funcoes de stack usando o index
+e meto ja isso a funcionar e depois so falta o algoritmo de sort com array de ints
+*/
