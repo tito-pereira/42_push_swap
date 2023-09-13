@@ -27,21 +27,23 @@ int	check_int(char *str) {
 	int i = 0;
 	if (str[0] == '-')
 		i++;
-	else if (!(str[0] >= '0' || str[0] <= '9') && str[0] != '-') {
+	else if (!(str[0] >= '0' && str[0] <= '9') && str[0] != '-') {
 		write (2, "Error\n", 6);
 		return 0;
 	}
-	while (str[i] >= '0' || str[i] <= '9' || str[i] != '\0') {
-		i++;
-		if (!(str[i] >= '0' || str[i] <= '9')) {
+	if (str[i] == '\0') {
+		write (2, "Error\n", 6);
+		return 0;
+	}
+	while (str[i] >= '0' && str[i] <= '9' || str[i] != '\0') {
+		if (!(str[i] >= '0' && str[i] <= '9')) {
 			write (2, "Error\n", 6);
 			return 0;
 		}
-		else if (str[i] >= '0' || str[i] <= '9')
-			continue;
+		i++;
 	}
 	return 1;
-} //1 se for tudo int, 0 se houver erros
+} //1 se for tudo int, 0 se houver erros, parece estar a passar nos testes
 
 //erro b: verificar que nenhum integer passa dos limites de integer
 int	check_limits(int *stack) {

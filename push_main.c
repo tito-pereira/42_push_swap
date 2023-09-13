@@ -5,7 +5,7 @@
 
 int	push_main(int ac, char **av) {
 	if (ac >= 2) {
-		int	len;
+		int	len; //len vai ser usado para malloc(array)
 		len = 0;
 		//posso tentar juntar estes dois modulos, a iteracao e a mesma, e dou check a dois erros
 		for (int i = 1; av[i]; i++) {
