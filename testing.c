@@ -1,41 +1,24 @@
 //#include "push_swap.h"
 #include <stdio.h>
 #include <unistd.h>
-
-int	f_atoi(char *str) {
-	int sign = 1;
-	int nmb = 0;
-	int i = 0;
-	while (str[i] == ' ' || str == '\t') //faco os whitespaces?
-		i++;
-	if (str[i] == '-') {
-		sign *= -1;
-		i++
-	}
-	while (str[i]) {
-		nmb = (nmb * 10) + (str[i] - 48);
-		i++;
-	}
-	return (sign * nmb)
-}
-
-//------------------------------
+#include <limits.h>
+#include <stdlib.h>
 
 int	check_int(char *str) {
 	int i = 0;
 	if (str[0] == '-')
 		i++;
 	else if (!(str[0] >= '0' && str[0] <= '9') && str[0] != '-') {
-		write (2, "Error\n", 6);
+		write (2, "Error 1\n", 8);
 		return 0;
 	}
 	if (str[i] == '\0') {
-		write (2, "Error\n", 6);
+		write (2, "Error 1\n", 8);
 		return 0;
 	}
 	while (str[i] >= '0' && str[i] <= '9' || str[i] != '\0') {
 		if (!(str[i] >= '0' && str[i] <= '9')) {
-			write (2, "Error\n", 6);
+			write (2, "Error 1\n", 8);
 			return 0;
 		}
 		i++;
@@ -43,12 +26,30 @@ int	check_int(char *str) {
 	return 1;
 }
 
-int	check_limits(int *stack) {
-	for (int i = 0; stack[i]; i++) {
-		if (stack[i] < INT_MIN || stack[i] > INT_MAX) {
-			write (2, "Error\n", 6);
-			return 0;
-		}
+long	f_atoi(char *str) {
+	int sign = 1;
+	long nmb = 0;
+	int i = 0;
+	while (str[i] == ' ' || str[i] == '\t') //faco os whitespaces?
+		i++;
+	if (str[i] == '-') {
+		sign *= -1;
+		i++;
+	}
+	while (str[i]) {
+		nmb = (nmb * 10) + (str[i] - 48);
+		i++;
+	}
+	if ()
+		return NULL;
+	return (sign * nmb);
+}
+
+int	check_limits(long i) {
+	printf("current: %lu, max: %d, min: %d\n", i, INT_MAX, INT_MIN);
+	if (i < INT_MIN || i > INT_MAX) {
+		write (2, "Error 2\n", 8);
+		return 0;
 	}
 	return 1;
 }
@@ -59,7 +60,7 @@ int	check_dup(int *str) {
 		int iterate = count;
 		while (str[iterate]) {
 			if (check == str[iterate]) {
-				write (2, "Error\n", 6);
+				write (2, "Error 3\n", 8);
 				return 0;
 			}
 			iterate++;
@@ -72,31 +73,48 @@ int	check_dup(int *str) {
 
 int	main(int ac, char **av) {
 	if (ac >= 2) {
-		int	len; //len vai ser usado para malloc(array)
-		len = 0;
-		//posso tentar juntar estes dois modulos, a iteracao e a mesma, e dou check a dois erros
+		int	args;
+		args = 0;
 		for (int i = 1; av[i]; i++) {
-			len++;
+			args++;
 			if (check_int(av[i]) == 0)
-				return; //error message
+				return 0;
 		}
+		printf("%d args\n", args);
 		int	*array;
-		array = (int *)malloc(len * sizeof(int));
-		for (int i = 1; array[i]; i++) { //nao pode ser loop, tenho que mandar o array todo la p dentro
-			//check errors for the integers
-			array[i - 1] = f_atoi(av[i]);
-			if (check_limit(array[i - 1]) == 0)
-				return; //error message
+		array = malloc(args * sizeof(int));
+		for (int i = 0; i < args; i++) {
+			if (f_atoi(av[i + 1]) == NULL)
+				return 0;
+			array[i] = f_atoi(av[i + 1]);
+			/*if (check_limits(array[i]) == NULL)
+				return 0;*/
 		}
-		for (int i = 0; array)
-		check_dup()
+		//printf("im out\n");
+		if (check_dup(array) == 0)
+			return 0;
 	}
+	else {
+		printf("No arguments\n");
+		return 0;
+	}
+	printf("Test successfull\n");
 }
 
 /*
 vou tentar testar/preparar a primeira parte do programa, de tratamento de erros
 e conversao em array de ints
 */
+
+//e se eu meter o erro dos limites dentro do atoi?
+
+//i = index, i = args - 1
+//len - V
+//av[0] - V
+//erro 1 - V
+//erro 2 - X
+//erro 3 - X
+//mudar mensagens de erro
 
 //falta adicionar o terceiro erro-duplicados
 //o ideal era fazer um loop triplo, mas o check dups tem q ser no fim de tudo
