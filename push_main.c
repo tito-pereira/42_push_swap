@@ -75,8 +75,9 @@ int	push_2_main(int ac, char **av) {
 		for (int i = len; array[i]; i--) {
 			add_stack(stacka, array[i]);
 		}
-		// enviar a stack para o algoritmo
-		algo_central(stacka, stackb/*int *array*/); //stack A
+		// enviar a stack para rodar e push
+		//algo_central(stacka, stackb/*int *array*/);
+		list_algo(stacka, stackb);
 	}
 	else
 		return; //give prompt back

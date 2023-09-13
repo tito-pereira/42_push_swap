@@ -1,8 +1,8 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <stdio.h> //nao posso usar, apenas o meu proprio printf
-# include <stdlib.h> //malloc, talvez
-# include <limits.h> //talvez, para os erros
+# include <stdlib.h> //malloc
+# include <limits.h> //para os erros
 # include <unistd.h> //para as mensagens de erro
 
 typedef	struct	stuff {
@@ -18,6 +18,12 @@ typedef	struct	things {
 	int	*sorted;
 	struct	things	*next;
 }	le_ints;
+
+typedef	struct	yoda {
+	char	*params;
+	int	*array;
+	struct	yoda	*next;
+}	cordas
 */
 
 

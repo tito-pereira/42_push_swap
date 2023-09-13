@@ -105,6 +105,7 @@ void	lst_rv(list *stack) {
 	if (f_lstlen(lst) >= 2) {
 		ez;
 		//ultimo node passa a primeiro
+		//tambem nao devo precisar
 	}
 }
 
