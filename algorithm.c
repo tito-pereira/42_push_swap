@@ -40,5 +40,21 @@ int	algo_central(list *stacka, list *stackb/*int *array*/) {
 	printf("terceiro teste\n");
 }
 
-//aqui dentro, dar print as intrucoes
+void	list_algo(list *stacka, list *stackb) {
+	for (int i = 0; (stacka->index != 0) && (stacka != NULL); i++) {
+		while (stacka->index != i) {
+			lst_r(stacka);
+			printf("ra\n");
+		}
+		if (stacka->index == i) {
+			lst_p(a->b);
+			printf("pb\n");
+		}
+	}
+	while (stackb != NULL) {
+		lst_p(b->a);
+		printf("pa\n");
+	}
+}
+//aqui dentro, dar print as intrucoes?
 //contar o numero de instrucoes sempre que dou print? ou apenas o wc -l no fim?

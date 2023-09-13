@@ -1,15 +1,17 @@
 #include "push_swap.h"
 
-list	create_node(int supply) {
-    list    new;
+list	*create_node(list *stacka, int value, int order) {
+    list	new;
     new = malloc(sizeof(list));
     if (!new)
         return;
-    new.data = supply;
-    new.next = NULL;
+    new->data = value;
+	new->index = order;
+    new->next = NULL;
+	stacka = &new;
 	return (new);
 }
-
+/*
 void	add_front(list *begin, list new) {
 	new.next = begin;
 	//new.next = *begin;
@@ -29,15 +31,11 @@ void	add_back(list *begin, list new) {
 
 void	ad_back(list) {
 	ez;
-}
+}*/
 
-list	*add_stack(list *stacka, int *array, int *sorted) {
+list	*create_stack(list *stacka, int *array, int *sorted) {
 	ez;
 }
-
-//a minua duvida aqui era sobre usar uma tmp list para iterar ou nao
-//agora ja sei que sim
-//ou nao, nao e preciso
 
 //---auxiliary functions---
 
