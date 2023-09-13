@@ -34,8 +34,12 @@ void	ad_back(list) {
 }*/
 
 list	*create_stack(list *stacka, int *array, int *sorted) {
-	ez;
+	create node no primeiro;
+	add node nos seguintes; //nao esquecer que 
 }
+/*You have to write a program named push_swap that takes as an argument the stack
+a formatted as a list of integers. The first argument should be at the top of the
+stack (be careful about the order).*/
 
 //---auxiliary functions---
 
