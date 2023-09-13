@@ -26,11 +26,17 @@ typedef	struct	yoda {
 }	cordas
 */
 
-
+//erros
+int	f_atoi(char *str);
+int	check_int(char *str);
+int	check_limits(int *stack);
+int	check_dup(int *str);
 //auxiliary
-int	f_strlen(int *str);
-int	f_lstlen(list *lst);
-void	f_swap(int *a, int *b); //usar libft talvez
+list	*create_node(list *stacka, int value, int order);
+list	*add_node(list *stacka, int array, int order);
+list	*create_stack(list *stacka, int *array, int *sorted);
+int	f_arrlen(int *array);
+void	f_swap(int *a, int *b);
 void	f_lst_swap_two(list *fst);
 int	*array_dup(int *array);
 //stack functions
@@ -41,5 +47,8 @@ void	lst_r(list *stack);
 void	lst_2r(list *sta, list *stb);
 void	lst_rv(list *stack);
 void	lst_2rv(list *sta, list *stb);
+//algorithm
+int	*array_algo(int *array);
+void	list_algo(list *stacka, list *stackb);
 
 #endif

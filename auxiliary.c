@@ -9,7 +9,11 @@ list	*create_node(list *stacka, int value, int order) {
 	new->index = order;
     new->next = NULL;
 	stacka = &new;
-	return (new);
+	return (stacka);
+}
+
+list	*add_node(list *stacka, int array, int order) {
+	ez;
 }
 /*
 void	add_front(list *begin, list new) {
@@ -34,8 +38,15 @@ void	ad_back(list) {
 }*/
 
 list	*create_stack(list *stacka, int *array, int *sorted) {
-	create node no primeiro;
-	add node nos seguintes; //nao esquecer que 
+	int	i;
+	i = f_arrlen(array);
+	if (stacka == NULL)
+		stacka = create_node(stacka, array[i], sorted[i]);
+	while (i > 0) {
+		stacka = add_node(stacka, array[i], sorted[i]);
+		i--;
+	}
+	return (stacka); 
 }
 /*You have to write a program named push_swap that takes as an argument the stack
 a formatted as a list of integers. The first argument should be at the top of the
@@ -43,24 +54,13 @@ stack (be careful about the order).*/
 
 //---auxiliary functions---
 
-int	f_strlen(int *str) {
-	int i = 0;
-	while (str[i])
+int	f_arrlen(int *array) {
+	int i;
+	i = 0;
+	while (array[i])
 		i++;
 	return (i);
 }
-
-int	f_lstlen(list *lst) {
-	int	c;
-	c = 1;
-	//list	tmp;
-	//tmp = lst;
-	while (lst.next != NULL) {
-		lst = lst.next;
-		c++;
-	}
-	return (c);
-} //posso usar libft, tipo um lstiter com contador
 
 void	f_swap(int *a, int *b) {
 	int tmp = 0;
@@ -79,7 +79,7 @@ void	f_lst_swap_two(list *fst) {
 		i2 = lst.data;
 		f_swap(&i1, &i2)
 	}
-} //as funcoes de swap vao usar isto
+} //as funcoes de swap vao usar isto, nao uso nenhuma para ja por isso relax
 
 int	*array_dup(int *array) {
 	int	len;
@@ -92,3 +92,23 @@ int	*array_dup(int *array) {
 		dup[i] = array[i]
 	return (dup);
 }
+
+/*int	f_lstlen(list *lst) {
+	int	c;
+	c = 1;
+	//list	tmp;
+	//tmp = lst;
+	while (lst.next != NULL) {
+		lst = lst.next;
+		c++;
+	}
+	return (c);
+} //posso usar libft, tipo um lstiter com contador
+*/
+
+/*void	f_swap(int *a, int *b) {
+	int tmp = 0;
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}*/
