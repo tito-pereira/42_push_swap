@@ -83,7 +83,7 @@ void	lst_r(list *stack) {
 	if (f_lstlen(lst) >= 2) {
 		list	tmp;
 		tmp = stack;
-		while (tmp.status != "end") //ou tmp.status != "end"
+		while (tmp.status != "end") //ou tmp.next != nulo
 			tmp = tmp.next;
 		stack.next = tmp.next; //ou igual a NULL
 		tmp.next = stack;
