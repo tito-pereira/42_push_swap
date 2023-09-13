@@ -68,7 +68,7 @@ Do nothing if b is empty.*/
 
 //list add back
 void	lst_p(list *sta, list *stb) {
-	if (f_lstlen(sta) > 0)
+	if (f_lstlen(sta) > 0) //ordem errada, organizar
 		sta.next = stb;
 }
 //adicionar condicao, se puxar para uma lista vazia

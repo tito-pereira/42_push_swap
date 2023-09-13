@@ -7,17 +7,26 @@
 
 typedef	struct	stuff {
 	int	data;
-	//char	*status;
+	int	index;
 	struct stuff	*next;
 }	list;
 
-//criar uma struct para armazenar os dois arrays (char e int) porque posso precisar deles no algoritmo?
+//criar uma struct para armazenar os dois arrays (stack e sorted) porque posso precisar deles no algoritmo?
+/*
+typedef	struct	things {
+	int	*array;
+	int	*sorted;
+	struct	things	*next;
+}	le_ints;
+*/
+
 
 //auxiliary
 int	f_strlen(int *str);
 int	f_lstlen(list *lst);
 void	f_swap(int *a, int *b); //usar libft talvez
 void	f_lst_swap_two(list *fst);
+int	*array_dup(int *array);
 //stack functions
 void	lst_s(list *stack);
 void	lst_2s(list *sta, list *stb);

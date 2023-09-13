@@ -31,6 +31,10 @@ void	ad_back(list) {
 	ez;
 }
 
+list	*add_stack(list *stacka, int *array, int *sorted) {
+	ez;
+}
+
 //a minua duvida aqui era sobre usar uma tmp list para iterar ou nao
 //agora ja sei que sim
 //ou nao, nao e preciso
@@ -75,13 +79,14 @@ void	f_lst_swap_two(list *fst) {
 	}
 } //as funcoes de swap vao usar isto
 
-void	f_lstswap(list *fst) {
-	int	i1, i2;
-	list	travel;
-	i1 = travel.data;
-	if (travel.next != NULL) {
-		travel = travel.next;
-		i2 = travel.data;
-		f_swap(&i1, &i2)
-	}
+int	*array_dup(int *array) {
+	int	len;
+	len = 0;
+	while (array[len])
+		len++;
+	int	*dup;
+	dup = (int *)malloc(len * sizeof(int));
+	for (int i = 0; array[i]; i++)
+		dup[i] = array[i]
+	return (dup);
 }

@@ -12,6 +12,28 @@
 //ou faco insertion que e mais intuitivo e natural, mas com ma complexidade
 //ou faco radix/merge/quick, com adaptacoes
 
+//recebe array, ordena-o, mas tenho que retornar com indice
+//array_dup, ordeno, comparo os numeros
+//array_order, um terceiro array, que vai ter como data a ordem dos indices
+
+int	*array_algo(int *array) {
+	int	*sorted;
+	//int	*order;
+	int	j;
+	//j = 0;
+	sorted = array_dup(array);
+	//order = array_dup(array);
+	sorted = fazer_algoritmo(sorted);
+	for (int i = 0; sorted[i]; i++) {
+		j = 0;
+		while (sorted[i] != array[j])
+			j++;
+		sorted[i] = j;
+	}
+	return (sorted);
+}
+
+//posso receber o array aqui e trata-lo aqui
 int	algo_central(list *stacka, list *stackb/*int *array*/) {
 	printf("ainda nao decidi algo\n");
 	printf("testar outra coisa\n");

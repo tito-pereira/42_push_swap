@@ -66,6 +66,9 @@ int	push_2_main(int ac, char **av) {
 			if (check_limit(array[i - 1]) == 0)
 				return; //error message
 		}
+		//dar sort ao array e retornar a ordem
+		int	*sorted;
+		sorted = array_algo(array);
 		// adicionar array ao contrario na stack A
 		list	*stacka;
 		list	*stackb;
