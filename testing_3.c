@@ -1,5 +1,5 @@
 /*
-teste de criacao da stack, funcoes e algoritmo de stack, a partir dos dois arrays
+teste de criacao da stack e empurrar para dentro da stack, funcoes e algoritmo de stack, a partir dos dois arrays
 */
 
 #include <stdio.h>
@@ -88,18 +88,40 @@ void	lst_s(list *stack) {
 }
 
 /*pa (push a): Take the first element at the top of b and put it at the top of a.
-Do nothing if b is empty.*/
+Do nothing if b is empty.
+push a = b -> a; (X if b empty)
+push b = a -> b; (X if a empty)
+*/
 
-//list add back
-void	lst_pa(list *sta, list *stb) {
-	if (f_lstlen(sta) > 0) //ordem errada, organizar
-		sta.next = stb;
+void	lst_pa(list *stb, list *sta) {
+	if (f_lstlen(stb) > 0) {
+		if (sta == NULL) {
+			sta = stb;
+			sta.next = NULL;
+			stb = stb.next;//segundo elemento ou NULL
+		}
+		else
+			stb.next = sta;
+		printf("pa\n");
+	}
+}
+//criar tmp para o segundo elemento
+//
+if (sta == NULL) {
+	sta = stb;
+	sta.next = NULL;
+	stb = (segundo elemento)
 }
 //adicionar condicao, se puxar para uma lista vazia
-void	lst_pb(list *stb, list *sta) {
-	if (f_lstlen(sta) > 0) //ordem errada, organizar
+void	lst_pb(list *sta, list *stb) {
+	if (f_lstlen(sta) > 0) {
 		sta.next = stb;
+		printf("pb\n");
+	}
 }
+//adicionar moradas dos pointers mesmo porque quero alterar as variaveis
+//ou crio statics
+
 
 void	sort_stack(list *stacka, list *stackb) {
 	list	*tmp;
@@ -145,6 +167,7 @@ void	print_stack(list *stack) {
 }
 
 int	main() {
+	//statics
 	list	*stacka;
 	list	*stackb;
 	stacka = NULL;
