@@ -1,6 +1,6 @@
 /*
 teste de erros e criacao de array, primeira parte
-pra ja ta a funcionar
+- erros ao tentar printar elementos 0 por alguma razao
 */
 
 #include <stdio.h>

@@ -93,18 +93,17 @@ int	*array_dup(int *array) {
 	return (dup);
 }
 
-/*int	f_lstlen(list *lst) {
-	int	c;
-	c = 1;
-	//list	tmp;
-	//tmp = lst;
-	while (lst.next != NULL) {
-		lst = lst.next;
-		c++;
+int	f_lstlen(list *lst) {
+	int	i;
+	i = 0;
+	while (lst->next != NULL) {
+		i++;
+		lst = lst->next;
 	}
-	return (c);
-} //posso usar libft, tipo um lstiter com contador
-*/
+	if (lst->next == NULL)
+        i++;
+	return (i);
+}
 
 /*void	f_swap(int *a, int *b) {
 	int tmp = 0;

@@ -1,5 +1,6 @@
 /*
-teste de criacao da stack e empurrar para dentro da stack, funcoes e algoritmo de stack, a partir dos dois arrays
+teste de criacao da stack e empurrar as arrays para dentro da stack
+(check)
 */
 
 #include <stdio.h>
@@ -102,6 +103,7 @@ void	lst_pa(list *stb, list *sta) {
 		}
 		else
 			stb.next = sta;
+			sta = stb.next;
 		printf("pa\n");
 	}
 }
@@ -167,7 +169,6 @@ void	print_stack(list *stack) {
 }
 
 int	main() {
-	//statics
 	list	*stacka;
 	list	*stackb;
 	stacka = NULL;
@@ -175,7 +176,7 @@ int	main() {
 	stacka = create_stack(stacka, array, sorted);
 	print_stack(stacka);
 	//ate aqui funciona top
-	sort_stack(stacka, stackb);
+	//sort_stack(stacka, stackb);
 }
 
 //ja sei, a minha nova duvida era - eu nem sequer preciso de passar a data em si para dentro da stack,
