@@ -1,8 +1,9 @@
 /*
 - rv function, falta testar com 1 elemento (da segfault) //duplo pointer como loop counter?
 - adicionar rotate normal (para o proximo algoritmo)
-- fazer push
+- fazer push (testar, acho q ta)
 - fazer swap
+- fazer novo algoritmo? fica ja feito? depois se não der é so trocar
 */
 
 /*ja tou a testar a minha primeira tentativa, do loop de (swap/rotate) e mandar
@@ -27,10 +28,10 @@ typedef	struct	stuff {
 	struct stuff	*next;
 }	list;
 
-typedef struct wtv {
+/*typedef struct wtv {
     list    *stacka;
     list    *stackb;
-}   p_list;
+}  p_list;*/
 
 /*
 int	array_a[] = {10, 4, 6, 1};
@@ -118,6 +119,26 @@ push a = b -> a; (X if b empty)
 push b = a -> b; (X if a empty)
 */
 
+//enviante (B) estar vazia, salta a frente c if
+//recebente (A) estar vazia, nesse caso, igualar o pointer ao node transferido, next = NULL;
+void	lst_p(list **stacka, list **stackb) {
+    if (f_lstlen(*stackb) > 0) {//enviante (B) NAO vazio
+        if (*stacka == NULL) {//recebente (A) vazio
+			(*stacka) = (*stackb);
+			(*stackb) = (*stackb)->next;
+			(*stacka)->next = NULL;
+		}
+		else {//enviante (A) NAO vazio
+			list	*tmp;
+			tmp = (*stackb)->next;
+			(*stackb) = (*stacka);
+			(*stacka) = (*stackb);
+			(*stackb) = tmp;
+			}
+	}
+}//testar, acho que ta pronta
+
+/*
 void	lst_pa(list *stb, list *sta) {
 	if (f_lstlen(stb) > 0) {
 		if (sta == NULL) {
@@ -130,23 +151,16 @@ void	lst_pa(list *stb, list *sta) {
 			sta = stb.next;
 		printf("pa\n");
 	}
-}
+}*/
 //criar tmp para o segundo elemento
-//
+/*
 if (sta == NULL) {
 	sta = stb;
 	sta.next = NULL;
 	stb = (segundo elemento)
-}
+}*/
 //adicionar condicao, se puxar para uma lista vazia
-list    **lst_pb(list **pair) {
-    if (f_lstlen(pair->stb) > 0) {
-        if (pair->sta == NULL)
-    };
-}
-//adicionar moradas dos pointers mesmo porque quero alterar as variaveis
-//ou crio statics
-//ou faco um list** com as duas stacks e passo como arg
+
 
 //    Main:
 //---------------------
@@ -162,22 +176,20 @@ void	print_stack(list *stack) {
 }
 
 int	main() {
-    int	array_a[] = {10};
-    int	sorted_a[] = {4};
+    int	array_a[] = {10, 4, 6, 1, 8};
+    int	sorted_a[] = {4, 1, 2, 0, 3};
     int	array_b[] = {10, 4, 6, 1, 8};
     int	sorted_b[] = {4, 1, 2, 0, 3};
-    int total = 1;
+    int total = 5;
 	list	*stacka;
 	list	*stackb;
 	stacka = NULL;
 	stackb = NULL;
-    p_list    pair;
-    pair->stacka = NULL;
-    pair->stackb = NULL;
 	stacka = create_stack(stacka, array_a, sorted_a, total);
 	//---add functions:
-    stacka = lst_rv(stacka);
-    //---print results:
+    //stacka = lst_rv(stacka);
+    lst_p(&stacka, &stackb); //ta a resultar tudo ate aqui, deu segfault
+	//---print results:
     print_stack(stacka);
     if (stackb) {
         printf("----------------------------------\n");
