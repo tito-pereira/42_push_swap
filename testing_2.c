@@ -57,47 +57,35 @@ list	*create_stack(list *stacka, int *array, int *sorted) {
 //rotate, ultimo para primeiro
 //swap
 //push
-list	*tmp;
-int	count;
-count = 0;
-while ((stacka->index != count) && (stacka != NULL)) {
-	tmp = stacka;
-	tmp = tmp->next;
-	if (stacka->data > tmp->data) {
-		lst_s(stacka);
-		printf("sa\n");
-	}
-	else {
-		lst_rv(stacka);
-		printf("rv\n");
-	}
-}
-if ((stacka->index == count) && (stacka != NULL)) {
-	lst_p(stackb, stacka);
-	printf("pb\n");
-	count++;
-}
-while (stackb != NULL) {
-	lst_p(stacka, stackb);
-	printf("pa\n");
-}
-
-void	list_algo(list *stacka, list *stackb) {
-	for (int i = 0; (stacka->index != 0) && (stacka != NULL); i++) {
-		while (stacka->index != i) {
-			lst_r(stacka);
-			printf("ra\n");
+void	sort_stack(list *stacka, list *stackb) {
+	list	*tmp;
+	int	count;
+	count = 0;
+	while (stacka != NULL) {
+		while (stacka->index != count) {
+			tmp = stacka;
+			tmp = tmp->next;
+			if (stacka->data > tmp->data) {
+				lst_s(stacka);
+				printf("sa\n");
+			}
+			else {
+				lst_rv(stacka);
+				printf("rv\n");
+			}
 		}
-		if (stacka->index == i) {
-			lst_p(a->b);
+		if ((stacka->index == count) && (stacka != NULL)) {
+			lst_p(stackb, stacka);
 			printf("pb\n");
+			count++;
 		}
 	}
 	while (stackb != NULL) {
-		lst_p(b->a);
+		lst_p(stacka, stackb);
 		printf("pa\n");
 	}
 }
+//colocar os prints dentro das proprias funcoes
 
 //----------------main central-----------------------
 
@@ -120,6 +108,7 @@ int	main() {
 	stacka = create_stack(stacka, array, sorted);
 	print_stack(stacka);
 	//ate aqui funciona top
+	sort_stack(stacka, stackb);
 }
 
 //ja sei, a minha nova duvida era - eu nem sequer preciso de passar a data em si para dentro da stack,
