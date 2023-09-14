@@ -1,4 +1,8 @@
-//#include "push_swap.h"
+/*
+teste de erros e criacao de array, primeira parte
+pra ja ta a funcionar
+*/
+
 #include <stdio.h>
 #include <unistd.h>
 #include <limits.h>
