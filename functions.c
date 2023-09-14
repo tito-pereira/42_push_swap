@@ -46,19 +46,6 @@ rrr : rra and rrb at the same time.
 
 #include "push_swap.h"
 
-//antes de poder fazer seja o que for com isto, preciso de inicializar as listas em si
-//usar new node, push list
-/*You have to write a program named push_swap that takes as an argument the stack
-a formatted as a list of integers. The first argument should be at the top of the
-stack (be careful about the order)
-ou seja, tenho que adicionar ao contrario:
-ultimo indice = primeiro node, e dp add back*/
-//also, o que faco se a stack b ficar vazia? posso ter um node chamado "stop"
-//ou que possua data void, ou todos possuem char * entre "none" e "end"
-//porque se eu tiver uma lista vazia, nao consigo adicionar nada la
-//em vez de list.next != NULL, faco list.status != "end"
-//ao adicionar node, todos os list status sao "none"
-
 // -------------------------------------
 //sb (swap b): Swap the first 2 elements at the top of stack b.
 //Do nothing if there is only one or no elements.

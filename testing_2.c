@@ -54,9 +54,52 @@ list	*create_stack(list *stacka, int *array, int *sorted) {
 
 //--------------stack algorithm----------------------
 
-//rotate, ultimo para primeiro
-//swap
-//push
+//rrb (reverse rotate b): Shift down all elements of stack b by 1.
+//The last element becomes the first one.
+// printf (rva) porque so uso na stack a
+
+void	lst_rv(list *stack) {
+	list	*tmp;
+	list	*last;
+	tmp = stack;
+	i = f_lstlen(stack);
+	if (i >= 2) {
+		i--;
+		while (i > 0) {
+			tmp = tmp->next;
+			i--;
+		}
+		last = tmp;
+		last = last.next;
+		last.next = stack;
+		tmp.next = NULL;
+		//ou uso duplo pointer como loop, ou uso lstlen p saber quantas iteracoes exatas antes do ultimo elemento
+		
+		//ultimo node passa a primeiro
+		//tambem nao devo precisar
+	}
+}
+
+//sb (swap b): Swap the first 2 elements at the top of stack b.
+//Do nothing if there is only one or no elements.
+// printf (sa) porque so uso na stack a
+
+void	lst_s(list *stack) {
+	if (f_lstlen(stack) >= 2) {
+		f_lst_swap_two(stack);
+	}
+}
+
+/*pa (push a): Take the first element at the top of b and put it at the top of a.
+Do nothing if b is empty.*/
+
+//list add back
+void	lst_p(list *sta, list *stb) {
+	if (f_lstlen(sta) > 0) //ordem errada, organizar
+		sta.next = stb;
+}
+//adicionar condicao, se puxar para uma lista vazia
+
 void	sort_stack(list *stacka, list *stackb) {
 	list	*tmp;
 	int	count;
