@@ -54,8 +54,35 @@ list	*create_stack(list *stacka, int *array, int *sorted) {
 
 //--------------stack algorithm----------------------
 
-//rotate, swap, push
-/*void	list_algo(list *stacka, list *stackb) {
+//rotate, ultimo para primeiro
+//swap
+//push
+list	*tmp;
+int	count;
+count = 0;
+while ((stacka->index != count) && (stacka != NULL)) {
+	tmp = stacka;
+	tmp = tmp->next;
+	if (stacka->data > tmp->data) {
+		lst_s(stacka);
+		printf("sa\n");
+	}
+	else {
+		lst_rv(stacka);
+		printf("rv\n");
+	}
+}
+if ((stacka->index == count) && (stacka != NULL)) {
+	lst_p(stackb, stacka);
+	printf("pb\n");
+	count++;
+}
+while (stackb != NULL) {
+	lst_p(stacka, stackb);
+	printf("pa\n");
+}
+
+void	list_algo(list *stacka, list *stackb) {
 	for (int i = 0; (stacka->index != 0) && (stacka != NULL); i++) {
 		while (stacka->index != i) {
 			lst_r(stacka);
@@ -70,7 +97,7 @@ list	*create_stack(list *stacka, int *array, int *sorted) {
 		lst_p(b->a);
 		printf("pa\n");
 	}
-}*/
+}
 
 //----------------main central-----------------------
 
