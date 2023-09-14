@@ -42,7 +42,7 @@ list	*add_node(list *stacka, int array, int order) {
 
 list	*create_stack(list *stacka, int *array, int *sorted) {
 	int	i;
-	i = f_arrlen(array);
+	i = f_arrlen(array); //para comecar a adicionar a stack ao contrario, lst_add_back
 	if (stacka == NULL)
 		stacka = create_node(stacka, array[i], sorted[i]);
 	while (i > 0) {
@@ -51,6 +51,7 @@ list	*create_stack(list *stacka, int *array, int *sorted) {
 	}
 	return (stacka); 
 }
+//ou posso adicionar direto com um list_add_front
 
 //--------------stack algorithm----------------------
 
@@ -81,7 +82,7 @@ int	main() {
 	//int	sorted[] = {4, 1, 2, 0, 3}
 	stackb = NULL;
 	stacka = create_stack(stacka, array, sorted);
-	list_algo(stacka, stackb); //e usar as funções
+	list_algo(stacka, stackb);
 }
 
 //vou testar outra parte qualquer aqui
