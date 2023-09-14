@@ -1,5 +1,8 @@
 /*
-- rv function, falta testar com 1 elemento
+- rv function, falta testar com 1 elemento (da segfault) //duplo pointer como loop counter?
+- adicionar rotate normal (para o proximo algoritmo)
+- fazer push
+- fazer swap
 */
 
 /*ja tou a testar a minha primeira tentativa, do loop de (swap/rotate) e mandar
@@ -23,6 +26,12 @@ typedef	struct	stuff {
 	int	index;
 	struct stuff	*next;
 }	list;
+
+typedef struct wtv {
+    list    *stacka;
+    list    *stackb;
+}   p_list;
+
 /*
 int	array_a[] = {10, 4, 6, 1};
 int	sorted_a[] = {4, 1, 2, 0};
@@ -94,7 +103,6 @@ list	*lst_rv(list *stack) {
 			tmp = tmp->next;
 			i--;
 		}
-		//ou uso duplo pointer como loop?
 		last = tmp;
 		last = last->next;
 		last->next = stack;
@@ -103,7 +111,42 @@ list	*lst_rv(list *stack) {
 	}
     return NULL;
 }
-//funciona em tudo menos 1 elemento
+
+/*pa (push a): Take the first element at the top of b and put it at the top of a.
+Do nothing if b is empty.
+push a = b -> a; (X if b empty)
+push b = a -> b; (X if a empty)
+*/
+
+void	lst_pa(list *stb, list *sta) {
+	if (f_lstlen(stb) > 0) {
+		if (sta == NULL) {
+			sta = stb;
+			sta.next = NULL;
+			stb = stb.next;//segundo elemento ou NULL
+		}
+		else
+			stb.next = sta;
+			sta = stb.next;
+		printf("pa\n");
+	}
+}
+//criar tmp para o segundo elemento
+//
+if (sta == NULL) {
+	sta = stb;
+	sta.next = NULL;
+	stb = (segundo elemento)
+}
+//adicionar condicao, se puxar para uma lista vazia
+list    **lst_pb(list **pair) {
+    if (f_lstlen(pair->stb) > 0) {
+        if (pair->sta == NULL)
+    };
+}
+//adicionar moradas dos pointers mesmo porque quero alterar as variaveis
+//ou crio statics
+//ou faco um list** com as duas stacks e passo como arg
 
 //    Main:
 //---------------------
@@ -128,6 +171,9 @@ int	main() {
 	list	*stackb;
 	stacka = NULL;
 	stackb = NULL;
+    p_list    pair;
+    pair->stacka = NULL;
+    pair->stackb = NULL;
 	stacka = create_stack(stacka, array_a, sorted_a, total);
 	//---add functions:
     stacka = lst_rv(stacka);
