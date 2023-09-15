@@ -1,18 +1,14 @@
 /*
-- rv function, falta testar com 1 elemento (da segfault)
-- fazer rotate normal (up)
+- testar algoritmo de custos inteligentes
+
 - push (check)
-- aplicar le_ints
+- r () testar
+- rv () segfault c 1 elemento, resto check
 ----------
+- aplicar le_ints
 - fazer swap
 */
 
-/*ja tou a testar a minha primeira tentativa, do loop de (swap/rotate) e mandar
-o indice minimo para B e depois retornar a A
-
-caso nao de, vou testar a do calculo: rat cima ou baixo*/
-
-/*criar listas para teste*/
 //--------------------------------------------------------------------
 //             TEST STACK FUNCTIONS
 //--------------------------------------------------------------------
@@ -119,15 +115,24 @@ list	*lst_rv(list *stack) {
 }//roda para baixo, ultimo para primeiro
 
 list	*lst_r(list *stack) {
-	ez;
-}
+	list	*iter;
+	list	*first;
+	first = stack;
+	iter = stack;
+	while (iter->next != NULL)
+		iter = iter->next;
+	stack = stack->next;
+	iter->next = stack;
+	first->next = NULL;
+	return (stack);
+}//roda para cima, primeiro para ultimo
+//acho que ja ta, testar
 
 /*pa (push a): Take the first element at the top of b and put it at the top of a.
 Do nothing if b is empty.
 push a = b -> a; (X if b empty)
 push b = a -> b; (X if a empty)
 */
-
 //enviante (B) estar vazia, salta a frente c if
 //recebente (A) estar vazia, nesse caso, igualar o pointer ao node transferido, next = NULL;
 void	lst_p(list **stackb, list **stacka) {
@@ -148,32 +153,6 @@ void	lst_p(list **stackb, list **stacka) {
 			}
 	}
 }//testar, acho que ta pronta
-
-//enviante (B) NAO vazio
-//recebente (A) vazio
-/*
-void	lst_pa(list *stb, list *sta) {
-	if (f_lstlen(stb) > 0) {
-		if (sta == NULL) {
-			sta = stb;
-			sta.next = NULL;
-			stb = stb.next;//segundo elemento ou NULL
-		}
-		else
-			stb.next = sta;
-			sta = stb.next;
-		printf("pa\n");
-	}
-}*/
-//criar tmp para o segundo elemento
-/*
-if (sta == NULL) {
-	sta = stb;
-	sta.next = NULL;
-	stb = (segundo elemento)
-}*/
-//adicionar condicao, se puxar para uma lista vazia
-
 
 //    Main:
 //---------------------
@@ -211,3 +190,29 @@ int	main() {
         print_stack(stackb);
     }
 }
+
+
+//enviante (B) NAO vazio
+//recebente (A) vazio
+/*
+void	lst_pa(list *stb, list *sta) {
+	if (f_lstlen(stb) > 0) {
+		if (sta == NULL) {
+			sta = stb;
+			sta.next = NULL;
+			stb = stb.next;//segundo elemento ou NULL
+		}
+		else
+			stb.next = sta;
+			sta = stb.next;
+		printf("pa\n");
+	}
+}*/
+//criar tmp para o segundo elemento
+/*
+if (sta == NULL) {
+	sta = stb;
+	sta.next = NULL;
+	stb = (segundo elemento)
+}*/
+//adicionar condicao, se puxar para uma lista vazia
