@@ -1,5 +1,13 @@
 /*
 - testar algoritmo de custos inteligentes
+o proto teste deu certo, pelo menos ja ordenou os indices. agora tenho que arranjar aqueles pequenos erros
+dos elementos 1 e fazer mais qq coisa q nao me lembro
+ah, contar os passos
+e claro, ordenar o array
+- erros elemento 1
+- escrever instrucoes
+- usar checker e contar passos
+- ordenar array, le_ints, retornar sorted e total
 
 - push (check)
 - r () testar
