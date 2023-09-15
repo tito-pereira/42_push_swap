@@ -3,7 +3,7 @@
 
 - push (check)
 - r () testar
-- rv () segfault c 1 elemento, resto check
+- rv (check) segfault c 1 elemento, resto check
 ----------
 - aplicar le_ints
 - fazer swap
@@ -24,11 +24,6 @@ typedef	struct	stuff {
 	int	index;
 	struct stuff	*next;
 }	list;
-
-/*typedef struct wtv {
-    list    *stacka;
-    list    *stackb;
-}  p_list;*/
 
 /*
 typedef	struct	bass {
@@ -122,7 +117,7 @@ list	*lst_r(list *stack) {
 	while (iter->next != NULL)
 		iter = iter->next;
 	stack = stack->next;
-	iter->next = stack;
+	iter->next = first;
 	first->next = NULL;
 	return (stack);
 }//roda para cima, primeiro para ultimo
@@ -154,6 +149,41 @@ void	lst_p(list **stackb, list **stacka) {
 	}
 }//testar, acho que ta pronta
 
+//-----TEST ALGO-----------
+int	next_index(list *stacka, int count) {
+	//list	*tmp;
+	int	i = 0;
+	while (stacka->index != count) {
+		stacka = stacka->next;
+		i++;
+	}
+	return (i);
+}
+
+void	lst_smart_rotate(list **stacka, list **stackb, int total) {
+	int	count;
+	//int	ttotal;
+	count = 0;
+	//1
+	while ((*stacka) != NULL) {
+		while ((*stacka)->index != count) {
+			total = total - count;
+			if (next_index(*stacka, count) > (total / 2))
+				(*stacka) = lst_rv((*stacka));
+			else
+				(*stacka) = lst_r((*stacka));
+		}
+		if ((*stacka)->index == count) {
+			lst_p(&(*stacka), &(*stackb)); //push a->b
+			count++;
+		}
+	}
+	//2
+	while ((*stackb) != NULL)
+		lst_p(&(*stackb), &(*stacka)); //push b->a
+}
+//-------------------------
+
 //    Main:
 //---------------------
 void	print_stack(list *stack) {
@@ -180,9 +210,10 @@ int	main() {
 	stacka = create_stack(stacka, array_a, sorted_a, total);
 	//---add functions:
     //stacka = lst_rv(stacka);
-    lst_p(&stacka, &stackb);
-	lst_p(&stacka, &stackb);
-	lst_p(&stacka, &stackb);
+    //lst_p(&stacka, &stackb);
+	stacka = lst_r(stacka); //loop infinito
+	stacka = lst_r(stacka); //ok acho que ja esta a dar, testar algoritmo final
+	lst_smart_rotate(&stacka, &stackb, total);
 	//---print results:
     print_stack(stacka);
     if (stackb) {
