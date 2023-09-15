@@ -1,9 +1,10 @@
 /*
-- rv function, falta testar com 1 elemento (da segfault) //duplo pointer como loop counter?
-- adicionar rotate normal (para o proximo algoritmo)
+- rv function, falta testar com 1 elemento (da segfault)
+- adicionar rotate normal (para o proximo algoritmo dos custos)
 - fazer push (testar, acho q ta)
 - fazer swap
 - fazer novo algoritmo? fica ja feito? depois se não der é so trocar
+- aplicar le_ints
 */
 
 /*ja tou a testar a minha primeira tentativa, do loop de (swap/rotate) e mandar
@@ -34,11 +35,13 @@ typedef	struct	stuff {
 }  p_list;*/
 
 /*
-int	array_a[] = {10, 4, 6, 1};
-int	sorted_a[] = {4, 1, 2, 0};
-int	array_b[] = {10, 4, 6, 1, 8};
-int	sorted_b[] = {4, 1, 2, 0, 3};
+typedef	struct	bass {
+	int	*array;
+	int	*order;
+	int	total;
+}	le_ints;
 */
+
 list	*create_node(list *stacka, int array, int order) {
     list	*new;
     new = malloc(sizeof(list));
@@ -62,14 +65,14 @@ list	*lst_add_front(list *stacka, int array, int order) {
 list	*create_stack(list *stacka, int *array, int *sorted, int total) {
 	int	i;
 	i = 0;
-    printf("here\n");
+    //printf("here\n");
 	if (stacka == NULL) {
-        printf("create\n");
+        //printf("create\n");
 		stacka = create_node(stacka, array[i], sorted[i]);
 		i++;
 	}
 	while (i < total) {
-        printf("add\n");
+        //printf("add\n");
 		stacka = lst_add_front(stacka, array[i], sorted[i]);
 		i++;
 	} //preciso duma condicao para terminar este while
@@ -82,6 +85,8 @@ list	*create_stack(list *stacka, int *array, int *sorted, int total) {
 int	f_lstlen(list *lst) {
 	int	i;
 	i = 0;
+	if (lst == NULL)
+		return 0;
 	while (lst->next != NULL) {
 		i++;
 		lst = lst->next;
@@ -97,7 +102,7 @@ list	*lst_rv(list *stack) {
     int i;
 	tmp = stack;
 	i = f_lstlen(stack);
-    printf("len:%d\n-----------------\n", i);
+    //printf("len:%d\n-----------------\n", i);
 	if (i >= 2) {
 		i--;
 		while (i > 1) {
@@ -121,14 +126,16 @@ push b = a -> b; (X if a empty)
 
 //enviante (B) estar vazia, salta a frente c if
 //recebente (A) estar vazia, nesse caso, igualar o pointer ao node transferido, next = NULL;
-void	lst_p(list **stacka, list **stackb) {
-    if (f_lstlen(*stackb) > 0) {//enviante (B) NAO vazio
-        if (*stacka == NULL) {//recebente (A) vazio
+void	lst_p(list **stackb, list **stacka) {
+	if (f_lstlen(*stackb) > 0) {
+		if (*stacka == NULL) {
+			printf("receptor empty\n");
 			(*stacka) = (*stackb);
 			(*stackb) = (*stackb)->next;
 			(*stacka)->next = NULL;
 		}
-		else {//enviante (A) NAO vazio
+		else {
+			printf("receptor full\n");
 			list	*tmp;
 			tmp = (*stackb)->next;
 			(*stackb) = (*stacka);
@@ -138,6 +145,8 @@ void	lst_p(list **stacka, list **stackb) {
 	}
 }//testar, acho que ta pronta
 
+//enviante (B) NAO vazio
+//recebente (A) vazio
 /*
 void	lst_pa(list *stb, list *sta) {
 	if (f_lstlen(stb) > 0) {
@@ -188,7 +197,9 @@ int	main() {
 	stacka = create_stack(stacka, array_a, sorted_a, total);
 	//---add functions:
     //stacka = lst_rv(stacka);
-    lst_p(&stacka, &stackb); //ta a resultar tudo ate aqui, deu segfault
+    lst_p(&stacka, &stackb);
+	lst_p(&stacka, &stackb);
+	lst_p(&stacka, &stackb); // receptor full nao ta a funcionar bem
 	//---print results:
     print_stack(stacka);
     if (stackb) {

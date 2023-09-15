@@ -31,4 +31,7 @@ que exige outra morada. mas é atraves de pointers que se mantém a integridade 
 pointers não são propriamente o que agrupa blocos grandes de memória, mas são uma referencia, um ponto de ligação entre varios grupos de
 dados e de manipular mais facilmente entre eles
 Simple pointer arithmetic only works for contiguous data structures. A linked list is non-contiguous.
+Pointers nao definem os blocos de data contigues, arrays, estruturas. Os pointers são é essenciais na criação, manutencao e
+funcionamento das grandes estruturas ligadas como listas, arvores, stacks, etc
+E mesmo dentro de arrays para navegar mais rapidamente entre eles com uma referencia direta ao index
 */

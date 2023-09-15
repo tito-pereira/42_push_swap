@@ -179,10 +179,6 @@ int	main() {
 	//sort_stack(stacka, stackb);
 }
 
-//ja sei, a minha nova duvida era - eu nem sequer preciso de passar a data em si para dentro da stack,
-//da estrutura, da lista, etc. eu so preciso de passar o indice, ou passo a data na mesma para dar display?
-//eu acho que o push swap so da as instrucoes. pelo sim pelo nao, passar a data
-
 /*
 list	*create_node(list *stacka, int array, int order) {
     list	new;
