@@ -1,10 +1,10 @@
 /*
 - rv function, falta testar com 1 elemento (da segfault)
-- adicionar rotate normal (para o proximo algoritmo dos custos)
-- fazer push (testar, acho q ta)
-- fazer swap
-- fazer novo algoritmo? fica ja feito? depois se não der é so trocar
+- fazer rotate normal (up)
+- push (check)
 - aplicar le_ints
+----------
+- fazer swap
 */
 
 /*ja tou a testar a minha primeira tentativa, do loop de (swap/rotate) e mandar
@@ -116,6 +116,10 @@ list	*lst_rv(list *stack) {
         return (last);
 	}
     return NULL;
+}//roda para baixo, ultimo para primeiro
+
+list	*lst_r(list *stack) {
+	ez;
 }
 
 /*pa (push a): Take the first element at the top of b and put it at the top of a.
@@ -138,7 +142,7 @@ void	lst_p(list **stackb, list **stacka) {
 			printf("receptor full\n");
 			list	*tmp;
 			tmp = (*stackb)->next;
-			(*stackb) = (*stacka);
+			(*stackb)->next = (*stacka);
 			(*stacka) = (*stackb);
 			(*stackb) = tmp;
 			}
@@ -199,7 +203,7 @@ int	main() {
     //stacka = lst_rv(stacka);
     lst_p(&stacka, &stackb);
 	lst_p(&stacka, &stackb);
-	lst_p(&stacka, &stackb); // receptor full nao ta a funcionar bem
+	lst_p(&stacka, &stackb);
 	//---print results:
     print_stack(stacka);
     if (stackb) {

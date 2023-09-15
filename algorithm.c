@@ -37,5 +37,32 @@ void	list_algo(list *stacka, list *stackb) {
 		printf("pa\n");
 	}
 }
-//aqui dentro, dar print as instrucoes?
-//contar o numero de instrucoes sempre que dou print? ou apenas o wc -l no fim?
+
+//ainda falta adicionar o swap aqui. se for só rotates, entao faço o calculo dos custos
+//duplo rotate c custos, push B, push de volta A
+
+void	lst_smart_rotate(list **stacka, list **stackb, int total) {
+	ez;
+}
+int	count = 0;
+while ((*stacka) != NULL)
+int	path = next_index(*stacka, count);
+int half = total / 2;
+path > (total / 2), segunda metade, rv (rotate down)
+while ((*list)->index != count), continue;
+if ((*stacka)->index == count) {
+	pb(&stacka, &stackb); //push a->b
+}
+while ((*stackb) != NULL)
+	pa(&stackb, &stacka); //push b->a
+
+int	next_index(list *stacka, int count) {
+	list	*tmp;
+	tmp = stacka;
+	int	i = 0;
+	while (tmp->index != count) {
+		tmp = tmp->next;
+		i++;
+	}
+	return (i);
+}
