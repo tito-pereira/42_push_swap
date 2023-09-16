@@ -112,6 +112,7 @@ list	*lst_rv(list *stack) {
 		last = last->next;
 		last->next = stack;
 		tmp->next = NULL;
+		printf("rva\n");
         return (last);
 	}
     return NULL;
@@ -127,6 +128,7 @@ list	*lst_r(list *stack) {
 	stack = stack->next;
 	iter->next = first;
 	first->next = NULL;
+	printf("ra\n");
 	return (stack);
 }//roda para cima, primeiro para ultimo
 //acho que ja ta, testar
@@ -141,13 +143,13 @@ push b = a -> b; (X if a empty)
 void	lst_p(list **stackb, list **stacka) {
 	if (f_lstlen(*stackb) > 0) {
 		if (*stacka == NULL) {
-			printf("receptor empty\n");
+			//printf("receptor empty\n");
 			(*stacka) = (*stackb);
 			(*stackb) = (*stackb)->next;
 			(*stacka)->next = NULL;
 		}
 		else {
-			printf("receptor full\n");
+			//printf("receptor full\n");
 			list	*tmp;
 			tmp = (*stackb)->next;
 			(*stackb)->next = (*stacka);
@@ -183,12 +185,15 @@ void	lst_smart_rotate(list **stacka, list **stackb, int total) {
 		}
 		if ((*stacka)->index == count) {
 			lst_p(&(*stacka), &(*stackb)); //push a->b
+			printf("pb\n");
 			count++;
 		}
 	}
 	//2
-	while ((*stackb) != NULL)
+	while ((*stackb) != NULL) {
 		lst_p(&(*stackb), &(*stacka)); //push b->a
+		printf("pa\n");
+	}
 }
 //-------------------------
 
@@ -206,11 +211,13 @@ void	print_stack(list *stack) {
 }
 
 int	main() {
-    int	array_a[] = {10, 4, 6, 1, 8};
-    int	sorted_a[] = {4, 1, 2, 0, 3};
-    int	array_b[] = {10, 4, 6, 1, 8};
-    int	sorted_b[] = {4, 1, 2, 0, 3};
-    int total = 5;
+    //int	array_a[] = {10, 4, 6, 1, 8};
+    //int	sorted_a[] = {4, 1, 2, 0, 3};
+	int	array_a[] = {7, 17, 20, 81, 27, 67, 23, 39, 65, 97, 41, 76, 77, 34, 49, 87, 90, 100, 55, 91, 45, 96, 15, 71, 26, 63, 28, 56, 8, 80, 50, 18, 95, 89, 62, 1, 83, 21, 14, 92, 70, 3, 75, 22, 32, 88, 12, 78, 24, 10, 40, 79, 59, 7, 93, 19, 11, 9, 5, 57, 35, 72, 33, 86, 94, 53, 43, 37, 51, 48, 84, 4, 64, 2, 66, 99, 73, 61, 68, 98, 46, 42, 25, 58, 36, 29, 85, 13, 44, 38, 16, 47, 54, 52, 69, 31, 60, 82, 74, 30};
+	int	sorted_a[] = {6, 17, 20, 81, 27, 67, 23, 39, 65, 97, 41, 76, 77, 34, 49, 87, 90, 100, 55, 91, 45, 96, 15, 71, 26, 63, 28, 56, 8, 80, 50, 18, 95, 89, 62, 1, 83, 21, 14, 92, 70, 3, 75, 22, 32, 88, 12, 78, 24, 10, 40, 79, 59, 7, 93, 19, 11, 9, 5, 57, 35, 72, 33, 86, 94, 53, 43, 37, 51, 48, 84, 4, 64, 2, 66, 99, 73, 61, 68, 98, 46, 42, 25, 58, 36, 29, 85, 13, 44, 38, 16, 47, 54, 52, 69, 31, 60, 82, 74, 30};
+    //int	array_b[] = {10, 4, 6, 1, 8};
+    //int	sorted_b[] = {4, 1, 2, 0, 3};
+    int total = 100;
 	list	*stacka;
 	list	*stackb;
 	stacka = NULL;
@@ -223,35 +230,10 @@ int	main() {
 	stacka = lst_r(stacka); //ok acho que ja esta a dar, testar algoritmo final
 	lst_smart_rotate(&stacka, &stackb, total);
 	//---print results:
-    print_stack(stacka);
+    /*print_stack(stacka);
     if (stackb) {
         printf("----------------------------------\n");
         print_stack(stackb);
-    }
+    }*/
+	//int	sorted_a[] = {6, 17, 20, 81, 27, 67, 23, 39, 65, 97, 41, 76, 77, 34, 49, 87, 90, 100, 55, 91, 45, 96, 15, 71, 26, 63, 28, 56, 8, 80, 50, 18, 95, 89, 62, 1, 83, 21, 14, 92, 70, 3, 75, 22, 32, 88, 12, 78, 24, 10, 40, 79, 59, 7, 93, 19, 11, 9, 5, 57, 35, 72, 33, 86, 94, 53, 43, 37, 51, 48, 84, 4, 64, 2, 66, 99, 73, 61, 68, 98, 46, 42, 25, 58, 36, 29, 85, 13, 44, 38, 16, 47, 54, 52, 69, 31, 60, 82, 74, 30}
 }
-
-
-//enviante (B) NAO vazio
-//recebente (A) vazio
-/*
-void	lst_pa(list *stb, list *sta) {
-	if (f_lstlen(stb) > 0) {
-		if (sta == NULL) {
-			sta = stb;
-			sta.next = NULL;
-			stb = stb.next;//segundo elemento ou NULL
-		}
-		else
-			stb.next = sta;
-			sta = stb.next;
-		printf("pa\n");
-	}
-}*/
-//criar tmp para o segundo elemento
-/*
-if (sta == NULL) {
-	sta = stb;
-	sta.next = NULL;
-	stb = (segundo elemento)
-}*/
-//adicionar condicao, se puxar para uma lista vazia
