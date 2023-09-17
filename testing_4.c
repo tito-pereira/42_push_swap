@@ -4,13 +4,17 @@ o proto teste deu certo, pelo menos ja ordenou os indices. agora tenho que arran
 dos elementos 1 e fazer mais qq coisa q nao me lembro
 ah, contar os passos
 e claro, ordenar o array
+como o checker nao esta a dar permissao, fazer já o sort de integers e juntar tudo nos ficheiros finais por ordem
+amanha trato do checker e os testes finais
+ja separei as partes do codigo em varios test files por isso depois é mais facil dar trace a erros eventuais
+
 - erros elemento 1
-- escrever instrucoes
-- usar checker e contar passos
+- escrever instrucoes (acho que ja esta, na funcao do smart algo)
+- usar checker e contar passos (nao esta a dar permissao)
 - ordenar array, le_ints, retornar sorted e total
 
 - push (check)
-- r () testar
+- r (check) segfault c 1 elemento, resto check
 - rv (check) segfault c 1 elemento, resto check
 ----------
 - aplicar le_ints
@@ -76,7 +80,7 @@ list	*create_stack(list *stacka, int *array, int *sorted, int total) {
 		i++;
 	} //preciso duma condicao para terminar este while
 	return (stacka); 
-}// talvez um numero tipo "total", que vem junto com o array e o sorted numa struct
+}
 
 //    Functions:
 //---------------------
@@ -161,7 +165,6 @@ void	lst_p(list **stackb, list **stacka) {
 
 //-----TEST ALGO-----------
 int	next_index(list *stacka, int count) {
-	//list	*tmp;
 	int	i = 0;
 	while (stacka->index != count) {
 		stacka = stacka->next;
@@ -172,9 +175,7 @@ int	next_index(list *stacka, int count) {
 
 void	lst_smart_rotate(list **stacka, list **stackb, int total) {
 	int	count;
-	//int	ttotal;
 	count = 0;
-	//1
 	while ((*stacka) != NULL) {
 		while ((*stacka)->index != count) {
 			total = total - count;
@@ -189,7 +190,6 @@ void	lst_smart_rotate(list **stacka, list **stackb, int total) {
 			count++;
 		}
 	}
-	//2
 	while ((*stackb) != NULL) {
 		lst_p(&(*stackb), &(*stacka)); //push b->a
 		printf("pa\n");
@@ -210,14 +210,17 @@ void	print_stack(list *stack) {
 		printf("element:%d;\ndata:%d;\nindex:%d;\n-----\n", i, stack->data, stack->index);
 }
 
-int	main() {
+int	main(int ac, char **av) {
     //int	array_a[] = {10, 4, 6, 1, 8};
     //int	sorted_a[] = {4, 1, 2, 0, 3};
-	int	array_a[] = {7, 17, 20, 81, 27, 67, 23, 39, 65, 97, 41, 76, 77, 34, 49, 87, 90, 100, 55, 91, 45, 96, 15, 71, 26, 63, 28, 56, 8, 80, 50, 18, 95, 89, 62, 1, 83, 21, 14, 92, 70, 3, 75, 22, 32, 88, 12, 78, 24, 10, 40, 79, 59, 7, 93, 19, 11, 9, 5, 57, 35, 72, 33, 86, 94, 53, 43, 37, 51, 48, 84, 4, 64, 2, 66, 99, 73, 61, 68, 98, 46, 42, 25, 58, 36, 29, 85, 13, 44, 38, 16, 47, 54, 52, 69, 31, 60, 82, 74, 30};
-	int	sorted_a[] = {6, 17, 20, 81, 27, 67, 23, 39, 65, 97, 41, 76, 77, 34, 49, 87, 90, 100, 55, 91, 45, 96, 15, 71, 26, 63, 28, 56, 8, 80, 50, 18, 95, 89, 62, 1, 83, 21, 14, 92, 70, 3, 75, 22, 32, 88, 12, 78, 24, 10, 40, 79, 59, 7, 93, 19, 11, 9, 5, 57, 35, 72, 33, 86, 94, 53, 43, 37, 51, 48, 84, 4, 64, 2, 66, 99, 73, 61, 68, 98, 46, 42, 25, 58, 36, 29, 85, 13, 44, 38, 16, 47, 54, 52, 69, 31, 60, 82, 74, 30};
+	//teste com 10 indices so, para o checker;
+	int	array_a[] = {9, 5, 8, 3, 2, 6, 1, 7, 4, 0};
+	int	sorted_a[] = {9, 5, 8, 3, 2, 6, 1, 7, 4, 0};
+	//int	array_a[] = {7, 17, 20, 81, 27, 67, 23, 39, 65, 97, 41, 76, 77, 34, 49, 87, 90, 100, 55, 91, 45, 96, 15, 71, 26, 63, 28, 56, 8, 80, 50, 18, 95, 89, 62, 1, 83, 21, 14, 92, 70, 3, 75, 22, 32, 88, 12, 78, 24, 10, 40, 79, 59, 7, 93, 19, 11, 9, 5, 57, 35, 72, 33, 86, 94, 53, 43, 37, 51, 48, 84, 4, 64, 2, 66, 99, 73, 61, 68, 98, 46, 42, 25, 58, 36, 29, 85, 13, 44, 38, 16, 47, 54, 52, 69, 31, 60, 82, 74, 30};
+	//int	sorted_a[] = {6, 17, 20, 81, 27, 67, 23, 39, 65, 97, 41, 76, 77, 34, 49, 87, 90, 100, 55, 91, 45, 96, 15, 71, 26, 63, 28, 56, 8, 80, 50, 18, 95, 89, 62, 1, 83, 21, 14, 92, 70, 3, 75, 22, 32, 88, 12, 78, 24, 10, 40, 79, 59, 7, 93, 19, 11, 9, 5, 57, 35, 72, 33, 86, 94, 53, 43, 37, 51, 48, 84, 4, 64, 2, 66, 99, 73, 61, 68, 98, 46, 42, 25, 58, 36, 29, 85, 13, 44, 38, 16, 47, 54, 52, 69, 31, 60, 82, 74, 30};
     //int	array_b[] = {10, 4, 6, 1, 8};
     //int	sorted_b[] = {4, 1, 2, 0, 3};
-    int total = 100;
+    int total = 10;
 	list	*stacka;
 	list	*stackb;
 	stacka = NULL;
@@ -226,8 +229,7 @@ int	main() {
 	//---add functions:
     //stacka = lst_rv(stacka);
     //lst_p(&stacka, &stackb);
-	stacka = lst_r(stacka); //loop infinito
-	stacka = lst_r(stacka); //ok acho que ja esta a dar, testar algoritmo final
+	//stacka = lst_r(stacka); //ok acho que ja esta a dar, testar algoritmo final
 	lst_smart_rotate(&stacka, &stackb, total);
 	//---print results:
     /*print_stack(stacka);
@@ -235,5 +237,4 @@ int	main() {
         printf("----------------------------------\n");
         print_stack(stackb);
     }*/
-	//int	sorted_a[] = {6, 17, 20, 81, 27, 67, 23, 39, 65, 97, 41, 76, 77, 34, 49, 87, 90, 100, 55, 91, 45, 96, 15, 71, 26, 63, 28, 56, 8, 80, 50, 18, 95, 89, 62, 1, 83, 21, 14, 92, 70, 3, 75, 22, 32, 88, 12, 78, 24, 10, 40, 79, 59, 7, 93, 19, 11, 9, 5, 57, 35, 72, 33, 86, 94, 53, 43, 37, 51, 48, 84, 4, 64, 2, 66, 99, 73, 61, 68, 98, 46, 42, 25, 58, 36, 29, 85, 13, 44, 38, 16, 47, 54, 52, 69, 31, 60, 82, 74, 30}
 }
