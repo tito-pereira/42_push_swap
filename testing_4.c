@@ -19,6 +19,7 @@ ja separei as partes do codigo em varios test files por isso depois é mais faci
 ----------
 - aplicar le_ints
 - fazer swap
+- um problema qualquer a imprimir o zero como arg no teste 1.. mas nao deve ser problema sequer
 */
 
 //--------------------------------------------------------------------
