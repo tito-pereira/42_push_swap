@@ -3,10 +3,9 @@ teste de algoritmo de sorting principal do array e criacao do sorted
 ou apenas total, max e min, wtv
 mas sorted da mais jeito
 
-enter bubble sort
-nao vou ser avaliado por aqui e não, vai bubble
-
-criar uma struct onde ficam as arrays e o total, é mais facil assim para movimentar mais informaçao
+- bubble sort (check)
+- indexing ainda da erros
+- criar uma struct onde ficam as arrays e o total, é mais facil assim para movimentar mais informaçao
 */
 
 #include <stdio.h>
@@ -142,8 +141,9 @@ int	*put_index(int *array, int *sorted, int total) {
 		j = 0;
 		while (array[j] != sorted[i])
 			j++;
-		printf("data:%d, index:%d\n", array[j], i);
+		printf("j:%d, array[j]:%d, i:%d, sorted[i]:%d\n", j, array[j], i, sorted[i]);
 		index[j] = i;
+		printf("new:%d\n", index[j]);
 	}
 	return (index);
 }
@@ -179,6 +179,9 @@ int	main(int ac, char **av) {
 		sorted = bubble_sort(array, args); //acho que ja esta a dar
 		for (int i = 0; i < args; i++)
 			printf("%d, ", sorted[i]);
+		printf("\nold array\n");
+		for (int i = 0; i < args; i++)
+			printf("%d, ", array[i]); //por alguma razao esta a alterar o old array
 		printf("\nindexing\n");
 		sorted = put_index(array, sorted, args); //funcionamento estranho
 		for (int i = 0; i < args; i++)
@@ -191,7 +194,7 @@ int	main(int ac, char **av) {
 	printf("\nTest successfull\n");
 }
 
-/*acho que ja meti a funcionar, o problema é mesmo que eu acho q passar um argumento
-como 0 fode o programa todo e tenho que resolver isso
-o index ainda nao ta a dar direito
+/*
+index ta a dar 0, 1, 2, 3, 4
+tou a atribuir diretamente c a iteração
 */
