@@ -100,26 +100,23 @@ void	f_swap(int *a, int *b) {
 	tmp = *a;
 	*a = *b;
 	*b = tmp;
-}
+} //f_swap(&array[i], &array[i + 1]);
 
 int	*bubble_sort(int *array, int total) {
-	int	i;
+	int	i, tmp;
 	i = 0;
-	//printf("im in\n");
 	while (i < (total - 1)) {
-		//while (array[i] && (array[i] < array[i + 1]))
-		//i++;
 		if (array[i] > array[i + 1]) {
-			f_swap(&array[i], &array[i + 1]);
-			//printf("swapping\n");
-			//break;
+			tmp = array[i];
+			array[i] = array[i + 1];
+			array[i + 1] = tmp;
 			i = -1;
 		}
 		if (i == (total - 1))
 			break;
 		i++;
 	}
-	return (array); //pre sort
+	return (array);
 }
 
 /*int	*put_index(int *array, int *sorted, int total) {
