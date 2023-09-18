@@ -4,7 +4,7 @@ ou apenas total, max e min, wtv
 mas sorted da mais jeito
 
 - bubble sort (check)
-- indexing ainda da erros
+- indexing (check)
 - criar uma struct onde ficam as arrays e o total, é mais facil assim para movimentar mais informaçao
 */
 
@@ -102,22 +102,32 @@ void	f_swap(int *a, int *b) {
 	*b = tmp;
 } //f_swap(&array[i], &array[i + 1]);
 
+int	*f_arrdup(int *array, int total) {
+	int	*new;
+	new = malloc(total * sizeof(int));
+	for (int i = 0; i < total; i++)
+		new[i] = array[i];
+	return (new);
+}
+
 int	*bubble_sort(int *array, int total) {
 	int	i, tmp;
+	int	*new;
 	i = 0;
+	new = f_arrdup(array, total);
 	while (i < (total - 1)) {
-		if (array[i] > array[i + 1]) {
-			tmp = array[i];
-			array[i] = array[i + 1];
-			array[i + 1] = tmp;
+		if (new[i] > new[i + 1]) {
+			tmp = new[i];
+			new[i] = new[i + 1];
+			new[i + 1] = tmp;
 			i = -1;
 		}
 		if (i == (total - 1))
 			break;
 		i++;
 	}
-	return (array);
-}
+	return (new);
+} //criar copia do array
 
 /*int	*put_index(int *array, int *sorted, int total) {
 	int j;
@@ -180,7 +190,7 @@ int	main(int ac, char **av) {
 		for (int i = 0; i < args; i++)
 			printf("%d, ", array[i]); //por alguma razao esta a alterar o old array
 		printf("\nindexing\n");
-		sorted = put_index(array, sorted, args); //funcionamento estranho
+		sorted = put_index(array, sorted, args);
 		for (int i = 0; i < args; i++)
 			printf("%d, ", sorted[i]);
 	}
@@ -194,4 +204,7 @@ int	main(int ac, char **av) {
 /*
 index ta a dar 0, 1, 2, 3, 4
 tou a atribuir diretamente c a iteração
+aquele problema estranho do index tinha a ver com o facto de que eu estava a alterar o array
+e estragava tudo
+agora acho que está a funcionar
 */

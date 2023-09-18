@@ -34,4 +34,13 @@ Simple pointer arithmetic only works for contiguous data structures. A linked li
 Pointers nao definem os blocos de data contigues, arrays, estruturas. Os pointers são é essenciais na criação, manutencao e
 funcionamento das grandes estruturas ligadas como listas, arvores, stacks, etc
 E mesmo dentro de arrays para navegar mais rapidamente entre eles com uma referencia direta ao index
+
+quando passas um argumento para uma função como parametro exterior, a funcao realiza uma copia exata dessa unidade de memoria
+que passaste como memoria. Isto é, se passas um int, aloca nova memoria e copia a data desse int, se passas um point, aloca 
+memoria nova e copia a data desse pointer (a morada)
+ATENCAO, isto significa que o pointer em si é uma copia para o primeiro elemento, MAS OS ELEMENTOS SAO OS ORIGINAIS, ou seja, tu alocas nova
+memoria e copias a data (morada para o qual aponta). Isto significa que se alteras/manipulas a data para a qual esse pointer aponta
+(atraves de dereferenciaçao, incluindo manipular strings que é uma forma de dereferenciacao)
+
+fazer uma espécie de tutorial de pointers associado a isto também para demonstrar o meu conhecimento aqui
 */
