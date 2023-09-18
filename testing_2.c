@@ -109,20 +109,21 @@ int	*bubble_sort(int *array, int total) {
 	//printf("im in\n");
 	while (i < (total - 1)) {
 		//while (array[i] && (array[i] < array[i + 1]))
-			i++;
+		//i++;
 		if (array[i] > array[i + 1]) {
 			f_swap(&array[i], &array[i + 1]);
 			//printf("swapping\n");
 			//break;
-			i = 0;
+			i = -1;
 		}
 		if (i == (total - 1))
 			break;
+		i++;
 	}
 	return (array); //pre sort
 }
 
-int	*put_index(int *array, int *sorted, int total) {
+/*int	*put_index(int *array, int *sorted, int total) {
 	int j;
 	for (int i = 0; array[i]; i++) {
 		j = 0;
@@ -131,7 +132,22 @@ int	*put_index(int *array, int *sorted, int total) {
 		sorted[j] = i;
 	}
 	return (sorted);
+}*/
+
+int	*put_index(int *array, int *sorted, int total) {
+	int j;
+	int	*index;
+	index = malloc(total * sizeof(int));
+	for (int i = 0; i < total; i++) {
+		j = 0;
+		while (array[j] != sorted[i])
+			j++;
+		printf("data:%d, index:%d\n", array[j], i);
+		index[j] = i;
+	}
+	return (index);
 }
+
 
 //--------------MAIN----------------
 
@@ -160,11 +176,11 @@ int	main(int ac, char **av) {
 		//ate aqui resulta, agr meter o sorting
 		int	*sorted;
 		printf("\nbubble sort\n");
-		sorted = bubble_sort(array, args);
+		sorted = bubble_sort(array, args); //acho que ja esta a dar
 		for (int i = 0; i < args; i++)
 			printf("%d, ", sorted[i]);
 		printf("\nindexing\n");
-		sorted = put_index(array, sorted, args);
+		sorted = put_index(array, sorted, args); //funcionamento estranho
 		for (int i = 0; i < args; i++)
 			printf("%d, ", sorted[i]);
 	}
@@ -173,10 +189,9 @@ int	main(int ac, char **av) {
 		return 0;
 	}
 	printf("\nTest successfull\n");
-	//ate aqui resulta, agr meter o sorting
-	/*int	*sorted;
-	sorted = bubble_sort(array, args);
-	sorted = put_index(array, sorted, total);
-	for (int i = 0; i < args; i++)
-		printf("%d, ", sorted[i]);*/
 }
+
+/*acho que ja meti a funcionar, o problema é mesmo que eu acho q passar um argumento
+como 0 fode o programa todo e tenho que resolver isso
+o index ainda nao ta a dar direito
+*/
