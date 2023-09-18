@@ -3,6 +3,9 @@ teste de algoritmo de sorting principal do array e criacao do sorted
 ou apenas total, max e min, wtv
 mas sorted da mais jeito
 
+enter bubble sort
+nao vou ser avaliado por aqui e não, vai bubble
+
 criar uma struct onde ficam as arrays e o total, é mais facil assim para movimentar mais informaçao
 */
 
@@ -85,10 +88,55 @@ int	check_dup(int *array) {
 	return 1;
 }
 
+//---------BUBBLE SORT (facil de fazer)--------------s
+
+//eu posso trocar qualquer posição, aproveitar isso
+/*
+como fazer o algoritmo recursivamente? qual a condição de paragem?
+acho que condicao de paragem pode ser dar sort continuo sem haver i > i + 1
+neste caso tmb tenho o total
+*/
+void	f_swap(int *a, int *b) {
+	int	tmp;
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+int	*bubble_sort(int *array, int total) {
+	int	i;
+	i = 0;
+	//printf("im in\n");
+	while (i < (total - 1)) {
+		//while (array[i] && (array[i] < array[i + 1]))
+			i++;
+		if (array[i] > array[i + 1]) {
+			f_swap(&array[i], &array[i + 1]);
+			//printf("swapping\n");
+			//break;
+			i = 0;
+		}
+		if (i == (total - 1))
+			break;
+	}
+	return (array); //pre sort
+}
+
+int	*put_index(int *array, int *sorted, int total) {
+	int j;
+	for (int i = 0; array[i]; i++) {
+		j = 0;
+		while (sorted[j] != array[i])
+			j++;
+		sorted[j] = i;
+	}
+	return (sorted);
+}
+
 //--------------MAIN----------------
 
 int	main(int ac, char **av) {
-	printf("%d\n", 0);
+	//printf("%d\n", 0);
 	if (ac >= 2) {
 		int	args;
 		args = 0;
@@ -97,7 +145,7 @@ int	main(int ac, char **av) {
 			if (check_int(av[i]) == 0)
 				return 0;
 		}
-		printf("%d args:\n", args); //here
+		printf("%d args:\n", args);
 		int	*array;
 		array = malloc(args * sizeof(int));
 		for (int i = 0; i < args; i++) {
@@ -105,14 +153,30 @@ int	main(int ac, char **av) {
 				return 0;
 			array[i] = f_atoi(av[i + 1]);
 		}
-		for (int i = 0; array[i]; i++)
-			printf("%d\n", array[i]);
 		if (check_dup(array) == 0)
 			return 0;
+		for (int i = 0; i < args; i++)
+			printf("%d, ", array[i]);
+		//ate aqui resulta, agr meter o sorting
+		int	*sorted;
+		printf("\nbubble sort\n");
+		sorted = bubble_sort(array, args);
+		for (int i = 0; i < args; i++)
+			printf("%d, ", sorted[i]);
+		printf("\nindexing\n");
+		sorted = put_index(array, sorted, args);
+		for (int i = 0; i < args; i++)
+			printf("%d, ", sorted[i]);
 	}
 	else {
 		printf("No arguments\n");
 		return 0;
 	}
-	printf("Test successfull\n");
+	printf("\nTest successfull\n");
+	//ate aqui resulta, agr meter o sorting
+	/*int	*sorted;
+	sorted = bubble_sort(array, args);
+	sorted = put_index(array, sorted, total);
+	for (int i = 0; i < args; i++)
+		printf("%d, ", sorted[i]);*/
 }
