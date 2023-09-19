@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algorithm.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tibarbos <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/19 12:03:27 by tibarbos          #+#    #+#             */
+/*   Updated: 2023/09/19 12:03:35 by tibarbos         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 //array sorting with bubble sort
@@ -36,9 +48,7 @@ int	*put_index(int *array, int *sorted, int total) {
 		j = 0;
 		while (array[j] != sorted[i])
 			j++;
-		printf("j:%d, array[j]:%d, i:%d, sorted[i]:%d\n", j, array[j], i, sorted[i]);
 		index[j] = i;
-		printf("new:%d\n", index[j]);
 	}
 	return (index);
 }

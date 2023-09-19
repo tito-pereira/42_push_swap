@@ -89,7 +89,16 @@ int	main(int ac, char **av) {
 }
 
 //test 3
-
+int	main() {
+	list	*stacka;
+	list	*stackb;
+	stacka = NULL;
+	stackb = NULL;
+	stacka = create_stack(stacka, array, sorted);
+	print_stack(stacka);
+	//ate aqui funciona top
+	//sort_stack(stacka, stackb);
+}
 
 //test 4
 

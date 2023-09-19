@@ -1,53 +1,53 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   auxiliary.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tibarbos <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/19 12:01:19 by tibarbos          #+#    #+#             */
+/*   Updated: 2023/09/19 12:01:29 by tibarbos         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-list	*create_node(list *stacka, int value, int order) {
-    list	new;
+//----------create / add to stack--------------------
+
+list	*create_node(list *stacka, int array, int order) {
+    list	*new;
     new = malloc(sizeof(list));
-    if (!new)
-        return;
-    new->data = value;
+    new->data = array;
 	new->index = order;
     new->next = NULL;
-	stacka = &new;
+	return (new);
+}
+
+list	*lst_add_front(list *stacka, int array, int order) {
+	list	*new;
+	list	*tmp;
+	tmp = stacka;
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	new = create_node(new, array, order);
+	tmp->next = new;
 	return (stacka);
 }
 
-list	*add_node(list *stacka, int array, int order) {
-	ez;
-}
-/*
-void	add_front(list *begin, list new) {
-	new.next = begin;
-	//new.next = *begin;
-	//*new.next = &begin;
-}
-
-void	ad_front(list *begin, int supply) {
-	list	new;
-	new = create_node(supply);
-	new.next = begin;
-}
-
-void	add_back(list *begin, list new) {
-	ez;
-}
-//o push para a stack vai usar esta funcao
-
-void	ad_back(list) {
-	ez;
-}*/
-
 list	*create_stack(list *stacka, int *array, int *sorted) {
 	int	i;
-	i = f_arrlen(array);
-	if (stacka == NULL)
+	i = 0;
+	if (stacka == NULL) {
 		stacka = create_node(stacka, array[i], sorted[i]);
-	while (i > 0) {
-		stacka = add_node(stacka, array[i], sorted[i]);
-		i--;
+		i++;
+	}
+	while (array[i]) {
+		stacka = lst_add_front(stacka, array[i], sorted[i]);
+		i++;
 	}
 	return (stacka); 
 }
+
 /*You have to write a program named push_swap that takes as an argument the stack
 a formatted as a list of integers. The first argument should be at the top of the
 stack (be careful about the order).*/

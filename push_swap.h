@@ -24,12 +24,11 @@ typedef	struct	stuff {
 	struct stuff	*next;
 }	list;
 
-//criar uma struct para armazenar os dois arrays (stack e sorted) porque posso precisar deles no algoritmo?
 /*
-typedef	struct	things {
+typedef	struct	bass {
 	int	*array;
-	int	*sorted;
-	struct	things	*next;
+	int	*order;
+	int	total;
 }	le_ints;
 */
 
