@@ -63,54 +63,30 @@ int	main(int ac, char **av) {
 }
 
 /*
-//test 1 - erros, contagem total, criacao do array
-//test 2 - array algo, criacao do sorted
-int	main(int ac, char **av) {
-	if (ac >= 2) {
-		int	args;
-		args = 0;
-		for (int i = 1; av[i]; i++) {
-			args++;
-			if (check_int(av[i]) == 0)
-				return 0;
-		}
-		int	*array;
-		array = malloc(args * sizeof(int));
-		for (int i = 0; i < args; i++) {
-			if (check_limits(av[i + 1]) == 0)
-				return 0;
-			array[i] = f_atoi(av[i + 1]);
-		}
-		if (check_dup(array) == 0)
-			return 0;
-		//ate aqui resulta, agr meter o sorting
-		int	*sorted;
-		sorted = bubble_sort(array, args);
-		sorted = put_index(array, sorted, args);
-	}
-	else
-		return 0;
-}
+incluindo versao 1
+se for preciso, meter regras especiais para casos pequenitos tipo argumentos < 10,
+evitar dar duplo push a tudo
+acrescentar os simple tests
+- lista already sorted
+- pequenos casos de swap apenas
 
-//test 3 - criacao e introducao na stack
-//test 4 - stack sorting
-int	main(int ac, char **av) {
-	//teste com 10 indices so, para o checker;
-	//int	array_a[] = {9, 5, 8, 3, 2, 6, 1, 7, 4, 0};
-	//int	sorted_a[] = {9, 5, 8, 3, 2, 6, 1, 7, 4, 0};
-    //int total = 10;
-	list	*stacka;
-	list	*stackb;
-	stacka = NULL;
-	stackb = NULL;
-	stacka = create_stack(stacka, array, sorted, args);
-	lst_smart_rotate(&stacka, &stackb, total);
-}*/
+simple version
+sorted list, 0 moves max
+3 args, 2 ou 3 moves
+5 args, 12 moves max
+100 args, 1500 moves max (versao 2)
+500 args, 11500 moves max (versao 2)
+-----
+preciso de tentar um novo algoritmo aqui
 
-//-----------------------------------------
-/*
-No args:
-If no parameters are specified, the program must not display anything and give the
-prompt back.
--> empty return()
+simple version
+sorted list, 0 moves max
+3 args, 2 ou 3 moves
+5 args, 12 moves max
+100 args, 1500 moves max
+500 args, 11500 moves max
+
+um calculo duplo de custos
+if (next_index)[index + 2] <= (next_index)[index + 1]
+if (next_index)[index + 1] mais proximo da metade que (next_index)[index + 2]
 */
