@@ -8,18 +8,14 @@ como o checker nao esta a dar permissao, fazer já o sort de integers e juntar t
 amanha trato do checker e os testes finais
 ja separei as partes do codigo em varios test files por isso depois é mais facil dar trace a erros eventuais
 
-- erros elemento 1
-- escrever instrucoes (acho que ja esta, na funcao do smart algo)
-- usar checker e contar passos (nao esta a dar permissao)
-- ordenar array, le_ints, retornar sorted e total
+- erros so c 1 argumento (r e rr)
+- erro qualquer ao tentar printar 0 como argumento teste 1
 
 - push (check)
 - r (check) segfault c 1 elemento, resto check
 - rv (check) segfault c 1 elemento, resto check
 ----------
 - aplicar le_ints
-- fazer swap
-- um problema qualquer a imprimir o zero como arg no teste 1.. mas nao deve ser problema sequer
 */
 
 //--------------------------------------------------------------------
