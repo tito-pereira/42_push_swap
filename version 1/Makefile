@@ -14,7 +14,8 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
-SRC = push_main.c algorithm.c errors.c functions.c auxiliary.c
+SRC = push_main.c algorithm.c errors.c functions.c auxiliary.c \
+	bubble.c
 OBJS = ${SRC:.c=.o}
 
 $(NAME): $(OBJS)

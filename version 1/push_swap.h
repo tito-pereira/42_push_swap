@@ -46,10 +46,11 @@ int	f_lstlen(list *lst);
 void	lst_p(list **stackb, list **stacka);
 list	*lst_r(list *stack);
 list	*lst_rv(list *stack);
-//algorithm v
+//bubble v
 int	*f_arrdup(int *array, int total);
 int	*bubble_sort(int *array, int total);
 int	*put_index(int *array, int *sorted, int total);
+//algorithm v
 int	next_index(list *stacka, int count);
 void	lst_smart_rotate(list **stacka, list **stackb, int total);
 
