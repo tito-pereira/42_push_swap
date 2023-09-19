@@ -6,7 +6,7 @@
 /*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 12:03:27 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/09/19 15:51:05 by tibarbos         ###   ########.fr       */
+/*   Updated: 2023/09/19 17:52:09 by tibarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,31 @@ int	next_index(list *stacka, int count) {
 	return (i);
 }
 
+int	check_sorted(list *stacka, int total) {
+	int	one;
+	int two;
+	one = 0;
+	two = 0;
+	if (total > 1) {
+		while (stacka->index != NULL) {
+			one = stacka->index;
+			stacka = stacka->next;
+			two = stacka->index;
+			if (two == (one + 1))
+				continue;
+			else
+				return 0;
+		}
+		return 1;
+	}
+	return 0;
+} //test
+
 void	lst_smart_rotate(list **stacka, list **stackb, int total) {
 	int	count;
 	count = 0;
+	//if (check_sorted(stacka, total) == 1)
+		//return 0;
 	while ((*stacka) != NULL) {
 		while ((*stacka)->index != count) {
 			//total = total - count;
@@ -88,6 +110,16 @@ void	lst_smart_rotate(list **stacka, list **stackb, int total) {
 		printf("pa\n");
 	}
 }
+
+/*
+- check_if_sorted (test)
+
+- if total > 10 (ou 5), algoritmo grande
+else, algos pequenitos
+
+fazer algos pequenitos
+*/
+
 //-------------------------
 
 //path > (total / 2), segunda metade, rv (rotate down)
