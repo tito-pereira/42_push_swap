@@ -12,6 +12,19 @@
 
 #include "push_swap.h"
 
+void	print_stack(list *stack) {
+	int	i = 1;
+	while (stack->next != NULL) {
+		//printf("element:%d;\ndata:%d;\nindex:%d;\n-----\n", i, stack->data, stack->index);
+		printf("%d, ", stack->data);
+		stack = stack->next;
+		i++;
+	}
+	if (stack->next == NULL)
+		//printf("element:%d;\ndata:%d;\nindex:%d;\n-----\n", i, stack->data, stack->index);
+		printf("%d, ", stack->data);
+}
+
 void	main_aux(int *array, int total) {
 	int	*sorted;
 	sorted = bubble_sort(array, total);
@@ -22,6 +35,7 @@ void	main_aux(int *array, int total) {
 	stackb = NULL;
 	stacka = create_stack(stacka, array, sorted, total);
 	lst_smart_rotate(&stacka, &stackb, total);
+	print_stack(stacka);
 }
 
 int	main(int ac, char **av) {

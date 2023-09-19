@@ -78,7 +78,7 @@ list	*lst_rv(list *stack) {
 		last = last->next;
 		last->next = stack;
 		tmp->next = NULL;
-		printf("rva\n");
+		printf("rra\n");
         return (last);
 	}
     return NULL;

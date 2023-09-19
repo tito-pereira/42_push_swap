@@ -16,7 +16,7 @@ long	f_atoi(char *str) {
 	int sign = 1;
 	long nmb = 0;
 	int i = 0;
-	while (str[i] == ' ' || str[i] == '\t') //faco os whitespaces?
+	while (str[i] == ' ' || str[i] == '\t') //whitespaces
 		i++;
 	if (str[i] == '-') {
 		sign *= -1;
@@ -40,16 +40,16 @@ int	check_int(char *str) {
 	if (str[0] == '-')
 		i++;
 	else if (!(str[0] >= '0' && str[0] <= '9') && str[0] != '-') {
-		write (2, "Error 1\n", 8);
+		write (2, "Error\n", 6);
 		return 0;
 	}
 	if (str[i] == '\0') {
-		write (2, "Error 1\n", 8);
+		write (2, "Error\n", 6);
 		return 0;
 	}
 	while ((str[i] >= '0' && str[i] <= '9') && str[i] != '\0') {
 		if (!(str[i] >= '0' && str[i] <= '9')) {
-			write (2, "Error 1\n", 8);
+			write (2, "Error\n", 6);
 			return 0;
 		}
 		i++;
@@ -62,7 +62,7 @@ int	check_limits(char *arg) {
 	long	i;
 	i = f_atoi(arg);
 	if (i < INT_MIN || i > INT_MAX) {
-		write (2, "Error 2\n", 8);
+		write (2, "Error\n", 6);
 		return 0;
 	}
 	return 1;
@@ -74,7 +74,7 @@ int	check_dup(int *array) {
 		int check = array[i];
 		for (int j = 0; array[j]; j++) {
 			if ((check == array[j]) && (i != j)) {
-				write (2, "Error 3\n", 8);
+				write (2, "Error\n", 6);
 				return 0;
 			}
 		}
