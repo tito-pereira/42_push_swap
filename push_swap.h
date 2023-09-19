@@ -31,12 +31,6 @@ typedef	struct	things {
 	int	*sorted;
 	struct	things	*next;
 }	le_ints;
-
-typedef	struct	yoda {
-	char	*params;
-	int	*array;
-	struct	yoda	*next;
-}	cordas
 */
 
 //erros

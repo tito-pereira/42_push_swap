@@ -15,6 +15,87 @@
 //em bulk: (char *)->(atoi)->(int *)->(push stack)->(list)
 //os erros verificar em passos intermedios
 
+//test 1
+int	main(int ac, char **av) {
+	if (ac >= 2) {
+		int	args;
+		args = 0;
+		for (int i = 1; av[i]; i++) {
+			args++;
+			if (check_int(av[i]) == 0)
+				return 0;
+		}
+		int	*array;
+		array = malloc(args * sizeof(int));
+		for (int i = 0; i < args; i++) {
+			if (check_limits(av[i + 1]) == 0)
+				return 0;
+			array[i] = f_atoi(av[i + 1]);
+		}
+		for (int i = 0; array[i]; i++)
+			printf("%d\n", array[i]);
+		if (check_dup(array) == 0)
+			return 0;
+	}
+	else {
+		printf("No arguments\n");
+		return 0;
+	}
+	printf("Test successfull\n");
+}
+
+//test 2
+int	main(int ac, char **av) {
+	//printf("%d\n", 0);
+	if (ac >= 2) {
+		int	args;
+		args = 0;
+		for (int i = 1; av[i]; i++) {
+			args++;
+			if (check_int(av[i]) == 0)
+				return 0;
+		}
+		printf("%d args:\n", args);
+		int	*array;
+		array = malloc(args * sizeof(int));
+		for (int i = 0; i < args; i++) {
+			if (check_limits(av[i + 1]) == 0)
+				return 0;
+			array[i] = f_atoi(av[i + 1]);
+		}
+		if (check_dup(array) == 0)
+			return 0;
+		for (int i = 0; i < args; i++)
+			printf("%d, ", array[i]);
+		//ate aqui resulta, agr meter o sorting
+		int	*sorted;
+		printf("\nbubble sort\n");
+		sorted = bubble_sort(array, args); //acho que ja esta a dar
+		for (int i = 0; i < args; i++)
+			printf("%d, ", sorted[i]);
+		printf("\nold array\n");
+		for (int i = 0; i < args; i++)
+			printf("%d, ", array[i]); //por alguma razao esta a alterar o old array
+		printf("\nindexing\n");
+		sorted = put_index(array, sorted, args);
+		for (int i = 0; i < args; i++)
+			printf("%d, ", sorted[i]);
+	}
+	else {
+		printf("No arguments\n");
+		return 0;
+	}
+	printf("\nTest successfull\n");
+}
+
+//test 3
+
+
+//test 4
+
+
+//-----------------------------------------
+/*
 int	push_main(int ac, char **av) {
 	if (ac >= 2) {
 		int	len; //len vai ser usado para malloc(array)
@@ -43,12 +124,12 @@ int	push_main(int ac, char **av) {
 			add_stack(stacka, array[i]);
 		}
 		// enviar a stack para rodar e push
-		//algo_central(stacka, stackb/*int *array*/);
+		//algo_central(stacka, stackb, int *array);
 		list_algo(stacka, stackb);
 	}
 	else
 		return; //redundante, posso tirar, give prompt back
-}
+}*/
 
 /*
 No args:

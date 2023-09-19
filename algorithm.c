@@ -1,45 +1,50 @@
 #include "push_swap.h"
 
-//recebe array, ordena-o, mas tenho que retornar com indice
-//array_dup, ordeno, comparo os numeros
-//array_order, um terceiro array, que vai ter como data a ordem dos indices
+//array sorting with bubble sort
+int	*f_arrdup(int *array, int total) {
+	int	*new;
+	new = malloc(total * sizeof(int));
+	for (int i = 0; i < total; i++)
+		new[i] = array[i];
+	return (new);
+}
 
-int	*array_algo(int *array) {
-	int	*sorted;
-	//int	*order;
-	int	j;
-	//j = 0;
-	sorted = array_dup(array);
-	//order = array_dup(array);
-	sorted = fazer_algoritmo(sorted);
-	for (int i = 0; sorted[i]; i++) {
+int	*bubble_sort(int *array, int total) {
+	int	i, tmp;
+	int	*new;
+	i = 0;
+	new = f_arrdup(array, total);
+	while (i < (total - 1)) {
+		if (new[i] > new[i + 1]) {
+			tmp = new[i];
+			new[i] = new[i + 1];
+			new[i + 1] = tmp;
+			i = -1;
+		}
+		if (i == (total - 1))
+			break;
+		i++;
+	}
+	return (new);
+}
+
+int	*put_index(int *array, int *sorted, int total) {
+	int j;
+	int	*index;
+	index = malloc(total * sizeof(int));
+	for (int i = 0; i < total; i++) {
 		j = 0;
-		while (sorted[i] != array[j])
+		while (array[j] != sorted[i])
 			j++;
-		sorted[i] = j;
+		printf("j:%d, array[j]:%d, i:%d, sorted[i]:%d\n", j, array[j], i, sorted[i]);
+		index[j] = i;
+		printf("new:%d\n", index[j]);
 	}
-	return (sorted);
+	return (index);
 }
 
-void	list_algo(list *stacka, list *stackb) {
-	for (int i = 0; (stacka->index != 0) && (stacka != NULL); i++) {
-		while (stacka->index != i) {
-			lst_r(stacka);
-			printf("ra\n");
-		}
-		if (stacka->index == i) {
-			lst_p(a->b);
-			printf("pb\n");
-		}
-	}
-	while (stackb != NULL) {
-		lst_p(b->a);
-		printf("pa\n");
-	}
-}
-
+//stack sorting
 //duplo rotate c custos, push B, push de volta A
-
 int	next_index(list *stacka, int count) {
 	//list	*tmp;
 	int	i = 0;

@@ -127,18 +127,7 @@ int	*bubble_sort(int *array, int total) {
 		i++;
 	}
 	return (new);
-} //criar copia do array
-
-/*int	*put_index(int *array, int *sorted, int total) {
-	int j;
-	for (int i = 0; array[i]; i++) {
-		j = 0;
-		while (sorted[j] != array[i])
-			j++;
-		sorted[j] = i;
-	}
-	return (sorted);
-}*/
+}
 
 int	*put_index(int *array, int *sorted, int total) {
 	int j;
