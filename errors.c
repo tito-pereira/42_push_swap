@@ -47,7 +47,7 @@ int	check_int(char *str) {
 		write (2, "Error 1\n", 8);
 		return 0;
 	}
-	while (str[i] >= '0' && str[i] <= '9' || str[i] != '\0') {
+	while ((str[i] >= '0' && str[i] <= '9') && str[i] != '\0') {
 		if (!(str[i] >= '0' && str[i] <= '9')) {
 			write (2, "Error 1\n", 8);
 			return 0;

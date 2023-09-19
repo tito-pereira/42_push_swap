@@ -32,29 +32,25 @@ typedef	struct	bass {
 }	le_ints;
 */
 
-//erros
-int	f_atoi(char *str);
+//erros v
+long	f_atoi(char *str);
 int	check_int(char *str);
-int	check_limits(int *stack);
-int	check_dup(int *str);
-//auxiliary
-list	*create_node(list *stacka, int value, int order);
-list	*add_node(list *stacka, int array, int order);
-list	*create_stack(list *stacka, int *array, int *sorted);
-int	f_arrlen(int *array);
-void	f_swap(int *a, int *b);
-void	f_lst_swap_two(list *fst);
-int	*array_dup(int *array);
-//stack functions
-void	lst_s(list *stack);
-void	lst_2s(list *sta, list *stb);
-void	lst_p(list *sta, list *stb);
-void	lst_r(list *stack);
-void	lst_2r(list *sta, list *stb);
-void	lst_rv(list *stack);
-void	lst_2rv(list *sta, list *stb);
-//algorithm
-int	*array_algo(int *array);
-void	list_algo(list *stacka, list *stackb);
+int	check_limits(char *arg);
+int	check_dup(int *array);
+//auxiliary v
+list	*create_node(int array, int order);
+list	*lst_add_front(list *stacka, int array, int order);
+list	*create_stack(list *stacka, int *array, int *sorted, int total);
+//functions v
+int	f_lstlen(list *lst);
+void	lst_p(list **stackb, list **stacka);
+list	*lst_r(list *stack);
+list	*lst_rv(list *stack);
+//algorithm v
+int	*f_arrdup(int *array, int total);
+int	*bubble_sort(int *array, int total);
+int	*put_index(int *array, int *sorted, int total);
+int	next_index(list *stacka, int count);
+void	lst_smart_rotate(list **stacka, list **stackb, int total);
 
 #endif

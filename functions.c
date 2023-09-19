@@ -42,15 +42,90 @@ The last element becomes the first one.
 rrr : rra and rrb at the same time.
 */
 
-//o comportamento de base das listas acho que vou fazer com listas
-
 #include "push_swap.h"
+
+//    Functions:
+//---------------------
+
+int	f_lstlen(list *lst) {
+	int	i;
+	i = 0;
+	if (lst == NULL)
+		return 0;
+	while (lst->next != NULL) {
+		i++;
+		lst = lst->next;
+	}
+    if (lst->next == NULL) {
+		i++;
+	}
+	return (i);
+}
+
+list	*lst_rv(list *stack) {
+	list	*tmp;
+	list	*last;
+    int i;
+	tmp = stack;
+	i = f_lstlen(stack);
+	if (i >= 2) {
+		i--;
+		while (i > 1) {
+			tmp = tmp->next;
+			i--;
+		}
+		last = tmp;
+		last = last->next;
+		last->next = stack;
+		tmp->next = NULL;
+		printf("rva\n");
+        return (last);
+	}
+    return NULL;
+}//roda para baixo, ultimo para primeiro
+
+list	*lst_r(list *stack) {
+	list	*iter;
+	list	*first;
+	first = stack;
+	iter = stack;
+	while (iter->next != NULL)
+		iter = iter->next;
+	stack = stack->next;
+	iter->next = first;
+	first->next = NULL;
+	printf("ra\n");
+	return (stack);
+}//roda para cima, primeiro para ultimo
+
+/*
+push a = b -> a; (X if b empty)
+push b = a -> b; (X if a empty)
+*/
+void	lst_p(list **stackb, list **stacka) {
+	if (f_lstlen(*stackb) > 0) {
+		if (*stacka == NULL) {
+			//printf("receptor empty\n");
+			(*stacka) = (*stackb);
+			(*stackb) = (*stackb)->next;
+			(*stacka)->next = NULL;
+		}
+		else {
+			//printf("receptor full\n");
+			list	*tmp;
+			tmp = (*stackb)->next;
+			(*stackb)->next = (*stacka);
+			(*stacka) = (*stackb);
+			(*stackb) = tmp;
+			}
+	}
+}
 
 // -------------------------------------
 //sb (swap b): Swap the first 2 elements at the top of stack b.
 //Do nothing if there is only one or no elements.
 //ss : sa and sb at the same time.
-
+/*
 void	lst_s(list *stack) {
 	if (f_lstlen(stack) >= 2) {
 		f_lst_swap_two(stack);
@@ -62,104 +137,12 @@ void	lst_2s(list *sta, list *stb) {
 	lst_s(stb);
 }
 
-/*pa (push a): Take the first element at the top of b and put it at the top of a.
-Do nothing if b is empty.*/
-
-//list add back
-void	lst_p(list *sta, list *stb) {
-	if (f_lstlen(sta) > 0) //ordem errada, organizar
-		sta.next = stb;
-}
-//adicionar condicao, se puxar para uma lista vazia
-
-//rb (rotate b): Shift up all elements of stack b by 1.
-//The first element becomes the last one.
-//rr : ra and rb at the same time.
-
-void	lst_r(list *stack) {
-	// nao preciso do controlo de argumentos
-	//ou elseif (vazio ou 1)
-	if (f_lstlen(lst) >= 2) {
-		list	tmp;
-		tmp = stack;
-		while (tmp.status != "end") //ou tmp.next != nulo
-			tmp = tmp.next;
-		stack.next = tmp.next; //ou igual a NULL
-		tmp.next = stack;
-	}
-	else
-		return; //redundante, simboliza a lista vazia ou 1 elemento
-}
-
 void	lst_2r(list *sta, list *stb) {
 	lst_r(sta);
 	lst_r(stb);
 }
 
-//rrb (reverse rotate b): Shift down all elements of stack b by 1.
-//The last element becomes the first one.
-//rrr : rra and rrb at the same time.
-
-void	lst_rv(list *stack) {
-	if (f_lstlen(lst) >= 2) {
-		ez;
-		//ultimo node passa a primeiro
-		//tambem nao devo precisar
-	}
-}
-
 void	lst_2rv(list *sta, list *stb) {
 	lst_rv(sta);
 	lst_rv(stb);
-}
-
-//----------------------------------------------------------
-
-/*
-old:
-void	f_s_ab(int *str) {
-	int i;
-	i = f_strlen(str);
-	if (i >= 2)
-		f_swap(&str[0], &str[1]);
-	else
-		return;
-}
-
-void	f_ss(int *s1, int *s2) {
-	f_s_ab(s1);
-	f_s_ab(s2);
-}
-void	f_r_ab(int *str) {
-	if (f_strlen(str) < 2)
-		return;
-	int up, down = 0;
-	for (int i = 0; str[i] != '\0'; i++) {
-		down = str[i];
-		str[i] = up;
-		up = down;
-	}
-	str[0] = up;
-}
-
-void	f_rr(int *s1, int *s2) {
-	f_r_ab(s1);
-	f_r_ab(s2);
-}
-void	f_rr_ab(int *str) {
-	if (f_strlen(str) < 2)
-		return;
-	int up, down = 0;
-	for (int i = (f_strlen(str) - 1); i >= 0; i--) {
-		down = str[i];
-		str[i] = up;
-		up = down;
-	}
-	str[f_strlen(str) - 1] = up;
-}
-
-void	f_rrr(int *s1, int *s2) {
-	f_rr_ab(s1);
-	f_rr_ab(s2);
-}
-*/
+}*/

@@ -14,7 +14,7 @@
 
 //----------create / add to stack--------------------
 
-list	*create_node(list *stacka, int array, int order) {
+list	*create_node(int array, int order) {
     list	*new;
     new = malloc(sizeof(list));
     new->data = array;
@@ -27,21 +27,22 @@ list	*lst_add_front(list *stacka, int array, int order) {
 	list	*new;
 	list	*tmp;
 	tmp = stacka;
+	new = NULL;
 	while (tmp->next != NULL)
 		tmp = tmp->next;
-	new = create_node(new, array, order);
+	new = create_node(array, order);
 	tmp->next = new;
 	return (stacka);
 }
 
-list	*create_stack(list *stacka, int *array, int *sorted) {
+list	*create_stack(list *stacka, int *array, int *sorted, int total) {
 	int	i;
 	i = 0;
 	if (stacka == NULL) {
-		stacka = create_node(stacka, array[i], sorted[i]);
+		stacka = create_node(array[i], sorted[i]);
 		i++;
 	}
-	while (array[i]) {
+	while (i < total) {
 		stacka = lst_add_front(stacka, array[i], sorted[i]);
 		i++;
 	}
@@ -54,6 +55,7 @@ stack (be careful about the order).*/
 
 //---auxiliary functions---
 
+/*
 int	f_arrlen(int *array) {
 	int i;
 	i = 0;
@@ -71,15 +73,14 @@ void	f_swap(int *a, int *b) {
 
 void	f_lst_swap_two(list *fst) {
 	int	i1, i2;
-	//list	travel;
 	i1 = lst.data;
-	i2 = 0; //tem que inicializar antes de entrar numa condicao
+	i2 = 0;
 	if (lst.next != NULL) {
 		lst = lst.next;
 		i2 = lst.data;
 		f_swap(&i1, &i2)
 	}
-} //as funcoes de swap vao usar isto, nao uso nenhuma para ja por isso relax
+}
 
 int	*array_dup(int *array) {
 	int	len;
@@ -104,10 +105,4 @@ int	f_lstlen(list *lst) {
         i++;
 	return (i);
 }
-
-/*void	f_swap(int *a, int *b) {
-	int tmp = 0;
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}*/
+*/

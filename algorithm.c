@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tibarbos <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 12:03:27 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/09/19 12:03:35 by tibarbos         ###   ########.fr       */
+/*   Updated: 2023/09/19 12:11:09 by tibarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ int	*put_index(int *array, int *sorted, int total) {
 
 //stack sorting
 //duplo rotate c custos, push B, push de volta A
+//-----TEST ALGO-----------
 int	next_index(list *stacka, int count) {
-	//list	*tmp;
 	int	i = 0;
 	while (stacka->index != count) {
 		stacka = stacka->next;
@@ -67,11 +67,9 @@ int	next_index(list *stacka, int count) {
 
 void	lst_smart_rotate(list **stacka, list **stackb, int total) {
 	int	count;
-	//int	ttotal;
 	count = 0;
-	//1
 	while ((*stacka) != NULL) {
-		while ((*list)->index != count) {
+		while ((*stacka)->index != count) {
 			total = total - count;
 			if (next_index(*stacka, count) > (total / 2))
 				(*stacka) = lst_rv((*stacka));
@@ -79,14 +77,17 @@ void	lst_smart_rotate(list **stacka, list **stackb, int total) {
 				(*stacka) = lst_r((*stacka));
 		}
 		if ((*stacka)->index == count) {
-			pb(&stacka, &stackb); //push a->b
+			lst_p(&(*stacka), &(*stackb)); //push a->b
+			printf("pb\n");
 			count++;
 		}
 	}
-	//2
-	while ((*stackb) != NULL)
-		pa(&stackb, &stacka); //push b->a
+	while ((*stackb) != NULL) {
+		lst_p(&(*stackb), &(*stacka)); //push b->a
+		printf("pa\n");
+	}
 }
+//-------------------------
 
 //path > (total / 2), segunda metade, rv (rotate down)
 //path < (total / 2), primeira metade, r (rotate up)
