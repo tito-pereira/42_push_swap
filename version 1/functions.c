@@ -121,6 +121,15 @@ void	lst_p(list **stackb, list **stacka) {
 	}
 }
 
+list	*lst_s(list *stacka) {
+	list	*tmp;
+	tmp = stacka;
+	tmp = tmp->next;
+	stacka->next = tmp->next;
+	tmp->next = stacka;
+	printf("sa\n");
+	return (tmp);
+}
 // -------------------------------------
 //sb (swap b): Swap the first 2 elements at the top of stack b.
 //Do nothing if there is only one or no elements.

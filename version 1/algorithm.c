@@ -6,7 +6,7 @@
 /*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 12:03:27 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/09/19 17:52:09 by tibarbos         ###   ########.fr       */
+/*   Updated: 2023/09/20 12:41:08 by tibarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,17 @@
 - testar e por a funcionar
 - contar os passos com aqueles limites
 
+check_status
+check_switch
+lst_s (check)
+
 caso nao funcione well.. posso tentar adicionar a condicao do duplo calculo,
 mas nao sei muito bem se ira funcionar..
 */
 
 #include "push_swap.h"
 
-void	sort_three() {
+/*void	sort_three() {
 	posso ver index e index + 1
 if (index == 1 && index+1 == 3)
 	pb, sa, pa
@@ -31,8 +35,7 @@ if (index == 2) {
 else if (index == 3)
 	if (),
 	else if (),
-}
-}
+}*/
 
 //stack sorting
 //duplo rotate c custos, push B, push de volta A
@@ -56,8 +59,7 @@ int	check_switch(list *stacka, int total) {
 		stacka = stacka->next;
 		two = stacka->index;
 		if (one > two)
-			//lst_s(stacka);
-			//return 1; ainda n sei
+			return 1;
 	}
 	return 0;
 }//test
@@ -90,9 +92,8 @@ void	lst_smart_rotate(list **stacka, list **stackb, int total) {
 	while ((*stacka) != NULL) {
 		if (check_status(*stacka, total) == 0) {
 			if (check_switch(*stacka, total) == 0) {
-				//encravei aqui
 				if (total < 4)
-					lst_rv();
+					(*stacka) = lst_rv((*stacka));
 				else if (total > 3 && (*stacka)->index != count) {
 					if (next_index(*stacka, count) > (total / 2))
 						(*stacka) = lst_rv((*stacka));
@@ -107,7 +108,7 @@ void	lst_smart_rotate(list **stacka, list **stackb, int total) {
 				}
 			}
 			else (switch, volta ao loop)
-				lst_sa;
+				(*stacka) = lst_s((*stacka));
 		}
 	}
 	while ((*stackb) != NULL) {

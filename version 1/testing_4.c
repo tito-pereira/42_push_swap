@@ -1,12 +1,4 @@
 /*
-- testar algoritmo de custos inteligentes
-o proto teste deu certo, pelo menos ja ordenou os indices. agora tenho que arranjar aqueles pequenos erros
-dos elementos 1 e fazer mais qq coisa q nao me lembro
-ah, contar os passos
-e claro, ordenar o array
-como o checker nao esta a dar permissao, fazer já o sort de integers e juntar tudo nos ficheiros finais por ordem
-amanha trato do checker e os testes finais
-ja separei as partes do codigo em varios test files por isso depois é mais facil dar trace a erros eventuais
 
 - erros so c 1 argumento (r e rr)
 - erro qualquer ao tentar printar 0 como argumento teste 1
@@ -160,6 +152,15 @@ void	lst_p(list **stackb, list **stacka) {
 	}
 }//testar, acho que ta pronta
 
+list	*lst_s(list *stacka) {
+	list	*tmp;
+	tmp = stacka;
+	tmp = tmp->next;
+	stacka->next = tmp->next;
+	tmp->next = stacka;
+	return (tmp);
+} //done
+
 //-----TEST ALGO-----------
 int	next_index(list *stacka, int count) {
 	int	i = 0;
@@ -227,11 +228,12 @@ int	main(int ac, char **av) {
     //stacka = lst_rv(stacka);
     //lst_p(&stacka, &stackb);
 	//stacka = lst_r(stacka); //ok acho que ja esta a dar, testar algoritmo final
-	lst_smart_rotate(&stacka, &stackb, total);
+	//lst_smart_rotate(&stacka, &stackb, total);
+	stacka = lst_s(stacka);
 	//---print results:
-    /*print_stack(stacka);
+    print_stack(stacka);
     if (stackb) {
         printf("----------------------------------\n");
         print_stack(stackb);
-    }*/
+    }
 }

@@ -46,6 +46,7 @@ int	f_lstlen(list *lst);
 void	lst_p(list **stackb, list **stacka);
 list	*lst_r(list *stack);
 list	*lst_rv(list *stack);
+list	*lst_s(list *stacka);
 //bubble v
 int	*f_arrdup(int *array, int total);
 int	*bubble_sort(int *array, int total);
