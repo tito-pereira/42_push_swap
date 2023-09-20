@@ -6,7 +6,7 @@
 /*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 12:03:27 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/09/20 12:41:08 by tibarbos         ###   ########.fr       */
+/*   Updated: 2023/09/20 12:43:43 by tibarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ void	lst_smart_rotate(list **stacka, list **stackb, int total) {
 					total--;
 				}
 			}
-			else (switch, volta ao loop)
+			else if (check_switch(*stacka, total) == 1)
 				(*stacka) = lst_s((*stacka));
 		}
 	}
