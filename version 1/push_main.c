@@ -34,7 +34,11 @@ void	main_aux(int *array, int total) {
 	stacka = NULL;
 	stackb = NULL;
 	stacka = create_stack(stacka, array, sorted, total);
-	lst_small_rotate(&stacka, &stackb, total);
+	if (total < 6)
+		lst_small_rotate(&stacka, &stackb, total);
+	else if (total > 5)
+		//lst_big_rotate();
+		printf("not done yet\n");
 	print_stack(stacka);
 }
 

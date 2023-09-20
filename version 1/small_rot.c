@@ -1,53 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithm.c                                        :+:      :+:    :+:   */
+/*   small_rot.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 12:03:27 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/09/20 14:35:32 by tibarbos         ###   ########.fr       */
+/*   Updated: 2023/09/20 15:22:13 by tibarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-. adicionei uma formula geral para (sorted, 3, 5, 100, 500)
-- testar e por a funcionar
-- contar os passos com aqueles limites
-
-check_status
-check_switch
-lst_s (check)
-
-caso nao funcione well.. posso tentar adicionar a condicao do duplo calculo,
-mas nao sei muito bem se ira funcionar..
-*/
-
 #include "push_swap.h"
 
-/*void	sort_three() {
-	posso ver index e index + 1
-if (index == 1 && index+1 == 3)
-	pb, sa, pa
-if (index == 2) {
-	if (index+1 == 1), 
-	else if (index+1 == 3),
-else if (index == 3)
-	if (),
-	else if (),
-}*/
-
-//stack sorting
-//duplo rotate c custos, push B, push de volta A
 //-----TEST ALGO-----------
-int	next_index(list *stacka, int count) {
-	int	i = 0;
-	while (stacka->index != count) {
-		stacka = stacka->next;
-		i++;
-	}
-	return (i);
-}
 
 int	check_switch(list *stacka, int total) {
 	int	one;
@@ -104,7 +69,7 @@ void	lst_small_rotate(list **stacka, list **stackb, int total) {
 				}
 			}
 			else if (check_switch(*stacka, total) == 1 && total < 6)
-				(*stacka) = lst_s((*stacka));
+				(*stacka) = lst_s((*stacka)); //ja printa aqui dentro
 		}
 		else if (check_status(*stacka, total) == 1)
 			break;

@@ -51,8 +51,9 @@ list	*lst_s(list *stacka);
 int	*f_arrdup(int *array, int total);
 int	*bubble_sort(int *array, int total);
 int	*put_index(int *array, int *sorted, int total);
-//algorithm v
-int	next_index(list *stacka, int count);
+//small rot v
 void	lst_small_rotate(list **stacka, list **stackb, int total);
+//big rot
+int	next_index(list *stacka, int count);
 
 #endif
