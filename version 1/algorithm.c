@@ -6,7 +6,7 @@
 /*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 12:03:27 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/09/20 12:43:43 by tibarbos         ###   ########.fr       */
+/*   Updated: 2023/09/20 12:49:51 by tibarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	check_status(list *stacka, int total) {
 	one = 0;
 	two = 0;
 	if (total > 1) {
-		while (stacka->index != NULL) {
+		while (stacka->next != NULL) {
 			one = stacka->index;
 			stacka = stacka->next;
 			two = stacka->index;
@@ -89,6 +89,7 @@ int	check_status(list *stacka, int total) {
 void	lst_smart_rotate(list **stacka, list **stackb, int total) {
 	int	count;
 	count = 0;
+	//printf("algo\n");
 	while ((*stacka) != NULL) {
 		if (check_status(*stacka, total) == 0) {
 			if (check_switch(*stacka, total) == 0) {
@@ -110,6 +111,8 @@ void	lst_smart_rotate(list **stacka, list **stackb, int total) {
 			else if (check_switch(*stacka, total) == 1)
 				(*stacka) = lst_s((*stacka));
 		}
+		else if (check_status(*stacka, total) == 1)
+			break;
 	}
 	while ((*stackb) != NULL) {
 		lst_p(&(*stackb), &(*stacka)); //push b->a
