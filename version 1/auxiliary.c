@@ -14,18 +14,22 @@
 
 //----------create / add to stack--------------------
 
-list	*create_node(int array, int order) {
-    list	*new;
-    new = malloc(sizeof(list));
-    new->data = array;
+list	*create_node(int array, int order)
+{
+	list	*new;
+
+	new = malloc(sizeof(list));
+	new->data = array;
 	new->index = order;
-    new->next = NULL;
+	new->next = NULL;
 	return (new);
 }
 
-list	*lst_add_front(list *stacka, int array, int order) {
+list	*lst_add_front(list *stacka, int array, int order)
+{
 	list	*new;
 	list	*tmp;
+
 	tmp = stacka;
 	new = NULL;
 	while (tmp->next != NULL)
@@ -35,23 +39,27 @@ list	*lst_add_front(list *stacka, int array, int order) {
 	return (stacka);
 }
 
-list	*create_stack(list *stacka, int *array, int *sorted, int total) {
+list	*create_stack(list *stacka, int *array, int *sorted, int total)
+{
 	int	i;
+
 	i = 0;
-	if (stacka == NULL) {
+	if (stacka == NULL)
+	{
 		stacka = create_node(array[i], sorted[i]);
 		i++;
 	}
-	while (i < total) {
+	while (i < total)
+	{
 		stacka = lst_add_front(stacka, array[i], sorted[i]);
 		i++;
 	}
 	return (stacka); 
 }
 
-/*You have to write a program named push_swap that takes as an argument the stack
-a formatted as a list of integers. The first argument should be at the top of the
-stack (be careful about the order).*/
+/*You have to write a program named push_swap that takes as an argument the
+stack a formatted as a list of integers. The first argument should be at
+the top of the stack (be careful about the order).*/
 
 //---auxiliary functions---
 
