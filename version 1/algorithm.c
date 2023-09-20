@@ -6,7 +6,7 @@
 /*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 12:03:27 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/09/20 12:49:51 by tibarbos         ###   ########.fr       */
+/*   Updated: 2023/09/20 13:01:55 by tibarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,8 @@ void	lst_smart_rotate(list **stacka, list **stackb, int total) {
 	//printf("algo\n");
 	while ((*stacka) != NULL) {
 		if (check_status(*stacka, total) == 0) {
-			if (check_switch(*stacka, total) == 0) {
+			if ((check_switch(*stacka, total) == 0)
+			|| (check_switch(*stacka, total) == 1 && total > 5)) {
 				if (total < 4)
 					(*stacka) = lst_rv((*stacka));
 				else if (total > 3 && (*stacka)->index != count) {
@@ -108,7 +109,7 @@ void	lst_smart_rotate(list **stacka, list **stackb, int total) {
 					total--;
 				}
 			}
-			else if (check_switch(*stacka, total) == 1)
+			else if (check_switch(*stacka, total) == 1 && total < 6)
 				(*stacka) = lst_s((*stacka));
 		}
 		else if (check_status(*stacka, total) == 1)
@@ -149,7 +150,7 @@ else if (index == 3)
 
 //-------------------------
 /*
-acho que o segredo grosseiro é usar o maximo de calculos de custos e funcoes e condicoes possiveis
+check switch aumenta imenso a complexidade
 
 formula 1 - algoritmo universal
 
