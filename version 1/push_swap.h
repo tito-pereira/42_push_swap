@@ -53,6 +53,6 @@ int	*bubble_sort(int *array, int total);
 int	*put_index(int *array, int *sorted, int total);
 //algorithm v
 int	next_index(list *stacka, int count);
-void	lst_smart_rotate(list **stacka, list **stackb, int total);
+void	lst_small_rotate(list **stacka, list **stackb, int total);
 
 #endif

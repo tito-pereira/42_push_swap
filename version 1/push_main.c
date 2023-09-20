@@ -34,7 +34,7 @@ void	main_aux(int *array, int total) {
 	stacka = NULL;
 	stackb = NULL;
 	stacka = create_stack(stacka, array, sorted, total);
-	lst_smart_rotate(&stacka, &stackb, total);
+	lst_small_rotate(&stacka, &stackb, total);
 	print_stack(stacka);
 }
 

@@ -6,7 +6,7 @@
 /*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 12:03:27 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/09/20 13:01:55 by tibarbos         ###   ########.fr       */
+/*   Updated: 2023/09/20 14:35:32 by tibarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,23 +86,17 @@ int	check_status(list *stacka, int total) {
 	return 0;
 } //test
 
-void	lst_smart_rotate(list **stacka, list **stackb, int total) {
+void	lst_small_rotate(list **stacka, list **stackb, int total) {
 	int	count;
 	count = 0;
-	//printf("algo\n");
 	while ((*stacka) != NULL) {
 		if (check_status(*stacka, total) == 0) {
-			if ((check_switch(*stacka, total) == 0)
-			|| (check_switch(*stacka, total) == 1 && total > 5)) {
+			if (check_switch(*stacka, total) == 0) {
 				if (total < 4)
 					(*stacka) = lst_rv((*stacka));
-				else if (total > 3 && (*stacka)->index != count) {
-					if (next_index(*stacka, count) > (total / 2))
-						(*stacka) = lst_rv((*stacka));
-					else if (next_index(*stacka, count) <= (total / 2))
-						(*stacka) = lst_r((*stacka));
-				}
-				if (total > 3 && (*stacka)->index == count) {
+				else if (total > 3 && (*stacka)->index != count)
+					(*stacka) = lst_rv((*stacka));
+				else if (total > 3 && (*stacka)->index == count) {
 					lst_p(&(*stacka), &(*stackb)); //push a->b
 					printf("pb\n");
 					count++;
@@ -119,7 +113,7 @@ void	lst_smart_rotate(list **stacka, list **stackb, int total) {
 		lst_p(&(*stackb), &(*stacka)); //push b->a
 		printf("pa\n");
 	}
-}
+} //small rotate, ate 5
 
 /*
 sorted list, 0 moves max
@@ -197,6 +191,41 @@ void	lst_smart_rotate(list **stacka, list **stackb, int total) {
 		printf("pa\n");
 	}
 }*/
+/*
+void	lst_smart_rotate(list **stacka, list **stackb, int total) {
+	int	count;
+	count = 0;
+	while ((*stacka) != NULL) {
+		if (check_status(*stacka, total) == 0) {
+			if (check_switch(*stacka, total) == 0) {
+				//|| (check_switch(*stacka, total) == 1 && total > 5)
+				if (total < 4)
+					(*stacka) = lst_rv((*stacka));
+				else if (total > 3 && (*stacka)->index != count) {
+					if (next_index(*stacka, count) > (total / 2))
+						(*stacka) = lst_rv((*stacka));
+					else if (next_index(*stacka, count) <= (total / 2))
+						(*stacka) = lst_r((*stacka));
+				}
+				if (total > 3 && (*stacka)->index == count) {
+					lst_p(&(*stacka), &(*stackb)); //push a->b
+					printf("pb\n");
+					count++;
+					total--;
+				}
+			}
+			else if (check_switch(*stacka, total) == 1 && total < 6)
+				(*stacka) = lst_s((*stacka));
+		}
+		else if (check_status(*stacka, total) == 1)
+			break;
+	}
+	while ((*stackb) != NULL) {
+		lst_p(&(*stackb), &(*stacka)); //push b->a
+		printf("pa\n");
+	}
+}
+*/
 //--------
 //path > (total / 2), segunda metade, rv (rotate down)
 //path < (total / 2), primeira metade, r (rotate up)
