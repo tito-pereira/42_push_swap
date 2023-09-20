@@ -62,7 +62,7 @@ int	f_lstlen(list *lst) {
 	return (i);
 }
 
-list	*lst_rv(list *stack) {
+list	*lst_rr(list *stack) {
 	list	*tmp;
 	list	*last;
     int i;

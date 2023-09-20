@@ -58,9 +58,9 @@ void	lst_small_rotate(list **stacka, list **stackb, int total) {
 		if (check_status(*stacka, total) == 0) {
 			if (check_switch(*stacka, total) == 0) {
 				if (total < 4)
-					(*stacka) = lst_rv((*stacka));
+					(*stacka) = lst_rr((*stacka));
 				else if (total > 3 && (*stacka)->index != count)
-					(*stacka) = lst_rv((*stacka));
+					(*stacka) = lst_rr((*stacka));
 				else if (total > 3 && (*stacka)->index == count) {
 					lst_p(&(*stacka), &(*stackb)); //push a->b
 					printf("pb\n");
