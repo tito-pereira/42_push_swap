@@ -103,25 +103,27 @@ push a = b -> a; (X if b empty)
 push b = a -> b; (X if a empty)
 */
 void	lst_p(list **stackb, list **stacka) {
-	if (f_lstlen(*stackb) > 0) {
-		if (*stacka == NULL) {
-			//printf("receptor empty\n");
+	if (f_lstlen(*stackb) > 0)
+	{
+		if (*stacka == NULL)
+		{
 			(*stacka) = (*stackb);
 			(*stackb) = (*stackb)->next;
 			(*stacka)->next = NULL;
 		}
-		else {
-			//printf("receptor full\n");
+		else
+		{
 			list	*tmp;
 			tmp = (*stackb)->next;
 			(*stackb)->next = (*stacka);
 			(*stacka) = (*stackb);
 			(*stackb) = tmp;
-			}
+		}
 	}
 }
 
-list	*lst_s(list *stacka) {
+list	*lst_s(list *stacka)
+{
 	list	*tmp;
 	tmp = stacka;
 	tmp = tmp->next;

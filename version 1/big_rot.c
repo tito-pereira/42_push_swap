@@ -19,9 +19,9 @@ int	next_index(list *stackb, int idx)
 		i++;
 	}
 	return (i);
-}
+} //apagar depois
 
-int	find_next_chunk(list *stacka, int count)
+void	the_finder(list *stacka, int *first, int *last)
 {
 	int	i;
 
@@ -31,7 +31,43 @@ int	find_next_chunk(list *stacka, int count)
 		stacka = stacka->next;
 		i++;
 	}
-}
+	if ((stacka->index >= count && stacka->index <= (count + 20)))
+	{
+		*first = i;
+		*last = i;
+	}
+	while (stacka->next != NULL)
+	{
+		if ((stacka->index >= count && stacka->index <= (count + 20)))
+			*last = i;
+		stacka = stacka->next;
+		i++;
+	}
+} //test
+
+int	find_next_chunk(list *stacka, int total)
+{
+	int	first;
+	int	last;
+
+	first = 0;
+	last = 0;
+	the_finder(stacka, &first, &last);
+	if (first <= (total / 2) && last >= (total / 2))
+		return (0); //primeira metade
+	if (first > (total / 2) && last < (total / 2))
+		return (1); //segunda metade
+	if (first <= (total / 2) && last < (total / 2))
+	{
+		if (first > last)
+			return (l);
+	}
+	return (0);
+	//se ambos na primeira metade, roda up
+	//se ambos na segunda metade, roda down
+	//se um em cada, ver qual o valor mais pequeno
+	//se first, roda 0, se last, roda 1
+} //test
 
 void	chunk_divide(list **stacka, list **stackb, int total)
 {
@@ -40,10 +76,10 @@ void	chunk_divide(list **stacka, list **stackb, int total)
 	chest = 0;
 	while (!((*stacka)->index >= count && (*stacka)->index <= (count + 20)) && *stacka != NULL)
 	{
-		if (find_next_chunk(*stacka) > (total / 2))
-			lst_rv();
-		else if (find_next_chunk(*stacka) <= (total / 2))
-			lst_r();
+		if (find_next_chunk(*stacka, total) == 0)
+			lst_r(*stacka);
+		else if (find_next_chunk(*stacka, total) == 1)
+			lst_rr(*stacka);
 	}
 	if ((*stacka)->index >= count && (*stacka)->index <= (count + 20))
 	{
