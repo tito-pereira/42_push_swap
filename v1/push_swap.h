@@ -43,7 +43,8 @@ t_list	*lst_rrb(t_list *stack);
 //functions 2
 t_list	*lst_sa(t_list *stacka);
 t_list	*lst_sb(t_list *stackb);
-void	lst_p(t_list **stackb, t_list **stacka);
+void	lst_pa(t_list **stackb, t_list **stacka);
+void	lst_pb(t_list **stackb, t_list **stacka);
 //bubble v
 int		*f_arrdup(int *array, int total);
 int		*bubble_sort(int *array, int total);
