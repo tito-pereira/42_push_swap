@@ -34,14 +34,15 @@ int		check_dup(int *array);
 t_list	*create_node(int array, int order);
 t_list	*lst_add_front(t_list *stacka, int array, int order);
 t_list	*create_stack(t_list *stacka, int *array, int *sorted, int total);
-//functions v
 int		f_lstlen(t_list *lst);
-void	lst_p(t_list **stackb, t_list **stacka);
+//functions v
 t_list	*lst_ra(t_list *stack);
 t_list	*lst_rb(t_list *stack);
 t_list	*lst_rra(t_list *stack);
 t_list	*lst_rrb(t_list *stack);
+//functions 2
 t_list	*lst_s(t_list *stacka);
+void	lst_p(t_list **stackb, t_list **stacka);
 //bubble v
 int		*f_arrdup(int *array, int total);
 int		*bubble_sort(int *array, int total);

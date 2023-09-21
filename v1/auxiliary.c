@@ -55,6 +55,23 @@ t_list	*create_stack(t_list *stacka, int *array, int *sorted, int total)
 	return (stacka); 
 }
 
+int	f_lstlen(t_list *lst)
+{
+	int	i;
+
+	i = 0;
+	if (lst == NULL)
+		return (0);
+	while (lst->next != NULL)
+	{
+		i++;
+		lst = lst->next;
+	}
+	if (lst->next == NULL)
+		i++;
+	return (i);
+}
+
 /*You have to write a program named push_swap that takes as an argument the
 stack a formatted as a list of integers. The first argument should be at
 the top of the stack (be careful about the order).*/

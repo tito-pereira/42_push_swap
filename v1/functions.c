@@ -12,22 +12,7 @@
 
 #include "push_swap.h"
 
-int	f_lstlen(t_list *lst)
-{
-	int	i;
-
-	i = 0;
-	if (lst == NULL)
-		return (0);
-	while (lst->next != NULL)
-	{
-		i++;
-		lst = lst->next;
-	}
-	if (lst->next == NULL)
-		i++;
-	return (i);
-}
+//rotates
 
 t_list	*lst_rra(t_list *stack)
 {
@@ -113,39 +98,6 @@ t_list	*lst_rb(t_list *stack)
 	return (stack);
 }
 
-void	lst_p(t_list **stackb, t_list **stacka)
-{
-	t_list	*tmp;
-
-	if (f_lstlen(*stackb) > 0)
-	{
-		if (*stacka == NULL)
-		{
-			(*stacka) = (*stackb);
-			(*stackb) = (*stackb)->next;
-			(*stacka)->next = NULL;
-		}
-		else
-		{
-			tmp = (*stackb)->next;
-			(*stackb)->next = (*stacka);
-			(*stacka) = (*stackb);
-			(*stackb) = tmp;
-		}
-	}
-}
-
-t_list	*lst_s(t_list *stacka)
-{
-	t_list	*tmp;
-
-	tmp = stacka;
-	tmp = tmp->next;
-	stacka->next = tmp->next;
-	tmp->next = stacka;
-	printf("sa\n");
-	return (tmp);
-}
 // -------------------------------------
 //sb (swap b): Swap the first 2 elements at the top of stack b.
 //Do nothing if there is only one or no elements.

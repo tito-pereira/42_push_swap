@@ -6,7 +6,7 @@
 #    By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/13 18:27:25 by tibarbos          #+#    #+#              #
-#    Updated: 2023/09/21 15:17:56 by tibarbos         ###   ########.fr        #
+#    Updated: 2023/09/21 17:38:28 by tibarbos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 SRC = push_main.c bubble.c errors.c functions.c auxiliary.c \
-	small_rot.c big_rot.c
+	small_rot.c big_rot.c functions_2.c
 OBJS = ${SRC:.c=.o}
 
 $(NAME): $(OBJS)
