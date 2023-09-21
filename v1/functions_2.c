@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tibarbos <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:41:51 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/09/21 17:41:59 by tibarbos         ###   ########.fr       */
+/*   Updated: 2023/09/21 17:45:24 by tibarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	lst_p(t_list **stackb, t_list **stacka)
 	}
 }
 
-t_list	*lst_s(t_list *stacka)
+t_list	*lst_sa(t_list *stacka)
 {
 	t_list	*tmp;
 
@@ -45,5 +45,17 @@ t_list	*lst_s(t_list *stacka)
 	stacka->next = tmp->next;
 	tmp->next = stacka;
 	printf("sa\n");
+	return (tmp);
+}
+
+t_list	*lst_sb(t_list *stackb)
+{
+	t_list	*tmp;
+
+	tmp = stackb;
+	tmp = tmp->next;
+	stackb->next = tmp->next;
+	tmp->next = stackb;
+	printf("sb\n");
 	return (tmp);
 }

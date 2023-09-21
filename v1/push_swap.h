@@ -41,7 +41,8 @@ t_list	*lst_rb(t_list *stack);
 t_list	*lst_rra(t_list *stack);
 t_list	*lst_rrb(t_list *stack);
 //functions 2
-t_list	*lst_s(t_list *stacka);
+t_list	*lst_sa(t_list *stacka);
+t_list	*lst_sb(t_list *stackb);
 void	lst_p(t_list **stackb, t_list **stacka);
 //bubble v
 int		*f_arrdup(int *array, int total);

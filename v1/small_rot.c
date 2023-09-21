@@ -6,7 +6,7 @@
 /*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 12:03:27 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/09/21 16:28:29 by tibarbos         ###   ########.fr       */
+/*   Updated: 2023/09/21 17:46:15 by tibarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	lst_small_rotate(t_list **stacka, t_list **stackb, int total)
 				}
 			}
 			else if (check_switch(*stacka, total) == 1 && total < 6)
-				(*stacka) = lst_s((*stacka));
+				(*stacka) = lst_sa((*stacka));
 		}
 		else if (check_status(*stacka, total) == 1)
 			break ;
