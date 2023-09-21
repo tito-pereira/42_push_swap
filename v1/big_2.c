@@ -6,7 +6,7 @@
 /*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 18:32:27 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/09/21 18:34:55 by tibarbos         ###   ########.fr       */
+/*   Updated: 2023/09/21 18:42:38 by tibarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,17 @@ int	find_next_chunk(t_list *stacka, int total, int count)
 	return (0);
 }
 
+void	chunk_rotate(t_list **stacka, int *total, int *count)
+{
+	while (!((*stacka)->index >= *count && (*stacka)->index <= (*count + 19)))
+	{
+		if (find_next_chunk(*stacka, *total, *count) == 0)
+			(*stacka) = lst_ra(*stacka);
+		else if (find_next_chunk(*stacka, *total, *count) == 1)
+			(*stacka) = lst_rra(*stacka);
+	}
+}
+
 void	chunk_divide(t_list **stacka, t_list **stackb, int total)
 {
 	int	chest;
@@ -69,13 +80,7 @@ void	chunk_divide(t_list **stacka, t_list **stackb, int total)
 	count = 0;
 	while (*stacka != NULL)
 	{
-		while (!((*stacka)->index >= count && (*stacka)->index <= (count + 19)))
-		{
-			if (find_next_chunk(*stacka, total, count) == 0)
-				(*stacka) = lst_ra(*stacka);
-			else if (find_next_chunk(*stacka, total, count) == 1)
-				(*stacka) = lst_rra(*stacka);
-		}
+		chunk_rotate(stacka, &total, &count);
 		if ((*stacka)->index >= count && (*stacka)->index <= (count + 19))
 		{
 			lst_pb(stacka, stackb);
@@ -89,3 +94,13 @@ void	chunk_divide(t_list **stacka, t_list **stackb, int total)
 		}
 	}
 }
+
+/*
+while (!((*stacka)->index >= count && (*stacka)->index <= (count + 19)))
+{
+	if (find_next_chunk(*stacka, total, count) == 0)
+		(*stacka) = lst_ra(*stacka);
+	else if (find_next_chunk(*stacka, total, count) == 1)
+		(*stacka) = lst_rra(*stacka);
+}
+*/
