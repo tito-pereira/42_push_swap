@@ -10,67 +10,41 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-sa (swap a): Swap the first 2 elements at the top of stack a.
-Do nothing if there is only one or no elements.
-
-sb (swap b): Swap the first 2 elements at the top of stack b.
-Do nothing if there is only one or no elements.
-
-ss : sa and sb at the same time.
-
-pa (push a): Take the first element at the top of b and put it at the top of a.
-Do nothing if b is empty.
-
-pb (push b): Take the first element at the top of a and put it at the top of b.
-Do nothing if a is empty.
-
-ra (rotate a): Shift up all elements of stack a by 1.
-The first element becomes the last one.
-
-rb (rotate b): Shift up all elements of stack b by 1.
-The first element becomes the last one.
-
-rr : ra and rb at the same time.
-
-rra (reverse rotate a): Shift down all elements of stack a by 1.
-The last element becomes the first one.
-
-rrb (reverse rotate b): Shift down all elements of stack b by 1.
-The last element becomes the first one.
-
-rrr : rra and rrb at the same time.
-*/
-
 #include "push_swap.h"
 
 //    Functions:
 //---------------------
 
-int	f_lstlen(list *lst) {
+int	f_lstlen(list *lst)
+{
 	int	i;
+
 	i = 0;
 	if (lst == NULL)
 		return 0;
-	while (lst->next != NULL) {
+	while (lst->next != NULL)
+	{
 		i++;
 		lst = lst->next;
 	}
-    if (lst->next == NULL) {
+    if (lst->next == NULL)
 		i++;
-	}
 	return (i);
 }
 
-list	*lst_rra(list *stack) {
+list	*lst_rra(list *stack)
+{
 	list	*tmp;
 	list	*last;
     int i;
+
 	tmp = stack;
 	i = f_lstlen(stack);
-	if (i >= 2) {
+	if (i >= 2)
+	{
 		i--;
-		while (i > 1) {
+		while (i > 1)
+		{
 			tmp = tmp->next;
 			i--;
 		}
@@ -82,15 +56,18 @@ list	*lst_rra(list *stack) {
         return (last);
 	}
     return NULL;
-}//roda para baixo, ultimo para primeiro
+}
 
-list	*lst_rrb(list *stack) {
+list	*lst_rrb(list *stack)
+{
 	list	*tmp;
 	list	*last;
     int i;
+
 	tmp = stack;
 	i = f_lstlen(stack);
-	if (i >= 2) {
+	if (i >= 2)
+	{
 		i--;
 		while (i > 1) {
 			tmp = tmp->next;
@@ -104,11 +81,13 @@ list	*lst_rrb(list *stack) {
         return (last);
 	}
     return NULL;
-}//roda para baixo, ultimo para primeiro
+}
 
-list	*lst_ra(list *stack) {
+list	*lst_ra(list *stack)
+{
 	list	*iter;
 	list	*first;
+
 	first = stack;
 	iter = stack;
 	while (iter->next != NULL)
@@ -118,11 +97,13 @@ list	*lst_ra(list *stack) {
 	first->next = NULL;
 	printf("ra\n");
 	return (stack);
-}//roda para cima, primeiro para ultimo
+}
 
-list	*lst_rb(list *stack) {
+list	*lst_rb(list *stack)
+{
 	list	*iter;
 	list	*first;
+
 	first = stack;
 	iter = stack;
 	while (iter->next != NULL)
@@ -132,13 +113,10 @@ list	*lst_rb(list *stack) {
 	first->next = NULL;
 	printf("rb\n");
 	return (stack);
-}//roda para cima, primeiro para ultimo
+}
 
-/*
-push a = b -> a; (X if b empty)
-push b = a -> b; (X if a empty)
-*/
-void	lst_p(list **stackb, list **stacka) {
+void	lst_p(list **stackb, list **stacka)
+{
 	if (f_lstlen(*stackb) > 0)
 	{
 		if (*stacka == NULL)
@@ -161,6 +139,7 @@ void	lst_p(list **stackb, list **stacka) {
 list	*lst_s(list *stacka)
 {
 	list	*tmp;
+	
 	tmp = stacka;
 	tmp = tmp->next;
 	stacka->next = tmp->next;
