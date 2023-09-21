@@ -6,7 +6,7 @@
 /*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 15:37:45 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/09/21 17:26:27 by tibarbos         ###   ########.fr       */
+/*   Updated: 2023/09/21 17:52:06 by tibarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,7 @@ void	chunk_divide(t_list **stacka, t_list **stackb, int total)
 		}
 		if ((*stacka)->index >= count && (*stacka)->index <= (count + 19))
 		{
-			lst_p(stacka, stackb);
-			printf("pb\n");
+			lst_pb(stacka, stackb);
 			total--;
 			chest++;
 		}
@@ -127,8 +126,7 @@ void	push_b(t_list **stacka, t_list **stackb, int total)
 		}
 		if ((*stackb)->index == count)
 		{
-			lst_p(&(*stackb), &(*stacka));
-			printf("pa\n");
+			lst_pa(&(*stackb), &(*stacka));
 			count--;
 			total--;
 		}

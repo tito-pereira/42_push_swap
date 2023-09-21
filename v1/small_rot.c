@@ -6,7 +6,7 @@
 /*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 12:03:27 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/09/21 17:46:15 by tibarbos         ###   ########.fr       */
+/*   Updated: 2023/09/21 17:50:50 by tibarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,7 @@ void	lst_small_rotate(t_list **stacka, t_list **stackb, int total)
 					(*stacka) = lst_rra((*stacka));
 				else if (total > 3 && (*stacka)->index == count)
 				{
-					lst_p(&(*stacka), &(*stackb));
-					printf("pb\n");
+					lst_pb(&(*stacka), &(*stackb));
 					count++;
 					total--;
 				}
@@ -87,7 +86,6 @@ void	lst_small_rotate(t_list **stacka, t_list **stackb, int total)
 	}
 	while ((*stackb) != NULL)
 	{
-		lst_p(&(*stackb), &(*stacka));
-		printf("pa\n");
+		lst_pa(&(*stackb), &(*stacka));
 	}
 }
