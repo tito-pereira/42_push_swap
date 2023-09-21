@@ -12,8 +12,6 @@
 
 #include "push_swap.h"
 
-//----------create / add to stack--------------------
-
 list	*create_node(int array, int order)
 {
 	list	*new;

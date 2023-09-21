@@ -12,9 +12,6 @@
 
 #include "push_swap.h"
 
-//    Functions:
-//---------------------
-
 int	f_lstlen(list *lst)
 {
 	int	i;
@@ -139,7 +136,7 @@ void	lst_p(list **stackb, list **stacka)
 list	*lst_s(list *stacka)
 {
 	list	*tmp;
-	
+
 	tmp = stacka;
 	tmp = tmp->next;
 	stacka->next = tmp->next;
