@@ -12,21 +12,21 @@
 
 #include "push_swap.h"
 
-list	*create_node(int array, int order)
+t_list	*create_node(int array, int order)
 {
-	list	*new;
+	t_list	*new;
 
-	new = malloc(sizeof(list));
+	new = malloc(sizeof(t_list));
 	new->data = array;
 	new->index = order;
 	new->next = NULL;
 	return (new);
 }
 
-list	*lst_add_front(list *stacka, int array, int order)
+t_list	*lst_add_front(t_list *stacka, int array, int order)
 {
-	list	*new;
-	list	*tmp;
+	t_list	*new;
+	t_list	*tmp;
 
 	tmp = stacka;
 	new = NULL;
@@ -37,7 +37,7 @@ list	*lst_add_front(list *stacka, int array, int order)
 	return (stacka);
 }
 
-list	*create_stack(list *stacka, int *array, int *sorted, int total)
+t_list	*create_stack(t_list *stacka, int *array, int *sorted, int total)
 {
 	int	i;
 
@@ -53,6 +53,23 @@ list	*create_stack(list *stacka, int *array, int *sorted, int total)
 		i++;
 	}
 	return (stacka); 
+}
+
+int	f_lstlen(t_list *lst)
+{
+	int	i;
+
+	i = 0;
+	if (lst == NULL)
+		return (0);
+	while (lst->next != NULL)
+	{
+		i++;
+		lst = lst->next;
+	}
+	if (lst->next == NULL)
+		i++;
+	return (i);
 }
 
 /*You have to write a program named push_swap that takes as an argument the
