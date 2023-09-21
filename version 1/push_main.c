@@ -12,6 +12,10 @@
 
 #include "push_swap.h"
 
+/*
+condicoes de erro deixaram de dar?
+*/
+
 void	print_stack(list *stack) {
 	int	i = 1;
 	while (stack->next != NULL) {

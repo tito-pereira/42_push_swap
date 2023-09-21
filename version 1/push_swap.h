@@ -54,6 +54,7 @@ int	*f_arrdup(int *array, int total);
 int	*bubble_sort(int *array, int total);
 int	*put_index(int *array, int *sorted, int total);
 //small rot v
+int	check_status(list *stacka, int total);
 void	lst_small_rotate(list **stacka, list **stackb, int total);
 //big rot
 void	lst_big_rotate(list **stacka, list **stackb, int total);

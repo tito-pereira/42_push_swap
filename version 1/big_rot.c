@@ -4,10 +4,7 @@
 - colocar nomes correctos nas funcoes;
 - colocar ja as funcoes todas ();
 
-. dividir em chunks de 20 ao mandar para a stack b (so uso rotates aqui,
-com calculos intermedios do indice dentro do chunk mais proximo)
-. retornar ao A usando o meu algoritmo antigo, find next, melhor caminho (rb ou rrb), porque organizado em chunks
-ajuda imenso
+- experimentar outros chunks para 500
 */
 
 void	the_finder(list *stacka, int *first, int *last, int count)
@@ -42,6 +39,8 @@ int	find_next_chunk(list *stacka, int total, int count)
 	first = 0;
 	last = 0;
 	the_finder(stacka, &first, &last, count);
+	last = total - last;
+	//printf("first:%d, last:%d\n", first, last);
 	if (first <= (total / 2) && last >= (total / 2))
 		return (0); //primeira metade
 	if (first > (total / 2) && last < (total / 2))
@@ -56,6 +55,7 @@ int	find_next_chunk(list *stacka, int total, int count)
 	//se ambos na segunda metade, roda down
 	//se um em cada, ver qual o valor mais pequeno
 	//se first, roda 0, se last, roda 1
+	//last fica sempre gigante, ou seja, fica sempre na primeira metade
 } //test
 
 void	chunk_divide(list **stacka, list **stackb, int total)
@@ -131,6 +131,8 @@ void	push_b(list **stacka, list **stackb, int total)
 
 void	lst_big_rotate(list **stacka, list **stackb, int total)
 {
+	if (check_status((*stacka), total) == 1)
+		return;
 	chunk_divide(stacka, stackb, total);
 	push_b(stacka, stackb, total);
 }

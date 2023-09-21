@@ -6,7 +6,7 @@
 /*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 12:03:27 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/09/21 12:23:57 by tibarbos         ###   ########.fr       */
+/*   Updated: 2023/09/21 13:39:48 by tibarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int	check_switch(list *stacka, int total) {
 	return 0;
 }//test
 
-int	check_status(list *stacka, int total) {
+int	check_status(list *stacka, int total)
+{
 	int	one;
 	int two;
 	one = 0;
