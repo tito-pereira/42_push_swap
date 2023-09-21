@@ -12,13 +12,13 @@
 
 #include "push_swap.h"
 
-int	f_lstlen(list *lst)
+int	f_lstlen(t_list *lst)
 {
 	int	i;
 
 	i = 0;
 	if (lst == NULL)
-		return 0;
+		return (0);
 	while (lst->next != NULL)
 	{
 		i++;
@@ -29,11 +29,11 @@ int	f_lstlen(list *lst)
 	return (i);
 }
 
-list	*lst_rra(list *stack)
+t_list	*lst_rra(t_list *stack)
 {
-	list	*tmp;
-	list	*last;
-    int i;
+	t_list	*tmp;
+	t_list	*last;
+	int		i;
 
 	tmp = stack;
 	i = f_lstlen(stack);
@@ -50,23 +50,24 @@ list	*lst_rra(list *stack)
 		last->next = stack;
 		tmp->next = NULL;
 		printf("rra\n");
-        return (last);
+		return (last);
 	}
-    return NULL;
+	return (NULL);
 }
 
-list	*lst_rrb(list *stack)
+t_list	*lst_rrb(t_list *stack)
 {
-	list	*tmp;
-	list	*last;
-    int i;
+	t_list	*tmp;
+	t_list	*last;
+	int		i;
 
 	tmp = stack;
 	i = f_lstlen(stack);
 	if (i >= 2)
 	{
 		i--;
-		while (i > 1) {
+		while (i > 1)
+		{
 			tmp = tmp->next;
 			i--;
 		}
@@ -75,15 +76,15 @@ list	*lst_rrb(list *stack)
 		last->next = stack;
 		tmp->next = NULL;
 		printf("rrb\n");
-        return (last);
+		return (last);
 	}
-    return NULL;
+	return (NULL);
 }
 
-list	*lst_ra(list *stack)
+t_list	*lst_ra(t_list *stack)
 {
-	list	*iter;
-	list	*first;
+	t_list	*iter;
+	t_list	*first;
 
 	first = stack;
 	iter = stack;
@@ -96,10 +97,10 @@ list	*lst_ra(list *stack)
 	return (stack);
 }
 
-list	*lst_rb(list *stack)
+t_list	*lst_rb(t_list *stack)
 {
-	list	*iter;
-	list	*first;
+	t_list	*iter;
+	t_list	*first;
 
 	first = stack;
 	iter = stack;
@@ -112,8 +113,10 @@ list	*lst_rb(list *stack)
 	return (stack);
 }
 
-void	lst_p(list **stackb, list **stacka)
+void	lst_p(t_list **stackb, t_list **stacka)
 {
+	t_list	*tmp;
+
 	if (f_lstlen(*stackb) > 0)
 	{
 		if (*stacka == NULL)
@@ -124,7 +127,6 @@ void	lst_p(list **stackb, list **stacka)
 		}
 		else
 		{
-			list	*tmp;
 			tmp = (*stackb)->next;
 			(*stackb)->next = (*stacka);
 			(*stacka) = (*stackb);
@@ -133,9 +135,9 @@ void	lst_p(list **stackb, list **stacka)
 	}
 }
 
-list	*lst_s(list *stacka)
+t_list	*lst_s(t_list *stacka)
 {
-	list	*tmp;
+	t_list	*tmp;
 
 	tmp = stacka;
 	tmp = tmp->next;

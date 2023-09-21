@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_rot.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tibarbos <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 15:37:45 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/09/21 15:37:51 by tibarbos         ###   ########.fr       */
+/*   Updated: 2023/09/21 16:29:38 by tibarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 - experimentar outros chunks para 500
 */
 
-void	the_finder(list *stacka, int *first, int *last, int count)
+void	the_finder(t_list *stacka, int *first, int *last, int count)
 {
 	int	i;
 
@@ -46,7 +46,7 @@ void	the_finder(list *stacka, int *first, int *last, int count)
 	}
 }
 
-int	find_next_chunk(list *stacka, int total, int count)
+int	find_next_chunk(t_list *stacka, int total, int count)
 {
 	int	first;
 	int	last;
@@ -67,7 +67,7 @@ int	find_next_chunk(list *stacka, int total, int count)
 	return (0);
 }
 
-void	chunk_divide(list **stacka, list **stackb, int total)
+void	chunk_divide(t_list **stacka, t_list **stackb, int total)
 {
 	int	chest;
 	int	count;
@@ -98,7 +98,7 @@ void	chunk_divide(list **stacka, list **stackb, int total)
 	}
 }
 
-int	next_index(list *stackb, int idx)
+int	next_index(t_list *stackb, int idx)
 {
 	int	i;
 
@@ -110,7 +110,7 @@ int	next_index(list *stackb, int idx)
 	return (i);
 }
 
-void	push_b(list **stacka, list **stackb, int total)
+void	push_b(t_list **stacka, t_list **stackb, int total)
 {
 	int	count;
 
@@ -134,7 +134,7 @@ void	push_b(list **stacka, list **stackb, int total)
 	}
 }
 
-void	lst_big_rotate(list **stacka, list **stackb, int total)
+void	lst_big_rotate(t_list **stacka, t_list **stackb, int total)
 {
 	if (check_status((*stacka), total) == 1)
 		return;

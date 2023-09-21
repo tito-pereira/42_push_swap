@@ -19,59 +19,62 @@ condicoes de erro deixaram de dar?
 void	print_stack(list *stack) {
 	int	i = 1;
 	while (stack->next != NULL) {
-		//printf("element:%d;\ndata:%d;\nindex:%d;\n-----\n", i, stack->data, stack->index);
 		printf("%d, ", stack->data);
 		stack = stack->next;
 		i++;
 	}
 	if (stack->next == NULL)
-		//printf("element:%d;\ndata:%d;\nindex:%d;\n-----\n", i, stack->data, stack->index);
 		printf("%d, ", stack->data);
 }*/
-
 void	main_aux(int *array, int total)
 {
-	int	*sorted;
-	sorted = bubble_sort(array, total);
-	sorted = put_index(array, sorted, total);
-	list	*stacka;
-	list	*stackb;
+	int		*sorted;
+	t_list	*stacka;
+	t_list	*stackb;
+
 	stacka = NULL;
 	stackb = NULL;
+	sorted = bubble_sort(array, total);
+	sorted = put_index(array, sorted, total);
 	stacka = create_stack(stacka, array, sorted, total);
 	if (total < 6)
 		lst_small_rotate(&stacka, &stackb, total);
 	else if (total > 5)
 		lst_big_rotate(&stacka, &stackb, total);
-	//print_stack(stacka);
 }
 
 int	main(int ac, char **av)
 {
+	int	args;
+	int	i;
+	int	*array;
+
+	args = 0;
+	i = 1;
 	if (ac >= 2)
 	{
-		int	args;
-		args = 0;
-		for (int i = 1; av[i]; i++)
+		while (av[i])
 		{
 			args++;
 			if (check_int(av[i]) == 0)
-				return 0;
+				return (0);
+			i++;
 		}
-		int	*array;
 		array = malloc(args * sizeof(int));
-		for (int i = 0; i < args; i++)
+		i = 0;
+		while (i < args)
 		{
 			if (check_limits(av[i + 1]) == 0)
-				return 0;
+				return (0);
 			array[i] = f_atoi(av[i + 1]);
+			i++;
 		}
 		if (check_dup(array) == 0)
-			return 0;
+			return (0);
 		main_aux(array, args);
 	}
 	else
-		return 0;
+		return (0);
 }
 
 /*
