@@ -13,6 +13,7 @@
 #include "push_swap.h"
 
 //array sorting with bubble sort
+
 int	*f_arrdup(int *array, int total)
 {
 	int	*new;
