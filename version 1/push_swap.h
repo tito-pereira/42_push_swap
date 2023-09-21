@@ -44,8 +44,10 @@ list	*create_stack(list *stacka, int *array, int *sorted, int total);
 //functions v
 int	f_lstlen(list *lst);
 void	lst_p(list **stackb, list **stacka);
-list	*lst_r(list *stack);
-list	*lst_rr(list *stack);
+list	*lst_ra(list *stack);
+list	*lst_rb(list *stack);
+list	*lst_rra(list *stack);
+list	*lst_rrb(list *stack);
 list	*lst_s(list *stacka);
 //bubble v
 int	*f_arrdup(int *array, int total);
@@ -54,6 +56,6 @@ int	*put_index(int *array, int *sorted, int total);
 //small rot v
 void	lst_small_rotate(list **stacka, list **stackb, int total);
 //big rot
-int	next_index(list *stacka, int count);
+void	lst_big_rotate(list **stacka, list **stackb, int total);
 
 #endif

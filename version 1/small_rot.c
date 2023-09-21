@@ -6,7 +6,7 @@
 /*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 12:03:27 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/09/20 15:22:13 by tibarbos         ###   ########.fr       */
+/*   Updated: 2023/09/21 12:23:57 by tibarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ void	lst_small_rotate(list **stacka, list **stackb, int total) {
 		if (check_status(*stacka, total) == 0) {
 			if (check_switch(*stacka, total) == 0) {
 				if (total < 4)
-					(*stacka) = lst_rr((*stacka));
+					(*stacka) = lst_rra((*stacka));
 				else if (total > 3 && (*stacka)->index != count)
-					(*stacka) = lst_rr((*stacka));
+					(*stacka) = lst_rra((*stacka));
 				else if (total > 3 && (*stacka)->index == count) {
 					lst_p(&(*stacka), &(*stackb)); //push a->b
 					printf("pb\n");

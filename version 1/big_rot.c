@@ -9,50 +9,39 @@ com calculos intermedios do indice dentro do chunk mais proximo)
 . retornar ao A usando o meu algoritmo antigo, find next, melhor caminho (rb ou rrb), porque organizado em chunks
 ajuda imenso
 */
-int	next_index(list *stackb, int idx)
+
+void	the_finder(list *stacka, int *first, int *last, int count)
 {
 	int	i;
 
 	i = 0;
-	while (stackb->index != idx) {
-		stackb = stackb->next;
-		i++;
-	}
-	return (i);
-} //apagar depois
-
-void	the_finder(list *stacka, int *first, int *last)
-{
-	int	i;
-
-	i = 0;
-	while (!(stacka->index >= count && stacka->index <= (count + 20)))
+	while (!(stacka->index >= count && stacka->index <= (count + 19)))
 	{
 		stacka = stacka->next;
 		i++;
 	}
-	if ((stacka->index >= count && stacka->index <= (count + 20)))
+	if ((stacka->index >= count && stacka->index <= (count + 19)))
 	{
 		*first = i;
 		*last = i;
 	}
 	while (stacka->next != NULL)
 	{
-		if ((stacka->index >= count && stacka->index <= (count + 20)))
+		if ((stacka->index >= count && stacka->index <= (count + 19)))
 			*last = i;
 		stacka = stacka->next;
 		i++;
 	}
 } //test
 
-int	find_next_chunk(list *stacka, int total)
+int	find_next_chunk(list *stacka, int total, int count)
 {
 	int	first;
 	int	last;
 
 	first = 0;
 	last = 0;
-	the_finder(stacka, &first, &last);
+	the_finder(stacka, &first, &last, count);
 	if (first <= (total / 2) && last >= (total / 2))
 		return (0); //primeira metade
 	if (first > (total / 2) && last < (total / 2))
@@ -60,7 +49,7 @@ int	find_next_chunk(list *stacka, int total)
 	if (first <= (total / 2) && last < (total / 2))
 	{
 		if (first > last)
-			return (l);
+			return (1);
 	}
 	return (0);
 	//se ambos na primeira metade, roda up
@@ -72,27 +61,36 @@ int	find_next_chunk(list *stacka, int total)
 void	chunk_divide(list **stacka, list **stackb, int total)
 {
 	int	chest;
+	int	count;
 
 	chest = 0;
-	while (!((*stacka)->index >= count && (*stacka)->index <= (count + 20)) && *stacka != NULL)
+	count = 0;
+	while (*stacka != NULL)
 	{
-		if (find_next_chunk(*stacka, total) == 0)
-			lst_r(*stacka);
-		else if (find_next_chunk(*stacka, total) == 1)
-			lst_rr(*stacka);
+		while (!((*stacka)->index >= count && (*stacka)->index <= (count + 19)))
+		{
+			if (find_next_chunk(*stacka, total, count) == 0)
+				(*stacka) = lst_ra(*stacka);
+			else if (find_next_chunk(*stacka, total, count) == 1)
+				(*stacka) = lst_rra(*stacka);
+		}
+		if ((*stacka)->index >= count && (*stacka)->index <= (count + 19))
+		{
+			lst_p(stacka, stackb);
+			printf("pb\n");
+			total--;
+			chest++;
+		}
+		if (chest == 20)
+		{
+			//printf("chest == 20\n");
+			//printf("count:%d, chest:%d\n", count, chest);
+			count += chest;
+			chest = 0;
+			//printf("count:%d, chest:%d\n", count, chest);
+		}
 	}
-	if ((*stacka)->index >= count && (*stacka)->index <= (count + 20))
-	{
-		lst_p(stacka, stackb);
-		printf("pb\n");
-		total--;
-		chest++;
-	}
-	if (chest == 20)
-	{
-		count += chest;
-		chest = 0;
-	}
+	//if (chest > 0 && *stacka == NULL), para aumentar o count? nao vale a pena
 }
 
 int	next_index(list *stackb, int idx)
@@ -117,11 +115,11 @@ void	push_b(list **stacka, list **stackb, int total)
 		while ((*stackb)->index != count)
 		{
 			if (next_index(*stackb, count) > (total / 2))
-				(*stacka) = lst_rr((*stacka)); //verificar se a morada ta bem
+				(*stackb) = lst_rrb((*stackb)); //verificar se a morada ta bem
 			else if (next_index(*stackb, count) <= (total / 2))
-				(*stacka) = lst_r((*stacka)); //e verificar se escreve
+				(*stackb) = lst_rb((*stackb)); //e verificar se escreve
 		}
-		if ((*stacka)->index == count)
+		if ((*stackb)->index == count)
 		{
 			lst_p(&(*stackb), &(*stacka)); //push b->a
 			printf("pa\n");
@@ -131,8 +129,8 @@ void	push_b(list **stacka, list **stackb, int total)
 	}
 }
 
-void	lst_big_rot(list **stacka, list **stackb, int total)
+void	lst_big_rotate(list **stacka, list **stackb, int total)
 {
-	chunk_divide(*stacka, *stackb, total);
-	push_b(*stacka, *stackb, total);
+	chunk_divide(stacka, stackb, total);
+	push_b(stacka, stackb, total);
 }

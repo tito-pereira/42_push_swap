@@ -62,7 +62,7 @@ int	f_lstlen(list *lst) {
 	return (i);
 }
 
-list	*lst_rr(list *stack) {
+list	*lst_rra(list *stack) {
 	list	*tmp;
 	list	*last;
     int i;
@@ -84,7 +84,29 @@ list	*lst_rr(list *stack) {
     return NULL;
 }//roda para baixo, ultimo para primeiro
 
-list	*lst_r(list *stack) {
+list	*lst_rrb(list *stack) {
+	list	*tmp;
+	list	*last;
+    int i;
+	tmp = stack;
+	i = f_lstlen(stack);
+	if (i >= 2) {
+		i--;
+		while (i > 1) {
+			tmp = tmp->next;
+			i--;
+		}
+		last = tmp;
+		last = last->next;
+		last->next = stack;
+		tmp->next = NULL;
+		printf("rrb\n");
+        return (last);
+	}
+    return NULL;
+}//roda para baixo, ultimo para primeiro
+
+list	*lst_ra(list *stack) {
 	list	*iter;
 	list	*first;
 	first = stack;
@@ -95,6 +117,20 @@ list	*lst_r(list *stack) {
 	iter->next = first;
 	first->next = NULL;
 	printf("ra\n");
+	return (stack);
+}//roda para cima, primeiro para ultimo
+
+list	*lst_rb(list *stack) {
+	list	*iter;
+	list	*first;
+	first = stack;
+	iter = stack;
+	while (iter->next != NULL)
+		iter = iter->next;
+	stack = stack->next;
+	iter->next = first;
+	first->next = NULL;
+	printf("rb\n");
 	return (stack);
 }//roda para cima, primeiro para ultimo
 

@@ -35,10 +35,15 @@ void	main_aux(int *array, int total) {
 	stackb = NULL;
 	stacka = create_stack(stacka, array, sorted, total);
 	if (total < 6)
+	{
+		//printf("small rot\n");
 		lst_small_rotate(&stacka, &stackb, total);
+	}
 	else if (total > 5)
-		//lst_big_rotate();
-		printf("not done yet\n");
+	{
+		//printf("big rot\n"); //entra e encrava
+		lst_big_rotate(&stacka, &stackb, total);
+	}
 	print_stack(stacka);
 }
 
