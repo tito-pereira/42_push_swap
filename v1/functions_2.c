@@ -6,7 +6,7 @@
 /*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:41:51 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/09/21 17:48:26 by tibarbos         ###   ########.fr       */
+/*   Updated: 2023/09/21 18:01:07 by tibarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	lst_pa(t_list **stackb, t_list **stacka)
 			(*stacka) = (*stackb);
 			(*stackb) = tmp;
 		}
-        printf("pa\n");
+		printf("pa\n");
 	}
 }
 
@@ -56,7 +56,7 @@ void	lst_pb(t_list **stackb, t_list **stacka)
 			(*stacka) = (*stackb);
 			(*stackb) = tmp;
 		}
-        printf("pb\n");
+		printf("pb\n");
 	}
 }
 

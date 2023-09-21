@@ -100,3 +100,8 @@ int	main(int ac, char **av)
 	- <10000: 2
 	- <11500: 1
 */
+
+/*
+
+- usar a outra printf
+*/

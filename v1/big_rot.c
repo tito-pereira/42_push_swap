@@ -6,18 +6,11 @@
 /*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 15:37:45 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/09/21 17:52:06 by tibarbos         ###   ########.fr       */
+/*   Updated: 2023/09/21 17:55:29 by tibarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*
-- colocar nomes correctos nas funcoes;
-- colocar ja as funcoes todas ();
-
-- experimentar outros chunks para 500
-*/
 
 void	the_finder(t_list *stacka, int *first, int *last, int count)
 {
