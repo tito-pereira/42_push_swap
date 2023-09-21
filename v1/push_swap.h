@@ -54,5 +54,7 @@ int		check_status(t_list *stacka, int total);
 void	lst_small_rotate(t_list **stacka, t_list **stackb, int total);
 //big rot
 void	lst_big_rotate(t_list **stacka, t_list **stackb, int total);
+//big 2
+void	chunk_divide(t_list **stacka, t_list **stackb, int total);
 
 #endif
