@@ -24,7 +24,7 @@ int	f_lstlen(t_list *lst)
 		i++;
 		lst = lst->next;
 	}
-    if (lst->next == NULL)
+	if (lst->next == NULL)
 		i++;
 	return (i);
 }

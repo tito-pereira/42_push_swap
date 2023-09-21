@@ -13,7 +13,8 @@
 #include "push_swap.h"
 
 /*
-condicoes de erro deixaram de dar?
+- condicoes de erro deixaram de dar?
+- dividir funcoes a meio e por files
 */
 /*
 void	print_stack(list *stack) {
@@ -79,11 +80,23 @@ int	main(int ac, char **av)
 
 /*
 -----
+- author file
+- memory leaks
+- erros, display "Error\n", incluindo sem parametros e prompt back
 
-simple version
-sorted list, 0 moves max
-3 args, 2 ou 3 moves
-5 args, 12 moves max
-100 args, 1500 moves max
-500 args, 11500 moves max
+. sorted list, 0 moves max
+. 3 args, 2 ou 3 moves
+. 5 args, 12 moves max
+. 100 args
+	- <700: 5
+	- <900: 4
+	- <1100: 3
+	- <1300: 2
+	- <1500: 1
+. 500 args
+	- <5500: 5
+	- <7000: 4
+	- <8500: 3
+	- <10000: 2
+	- <11500: 1
 */

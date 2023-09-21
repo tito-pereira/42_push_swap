@@ -6,7 +6,7 @@
 /*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 15:37:45 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/09/21 16:29:38 by tibarbos         ###   ########.fr       */
+/*   Updated: 2023/09/21 17:26:27 by tibarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	the_finder(t_list *stacka, int *first, int *last, int count)
 		stacka = stacka->next;
 		i++;
 		if (stacka->next == NULL
-		&& (stacka->index >= count && stacka->index <= (count + 19)))
+			&& (stacka->index >= count && stacka->index <= (count + 19)))
 			*last = i;
 	}
 }
@@ -103,7 +103,8 @@ int	next_index(t_list *stackb, int idx)
 	int	i;
 
 	i = 0;
-	while (stackb->index != idx) {
+	while (stackb->index != idx)
+	{
 		stackb = stackb->next;
 		i++;
 	}
@@ -137,7 +138,7 @@ void	push_b(t_list **stacka, t_list **stackb, int total)
 void	lst_big_rotate(t_list **stacka, t_list **stackb, int total)
 {
 	if (check_status((*stacka), total) == 1)
-		return;
+		return ;
 	chunk_divide(stacka, stackb, total);
 	push_b(stacka, stackb, total);
 }
