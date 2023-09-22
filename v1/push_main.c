@@ -38,16 +38,26 @@ void	main_aux(int *array, int total)
 		lst_small_rotate(&stacka, &stackb, total);
 	else if (total > 5)
 		lst_big_rotate(&stacka, &stackb, total);
+	free_stacks(stacka, stackb);
+	free_arrays(array, sorted);
 }
 
-int	second_error(char **av, int *array, int i, int args)
+int	main_errors(char **av, int *array, int i, int args)
 {
 	while (i < args)
 	{
 		if (check_limits(av[i + 1]) == 0)
+		{
+			free_one(array);
 			return (0);
+		}
 		array[i] = f_atoi(av[i + 1]);
 		i++;
+	}
+	if (check_dup(array) == 0)
+	{
+		free_one(array);
+		return (0);
 	}
 	return (1);
 }
@@ -71,13 +81,18 @@ int	main(int ac, char **av)
 		}
 		array = malloc(args * sizeof(int));
 		i = 0;
-		if (second_error(av, array, i, args) == 0)
-			return (0);
-		if (check_dup(array) == 0)
+		if (main_errors(av, array, i, args) == 0)
 			return (0);
 		main_aux(array, args);
 	}
 }
+
+/*
+		if (second_error(av, array, i, args) == 0)
+			return (0);
+		if (check_dup(array) == 0)
+			return (0);
+*/
 
 /*
 -----

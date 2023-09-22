@@ -25,6 +25,7 @@ typedef struct stuff
 }	t_list;
 
 //frees
+void	free_one(int *array);
 void	free_arrays(int *array, int *sorted);
 void	free_stacks(t_list *stacka, t_list *stackb);
 //erros v
