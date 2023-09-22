@@ -88,14 +88,10 @@ int	main(int ac, char **av)
 }
 
 /*
-		if (second_error(av, array, i, args) == 0)
-			return (0);
-		if (check_dup(array) == 0)
-			return (0);
-*/
-
-/*
 -----
+. erros: nao int, limites int, duplicados
+. valgrind e leaks
+. makefile relink
 . sorted list, 0 moves max
 . 3 args, 2 ou 3 moves
 . 5 args, 12 moves max
@@ -114,17 +110,6 @@ int	main(int ac, char **av)
 */
 
 /*
-questao do argv e receber varios argumentos
-
-posso receber como:
-./push_swap 9 8 7 6 5 4
-ou
-ARG="9 8 7 6 5 4"; ./push_swap $ARG
-se receber assim
-./push_swap 9 8 "7 6" 5 4
-tou lixado
-------
-- tirar printf e por writes
 - testar condicoes de erro (erro 1 corrigido, erro 2 ja parece bom
 agora ver a dup)
 
