@@ -117,5 +117,8 @@ else, return 0
 /*
 - erro norminette header
 - testar condicoes de erro
-- usar a outra printf
+- usar a outra printf, makefile
+
+cc -o name source1.c source2.c ... sourceN.c -L. -lftprintf
+The linker automatically adds the necessary "lib" prefix and the file extension.
 */
