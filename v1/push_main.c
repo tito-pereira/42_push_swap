@@ -124,10 +124,10 @@ se receber assim
 ./push_swap 9 8 "7 6" 5 4
 tou lixado
 ------
-- ver se makefile e printf sao assim
+- tirar printf e por writes
 - testar condicoes de erro (erro 1 corrigido, erro 2 ja parece bom
 agora ver a dup)
 
-tenho guardada a versao sem erros corrigidos
+tenho guardada a versao sem erros corrigidos v1
 ja corrigi dois
 */

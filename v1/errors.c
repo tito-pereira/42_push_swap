@@ -112,3 +112,4 @@ int	check_dup(int *array)
 	}
 	return (1);
 }
+//que erro vai para aqui
