@@ -125,6 +125,9 @@ se receber assim
 tou lixado
 ------
 - ver se makefile e printf sao assim
-- testar condicoes de erro
-- error display no 2 ou no 1?
+- testar condicoes de erro (erro 1 corrigido, erro 2 ja parece bom
+agora ver a dup)
+
+tenho guardada a versao sem erros corrigidos
+ja corrigi dois
 */

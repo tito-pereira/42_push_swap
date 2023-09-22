@@ -59,7 +59,7 @@ int	check_int(char *str)
 		write (2, "Error\n", 6);
 		return (0);
 	}
-	while ((str[i] >= '0' && str[i] <= '9') && str[i] != '\0')
+	while (str[i] != '\0')
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
 		{
@@ -70,7 +70,8 @@ int	check_int(char *str)
 	}
 	return (1);
 }
-//1 se for tudo int, 0 se houver erros, parece estar a passar nos testes
+//while (str[i] >= '0' && str[i] <= '9') && str != \0
+//este while ta mal feito "-letra", "3434letra"
 
 //erro b: verificar que nenhum integer passa dos limites de integer
 int	check_limits(char *arg)
