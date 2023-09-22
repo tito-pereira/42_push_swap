@@ -16,12 +16,12 @@
 void	print_stack(list *stack) {
 	int	i = 1;
 	while (stack->next != NULL) {
-		printf("%d, ", stack->data);
+		ft_printf("%d, ", stack->data);
 		stack = stack->next;
 		i++;
 	}
 	if (stack->next == NULL)
-		printf("%d, ", stack->data);
+		ft_printf("%d, ", stack->data);
 }*/
 void	main_aux(int *array, int total)
 {
@@ -38,16 +38,26 @@ void	main_aux(int *array, int total)
 		lst_small_rotate(&stacka, &stackb, total);
 	else if (total > 5)
 		lst_big_rotate(&stacka, &stackb, total);
+	free_stacks(stacka, stackb);
+	free_arrays(array, sorted);
 }
 
-int	second_error(char **av, int *array, int i, int args)
+int	main_errors(char **av, int *array, int i, int args)
 {
 	while (i < args)
 	{
 		if (check_limits(av[i + 1]) == 0)
+		{
+			free_one(array);
 			return (0);
+		}
 		array[i] = f_atoi(av[i + 1]);
 		i++;
+	}
+	if (check_dup(array) == 0)
+	{
+		free_one(array);
+		return (0);
 	}
 	return (1);
 }
@@ -71,32 +81,17 @@ int	main(int ac, char **av)
 		}
 		array = malloc(args * sizeof(int));
 		i = 0;
-		if (second_error(av, array, i, args) == 0)
-			return (0);
-		if (check_dup(array) == 0)
+		if (main_errors(av, array, i, args) == 0)
 			return (0);
 		main_aux(array, args);
 	}
 }
 
-//talvez retornar ou modificar array caso de erro
-/*while (i < args)
-{
-	if (check_limits(av[i + 1]) == 0)
-		return (0);
-	array[i] = f_atoi(av[i + 1]);
-	i++;
-}*/
-/*
-else, return 0
-*/
-
 /*
 -----
-- author file
-- memory leaks
-- erros, display "Error\n", incluindo sem parametros e prompt back
-
+. erros: nao int, limites int, duplicados
+. valgrind e leaks
+. makefile relink
 . sorted list, 0 moves max
 . 3 args, 2 ou 3 moves
 . 5 args, 12 moves max
@@ -115,7 +110,9 @@ else, return 0
 */
 
 /*
-- erro norminette header
-- testar condicoes de erro
-- usar a outra printf
+- testar condicoes de erro (erro 1 corrigido, erro 2 ja parece bom
+agora ver a dup)
+
+tenho guardada a versao sem erros corrigidos v1
+ja corrigi dois
 */

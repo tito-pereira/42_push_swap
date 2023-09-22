@@ -6,7 +6,7 @@
 /*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:41:51 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/09/21 18:01:07 by tibarbos         ###   ########.fr       */
+/*   Updated: 2023/09/22 13:49:47 by tibarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	lst_pa(t_list **stackb, t_list **stacka)
 			(*stacka) = (*stackb);
 			(*stackb) = tmp;
 		}
-		printf("pa\n");
+		write (1, "pa\n", 3);
 	}
 }
 
@@ -56,7 +56,7 @@ void	lst_pb(t_list **stackb, t_list **stacka)
 			(*stacka) = (*stackb);
 			(*stackb) = tmp;
 		}
-		printf("pb\n");
+		write (1, "pb\n", 3);
 	}
 }
 
@@ -68,7 +68,7 @@ t_list	*lst_sa(t_list *stacka)
 	tmp = tmp->next;
 	stacka->next = tmp->next;
 	tmp->next = stacka;
-	printf("sa\n");
+	write (1, "sa\n", 3);
 	return (tmp);
 }
 
@@ -80,6 +80,6 @@ t_list	*lst_sb(t_list *stackb)
 	tmp = tmp->next;
 	stackb->next = tmp->next;
 	tmp->next = stackb;
-	printf("sb\n");
+	write (1, "sb\n", 3);
 	return (tmp);
 }
