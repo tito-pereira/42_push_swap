@@ -72,4 +72,3 @@ int	*put_index(int *array, int *sorted, int total)
 	free (sorted);
 	return (index);
 }
-//o sorted tem q levar free, porque o index e o novo sorted

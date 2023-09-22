@@ -12,17 +12,6 @@
 
 #include "push_swap.h"
 
-/*
-void	print_stack(list *stack) {
-	int	i = 1;
-	while (stack->next != NULL) {
-		ft_printf("%d, ", stack->data);
-		stack = stack->next;
-		i++;
-	}
-	if (stack->next == NULL)
-		ft_printf("%d, ", stack->data);
-}*/
 void	main_aux(int *array, int total)
 {
 	int		*sorted;
@@ -54,7 +43,7 @@ int	main_errors(char **av, int *array, int i, int args)
 		array[i] = f_atoi(av[i + 1]);
 		i++;
 	}
-	if (check_dup(array) == 0)
+	if (check_dup(array, args) == 0)
 	{
 		free_one(array);
 		return (0);
@@ -107,12 +96,4 @@ int	main(int ac, char **av)
 	- <8500: 3
 	- <10000: 2
 	- <11500: 1
-*/
-
-/*
-- testar condicoes de erro (erro 1 corrigido, erro 2 ja parece bom
-agora ver a dup)
-
-tenho guardada a versao sem erros corrigidos v1
-ja corrigi dois
 */

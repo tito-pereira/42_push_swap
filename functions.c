@@ -97,29 +97,3 @@ t_list	*lst_rb(t_list *stack)
 	write (1, "rb\n", 3);
 	return (stack);
 }
-
-// -------------------------------------
-//sb (swap b): Swap the first 2 elements at the top of stack b.
-//Do nothing if there is only one or no elements.
-//ss : sa and sb at the same time.
-/*
-void	lst_s(list *stack) {
-	if (f_lstlen(stack) >= 2) {
-		f_lst_swap_two(stack);
-	}
-}
-
-void	lst_2s(list *sta, list *stb) {
-	lst_s(sta);
-	lst_s(stb);
-}
-
-void	lst_2r(list *sta, list *stb) {
-	lst_r(sta);
-	lst_r(stb);
-}
-
-void	lst_2rv(list *sta, list *stb) {
-	lst_rv(sta);
-	lst_rv(stb);
-}*/
