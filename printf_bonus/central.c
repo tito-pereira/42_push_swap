@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   central.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 16:58:36 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/05/16 10:48:59 by tibarbos         ###   ########.fr       */
+/*   Updated: 2023/05/23 17:34:57 by tibarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	see_if_spec(char c)
 		return (0);
 }
 
-int	ft_treat_spec(va_list arg, char c)
+int	ft_treat_spec(va_list arg, char c, char f, t_pain bois)
 {
 	int	r;
 
@@ -29,22 +29,36 @@ int	ft_treat_spec(va_list arg, char c)
 	if (c == 'c')
 		r = ft_c_spec(arg);
 	else if (c == 's')
-		r = ft_s_spec(arg);
+		r = ft_s_spec(arg, bois);
 	else if (c == 'p')
-		r = ft_p_spec(arg);
-	else if (c == 'd')
-		r = ft_d_spec(arg);
-	else if (c == 'i')
-		r = ft_i_spec(arg);
+		r = ft_p_spec(arg, f);
+	else if (c == 'd' || c == 'i')
+		r = ft_d_spec(arg, f, bois);
 	else if (c == 'u')
-		r = ft_u_spec(arg);
+		r = ft_u_spec(arg, bois);
 	else if (c == 'x')
-		r = ft_x_spec(arg);
+		r = ft_x_spec(arg, f, bois);
 	else if (c == 'X')
-		r = ft_bx_spec(arg);
+		r = ft_bx_spec(arg, f, bois);
 	else if (c == '%')
 		ft_putchar('%');
 	return (r);
+}
+
+int	normie(va_list args, int *c, t_pain bois)
+{
+	int		j;
+	int		cc;
+	char	f;
+
+	f = 'f';
+	cc = *c;
+	j = *bois.i;
+	f = ft_control_flag(bois.str, &j);
+	if (see_if_spec(bois.str[j]) == 1)
+		cc = cc + ft_treat_spec(args, bois.str[j], f, bois);
+	*bois.i = j;
+	return (cc);
 }
 
 int	ft_printf(const char *s, ...)
@@ -59,11 +73,7 @@ int	ft_printf(const char *s, ...)
 	while (s[++i] != '\0')
 	{
 		if (s[i] == '%')
-		{
-			i++;
-			if (see_if_spec(s[i]) == 1)
-				c = c + ft_treat_spec(args, s[i]);
-		}
+			death_star(args, ((char *)s), &i, &c);
 		else
 		{
 			ft_putchar(s[i]);
@@ -73,34 +83,3 @@ int	ft_printf(const char *s, ...)
 	va_end(args);
 	return (c);
 }
-
-/*else if (s[i] == '\0')
-{
-ft_putchar('%');
-c++;
-break;
-}*/
-
-/*int	main()
-{
-	char	s[] = "string";
-	int i = 42;
-	char	c = 'c';
-	ft_printf("so let's test my chars: %c,%c;\n", c, c);
-	ft_printf("and my double string: %s,%s;\n", s, s);
-	ft_printf("ok it's working, and now my int: %d\ngood, good\n", i);
-	ft_printf("");
-	ft_printf(s);
-	ft_printf("\n%c%s%d%c%s%d\n", c, s, i, c, s, i);
-	ft_printf("--------------------\n");
-	int a = ft_printf("%s;\n", s);
-	ft_printf("len: %d\n", a);
-	a = ft_printf("number: %d%d;\n", 12345, 12345);
-	ft_printf("len: %d\n", a);
-}*/
-
-/*int	main()
-{
-	int	c = 0xb;
-	ft_printf("c: %d;\n", c);
-}*/

@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hex.c                                           :+:      :+:    :+:   */
+/*   n_utils_2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/14 14:06:37 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/05/15 17:49:40 by tibarbos         ###   ########.fr       */
+/*   Created: 2023/05/15 12:26:12 by tibarbos          #+#    #+#             */
+/*   Updated: 2023/05/23 17:38:49 by tibarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	check_letter_x(unsigned int i)
+void	ft_putchar(char c)
+{
+	write (1, &c, 1);
+}
+
+int	ft_putchar_c(char c)
+{
+	write (1, &c, 1);
+	return (1);
+}
+
+char	check_letter_p(long unsigned int i)
 {
 	char	c;
 
@@ -33,59 +44,33 @@ char	check_letter_x(unsigned int i)
 	return (c);
 }
 
-void	ft_puthex_c(unsigned int n, int *c)
+void	ft_putphex_c(long unsigned int n, int *c)
 {
 	char	h;
 
 	if (n > 15)
 	{
-		ft_puthex_c((n / 16), c);
-		ft_puthex_c((n % 16), c);
+		ft_putphex_c((n / 16), c);
+		ft_putphex_c((n % 16), c);
 	}
 	else
 	{
-		h = check_letter_x(n);
+		h = check_letter_p(n);
 		ft_putchar(h);
 		(*c)++;
 	}
 }
 
-/*-----------------------------------------------*/
-
-char	check_letter_bx(unsigned int i)
+void	ft_put_uns_nbr(unsigned int n, int *c)
 {
-	char	c;
-
-	if (i == 10)
-		c = 'A';
-	else if (i == 11)
-		c = 'B';
-	else if (i == 12)
-		c = 'C';
-	else if (i == 13)
-		c = 'D';
-	else if (i == 14)
-		c = 'E';
-	else if (i == 15)
-		c = 'F';
-	else
-		c = i + 48;
-	return (c);
-}
-
-void	ft_putbhex_c(unsigned int n, int *c)
-{
-	char	h;
-
-	if (n > 15)
+	if (n > 9)
 	{
-		ft_putbhex_c((n / 16), c);
-		ft_putbhex_c((n % 16), c);
+		ft_put_uns_nbr((n / 10), c);
+		ft_put_uns_nbr((n % 10), c);
 	}
 	else
 	{
-		h = check_letter_bx(n);
-		ft_putchar(h);
+		ft_putchar(n + 48);
 		(*c)++;
 	}
 }
