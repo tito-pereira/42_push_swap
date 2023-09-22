@@ -79,24 +79,8 @@ int	main(int ac, char **av)
 	}
 }
 
-//talvez retornar ou modificar array caso de erro
-/*while (i < args)
-{
-	if (check_limits(av[i + 1]) == 0)
-		return (0);
-	array[i] = f_atoi(av[i + 1]);
-	i++;
-}*/
-/*
-else, return 0
-*/
-
 /*
 -----
-- author file
-- memory leaks
-- erros, display "Error\n", incluindo sem parametros e prompt back
-
 . sorted list, 0 moves max
 . 3 args, 2 ou 3 moves
 . 5 args, 12 moves max
@@ -115,8 +99,9 @@ else, return 0
 */
 
 /*
+- author file
+- memory leaks
 - erro norminette header
 - testar condicoes de erro
-
-substituir todos os printf for ft_printf
+- error display no 2 ou no 1?
 */

@@ -13,9 +13,9 @@
 #ifndef _PUSH_SWAP_H
 # define _PUSH_SWAP_H
 # include "ft_printf.h"
-# include <stdlib.h> //malloc
-# include <limits.h> //para os erros
-# include <unistd.h> //para as mensagens de erro
+# include <stdlib.h>
+# include <limits.h>
+# include <unistd.h>
 
 typedef struct stuff
 {
@@ -24,6 +24,9 @@ typedef struct stuff
 	struct stuff	*next;
 }	t_list;
 
+//frees
+void	free_arrays(int *array, int *sorted);
+void	free_stacks(t_list *stacka, t_list *stackb);
 //erros v
 long	f_atoi(char *str);
 int		check_int(char *str);
