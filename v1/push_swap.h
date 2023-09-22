@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <unistd.h>
+# include <stdio.h>
 
 typedef struct stuff
 {
@@ -32,7 +33,7 @@ void	free_stacks(t_list *stacka, t_list *stackb);
 long	f_atoi(char *str);
 int		check_int(char *str);
 int		check_limits(char *arg);
-int		check_dup(int *array);
+int		check_dup(int *array, int total);
 //auxiliary v
 t_list	*create_node(int array, int order);
 t_list	*lst_add_front(t_list *stacka, int array, int order);

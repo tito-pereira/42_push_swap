@@ -88,7 +88,7 @@ int	check_limits(char *arg)
 }
 
 //erro c: haver parametros/inteiros duplicados
-int	check_dup(int *array)
+int	check_dup(int *array, int total)
 {
 	int	i;
 	int	j;
@@ -96,10 +96,10 @@ int	check_dup(int *array)
 
 	i = 0;
 	j = 0;
-	while (array[i])
+	while (i < total)
 	{
 		check = array[i];
-		while (array[j])
+		while (j < total)
 		{
 			if ((check == array[j]) && (i != j))
 			{
@@ -109,7 +109,7 @@ int	check_dup(int *array)
 			j++;
 		}
 		i++;
+		j = 0;
 	}
 	return (1);
 }
-//que erro vai para aqui

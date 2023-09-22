@@ -54,7 +54,7 @@ int	main_errors(char **av, int *array, int i, int args)
 		array[i] = f_atoi(av[i + 1]);
 		i++;
 	}
-	if (check_dup(array) == 0)
+	if (check_dup(array, args) == 0)
 	{
 		free_one(array);
 		return (0);
@@ -112,6 +112,8 @@ int	main(int ac, char **av)
 /*
 - testar condicoes de erro (erro 1 corrigido, erro 2 ja parece bom
 agora ver a dup)
+- acho que o erro ta, mas aqui nao assume o zero como arg
+o zero usado como condicao final do loop
 
 tenho guardada a versao sem erros corrigidos v1
 ja corrigi dois
