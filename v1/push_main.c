@@ -114,8 +114,17 @@ int	main(int ac, char **av)
 */
 
 /*
-- author file
-- memory leaks
+questao do argv e receber varios argumentos
+
+posso receber como:
+./push_swap 9 8 7 6 5 4
+ou
+ARG="9 8 7 6 5 4"; ./push_swap $ARG
+se receber assim
+./push_swap 9 8 "7 6" 5 4
+tou lixado
+------
+- ver se makefile e printf sao assim
 - erro norminette header
 - testar condicoes de erro
 - error display no 2 ou no 1?
