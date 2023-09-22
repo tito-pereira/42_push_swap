@@ -6,7 +6,7 @@
 /*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 18:32:27 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/09/21 18:42:38 by tibarbos         ###   ########.fr       */
+/*   Updated: 2023/09/22 10:39:33 by tibarbos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,13 +94,3 @@ void	chunk_divide(t_list **stacka, t_list **stackb, int total)
 		}
 	}
 }
-
-/*
-while (!((*stacka)->index >= count && (*stacka)->index <= (count + 19)))
-{
-	if (find_next_chunk(*stacka, total, count) == 0)
-		(*stacka) = lst_ra(*stacka);
-	else if (find_next_chunk(*stacka, total, count) == 1)
-		(*stacka) = lst_rra(*stacka);
-}
-*/

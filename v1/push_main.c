@@ -16,12 +16,12 @@
 void	print_stack(list *stack) {
 	int	i = 1;
 	while (stack->next != NULL) {
-		printf("%d, ", stack->data);
+		ft_printf("%d, ", stack->data);
 		stack = stack->next;
 		i++;
 	}
 	if (stack->next == NULL)
-		printf("%d, ", stack->data);
+		ft_printf("%d, ", stack->data);
 }*/
 void	main_aux(int *array, int total)
 {
@@ -117,8 +117,6 @@ else, return 0
 /*
 - erro norminette header
 - testar condicoes de erro
-- usar a outra printf, makefile
 
-cc -o name source1.c source2.c ... sourceN.c -L. -lftprintf
-The linker automatically adds the necessary "lib" prefix and the file extension.
+substituir todos os printf for ft_printf
 */

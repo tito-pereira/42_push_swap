@@ -34,7 +34,7 @@ t_list	*lst_rra(t_list *stack)
 		last = last->next;
 		last->next = stack;
 		tmp->next = NULL;
-		printf("rra\n");
+		ft_printf("rra\n");
 		return (last);
 	}
 	return (NULL);
@@ -60,7 +60,7 @@ t_list	*lst_rrb(t_list *stack)
 		last = last->next;
 		last->next = stack;
 		tmp->next = NULL;
-		printf("rrb\n");
+		ft_printf("rrb\n");
 		return (last);
 	}
 	return (NULL);
@@ -78,7 +78,7 @@ t_list	*lst_ra(t_list *stack)
 	stack = stack->next;
 	iter->next = first;
 	first->next = NULL;
-	printf("ra\n");
+	ft_printf("ra\n");
 	return (stack);
 }
 
@@ -94,7 +94,7 @@ t_list	*lst_rb(t_list *stack)
 	stack = stack->next;
 	iter->next = first;
 	first->next = NULL;
-	printf("rb\n");
+	ft_printf("rb\n");
 	return (stack);
 }
 

@@ -12,8 +12,7 @@
 
 #ifndef _PUSH_SWAP_H
 # define _PUSH_SWAP_H
-# include <stdio.h> //nao posso usar, apenas o meu proprio printf
-//# include "ft_printf.h"
+# include "ft_printf.h"
 # include <stdlib.h> //malloc
 # include <limits.h> //para os erros
 # include <unistd.h> //para as mensagens de erro
