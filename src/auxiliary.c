@@ -52,7 +52,7 @@ t_list	*create_stack(t_list *stacka, int *array, int *sorted, int total)
 		stacka = lst_add_front(stacka, array[i], sorted[i]);
 		i++;
 	}
-	return (stacka); 
+	return (stacka);
 }
 
 int	f_lstlen(t_list *lst)
