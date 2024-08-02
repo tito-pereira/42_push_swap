@@ -7,7 +7,7 @@ two virtual stacks of data, and also doing so inside a limit number of actions,
 depending on how many integers there were to sort.
 Like every single other 42 project, it had several goals in mind:
 - continued practice of basic C syntax, logic, data types and structures;
-- dynamic data allocation managing;
+- dynamic memory allocation management;
 - use of tools like GDB and Valgrind to debug, avoid memory leaks and errors;
 - incomplete instructions to promote self learning and error solving;
 - familiarity with Makefile and compilers;
