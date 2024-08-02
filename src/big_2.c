@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   big_2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 18:32:27 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/09/22 10:39:33 by tibarbos         ###   ########.fr       */
+/*   Updated: 2024/08/02 11:32:46 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 void	the_finder(t_list *stacka, int *first, int *last, int count)
 {

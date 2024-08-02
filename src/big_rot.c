@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   big_rot.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 15:37:45 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/09/21 18:33:56 by tibarbos         ###   ########.fr       */
+/*   Updated: 2024/08/02 11:32:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 int	next_index(t_list *stackb, int idx)
 {

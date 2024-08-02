@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   functions_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tibarbos <tibarbos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:41:51 by tibarbos          #+#    #+#             */
-/*   Updated: 2023/09/22 13:49:47 by tibarbos         ###   ########.fr       */
+/*   Updated: 2024/08/02 11:33:22 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 //push e swaps
 
